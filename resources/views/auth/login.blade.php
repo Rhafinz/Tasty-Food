@@ -27,9 +27,11 @@
 <body class="login-page bg-body-secondary">
     <div class="login-box">
         <div class="card card-outline card-primary">
-            <div class="card-header">
-                <h1 class="mb-0 text-center"> <b>Admin</b>LTE
-                </h1>
+            <div class="card-header"><a href="{{ route('home') }}"
+                    class="link-dark text-center link-offset-2 link-opacity-100 link-opacity-50-hover">
+                    <h1 class="mb-0 text-center"> <b>Tasty</b>Food
+                    </h1>
+                </a>
             </div>
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
@@ -66,7 +68,7 @@
                         <div class="input-group-text"> <span class="bi bi-lock-fill"></span> </div>
                     </div> <!--begin::Row-->
                     <div class="row">
-                        <div class="col-8 d-inline-flex align-items-center">
+                        <div class="col-8 d-inline-flex align-items-center mb-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
@@ -74,10 +76,10 @@
                                 </label>
                             </div>
                         </div> <!-- /.col -->
-                        <div class="col-4">
-                            <div class="d-grid gap-2"> <button type="submit" class="btn btn-primary">
-                                    {{ __('Sign In') }}
-                                </button> </div>
+                        <div class="col-12 mb-3">
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
                         </div> <!-- /.col -->
                     </div> <!--end::Row-->
                 </form>
@@ -87,8 +89,8 @@
                     </a>
                 </div> <!-- /.social-auth-links --> --}}
                 <p class="mb-1"> <a href="forgot-password.html">I forgot my password</a> </p>
-                <p class="mb-0"> Belum Mempunyai Akun? <a href="{{ route('register') }}" class="text-center">
-                        Register
+                <p class="mb-0"> don't have an account yet? <a href="{{ route('register') }}" class="text-center">
+                        Sign up
                     </a>
                 </p>
             </div> <!-- /.login-card-body -->

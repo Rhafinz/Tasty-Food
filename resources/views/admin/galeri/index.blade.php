@@ -2,9 +2,9 @@
 @section('content')
     <div class="card m-4">
         <div class="card-header">
-            <h3 class="card-title">Kontak</h3>
+            <h3 class="card-title">Galeri</h3>
             <div class="float-end">
-                <a href="{{ route('kontak.create') }}" class="btn btn-sm btn-primary">Add</a>
+                <a href="{{ route('galeri.create') }}" class="btn btn-sm btn-primary">Add</a>
             </div>
         </div> <!-- /.card-header -->
         <div class="card-body p-0">
@@ -12,28 +12,27 @@
                 <thead>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>Email</th>
-                        <th>No Telepon</th>
-                        <th>Alamat</th>
+                        <th>Images</th>
                         <th style="text-align: center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @php $no = 1; @endphp
-                    @forelse ($kontaks as $data)
+                    @forelse ($galeries as $data)
                         <tr class="align-middle">
                             <td>{{ $no++ }}</td>
-                            <td>{{ $data->email }}</td>
-                            <td>{{ $data->no_telp }}</td>
-                            <td>{{ $data->alamat }}</td>
+                            <td>
+                                <img src="{{ asset('/storage/galeries/' . $data->img) }}" class="rounded"
+                                    style="width: 150px">
+                            </td>
                             <td class="text-center">
-                                <form action="{{ route('kontak.destroy', $data->id) }}" method="POST">
+                                <form action="{{ route('galeri.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="action-buttons-grid">
-                                        <a href="{{ route('kontak.edit', $data->id) }}"
+                                        <a href="{{ route('galeri.edit', $data->id) }}"
                                             class="btn btn-sm btn-success">Edit</a>
-                                        <a href="{{ route('kontak.destroy', $data->id) }}" class="btn btn-sm btn-danger"
+                                        <a href="{{ route('galeri.destroy', $data->id) }}" class="btn btn-sm btn-danger"
                                             data-confirm-delete="true">Delete</a>
                                     </div>
                                 </form>
@@ -47,7 +46,7 @@
                     @endforelse
                 </tbody>
             </table>
-            {{-- {!! $kontakes->withQueryString()->links('pagination::bootstrap-4') !!} --}}
+            {{-- {!! $galeries->withQueryString()->links('pagination::bootstrap-4') !!} --}}
         </div> <!-- /.card-body -->
     </div> <!-- /.card -->
 @endsection

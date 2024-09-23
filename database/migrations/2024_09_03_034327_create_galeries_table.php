@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('galeries', function (Blueprint $table) {
             $table->id();
-            $table->string('slider');
             $table->string('img');
             $table->timestamps();
         });

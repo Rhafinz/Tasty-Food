@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\berita;
+use App\Models\tentang;
 use Validator;
 use Alert;
 use Storage;
 use Illuminate\Http\Request;
 
-class BeritaController extends Controller
+class TentangController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $beritas = Berita::latest()->paginate();
+        $tentangs = Tentang::latest()->paginate();
 
         confirmDelete("Delete", "Are You Sure?");
-        return view('admin.berita.index', data: compact('beritas'));
+        return view('admin.tentang.index', data: compact('tentangs'));
     }
 
     /**
@@ -26,8 +26,8 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        $beritas = Berita::all();
-        return view('admin.berita.create', compact('beritas'));
+        $tentangs = Tentang::all();
+        return view('admin.tentang.create', compact('tentangs'));
     }
 
     /**
@@ -41,15 +41,15 @@ class BeritaController extends Controller
             'image' => 'image|mimes:jpeg,jpg,png',
         ]);
 
-        $beritas = new berita($request->all());
-        $beritas->judul = $request->judul;
-        $beritas->deskripsi = $request->deskripsi;
+        $tentangs = new Tentang($request->all());
+        $tentangs->judul = $request->judul;
+        $tentangs->deskripsi = $request->deskripsi;
         $image = $request->file('image');
-        $image->storeAs('public/beritas', $image->hashName());
-        $beritas->image = $image->hashName();
-        $beritas->save();
+        $image->storeAs('public/tentangs', $image->hashName());
+        $tentangs->image = $image->hashName();
+        $tentangs->save();
         Alert()->success('Success', 'Data Berhasil Di Simpan')->autoClose(2000);
-        return redirect()->route('berita.index');
+        return redirect()->route('tentang.index');
     }
 
     /**
@@ -65,8 +65,8 @@ class BeritaController extends Controller
      */
     public function edit($id)
     {
-        $beritas = Berita::findOrFail($id);
-        return view('admin.berita.edit', compact('beritas'));
+        $tentangs = Tentang::findOrFail($id);
+        return view('admin.tentang.edit', compact('tentangs'));
     }
 
     /**
@@ -81,16 +81,16 @@ class BeritaController extends Controller
             'image' => 'image|mimes:jpeg,jpg,png',
         ]);
 
-        $beritas = Berita::findOrFail($id);
-        $beritas->judul = $request->judul;
-        $beritas->deskripsi = $request->deskripsi;
+        $tentangs = Tentang::findOrFail($id);
+        $tentangs->judul = $request->judul;
+        $tentangs->deskripsi = $request->deskripsi;
         $image = $request->file('image');
-        $image->storeAs('public/beritas', $image->hashName());
-        Storage::delete('public/beritas/' . $beritas->image);
-        $beritas->image = $image->hashName();
-        $beritas->save();
+        $image->storeAs('public/tentangs', $image->hashName());
+        Storage::delete('public/tentangs/' . $tentangs->image);
+        $tentangs->image = $image->hashName();
+        $tentangs->save();
         Alert()->success('Success', 'Data Berhasil Di Edit')->autoClose(2000);
-        return redirect()->route('berita.index');
+        return redirect()->route('tentang.index');
     }
 
     /**
@@ -98,10 +98,10 @@ class BeritaController extends Controller
      */
     public function destroy($id)
     {
-        $beritas = Berita::findOrFail($id);
-        $beritas->delete();
+        $tentangs = Tentang::findOrFail($id);
+        $tentangs->delete();
         toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
-        Storage::delete('public/beritas/' . $beritas->image);
-        return redirect()->route('berita.index');
+        Storage::delete('public/tentangs/' . $tentangs->image);
+        return redirect()->route('tentang.index');
     }
 }

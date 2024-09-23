@@ -1,0 +1,233 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.background-image {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    color: white;
+}
+
+.hero {
+    background-image: url("/assets/ASET/img-4-2000x2000.png");
+    background-size: cover;
+    height: 55rem;
+    width: 55rem;
+    position: absolute;
+    top: -215px;
+    right: -250px;
+    color: white;
+    z-index: 1;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-family: Arial, sans-serif;
+    margin-left: -80px;
+    color: #000000;
+}
+
+.navbar {
+    background: transparent;
+    padding: 30px;
+}
+
+.container h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ddd;
+}
+
+.content {
+    position: absolute;
+    top: 365px;
+    left: 50px;
+    right: 10%;
+    max-width: 665px;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    color: #000000;
+}
+
+.content h1 {
+    font-size: 3em;
+    font-weight: 300; /* Sesuaikan jika perlu */
+}
+
+.black-line {
+    border: 0;
+    height: 2px;
+    border-top: 3px solid #000000;
+    background-color: #000000;
+    width: 13%;
+    margin: 20px 0;
+    position: relative;
+    right: -3px;
+}
+
+.black-line1 {
+    border: 0;
+    height: 2px;
+    border-top: 3px solid #000;
+    background-color: #000;
+    width: 9%;
+    margin: 10px auto;
+    position: relative;
+    top: -20px;
+}
+
+p {
+    font-weight: bold;
+}
+
+.about p {
+    width: 666px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.6em;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.btn-black {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background-color: black;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-black:hover {
+    background-color: #333;
+}
+
+.about {
+    background-color: white;
+    padding: 10px;
+    line-height: 1.6;
+}
+
+.about h3 {
+    margin-top: 55px;
+}
+
+.about span {
+    display: block;
+    margin-bottom: 1em;
+}
+
+.gallery {
+    background-image: url("/assets/ASET/monika-grabkowska-P1aohbiT-EY-unsplash.jpg");
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+    width: 100%;
+    height: 630px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 13px;
+    align-items: center;
+}
+
+.card {
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 80px;
+    transition: transform 0.1s ease;
+    box-shadow: 0px 0px 5px black;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-image {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin-top: -140px;
+    display: block;
+}
+
+.news-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.read-more {
+    color: #f39c12;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.berita {
+    text-align: left;
+}

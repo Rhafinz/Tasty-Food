@@ -2,9 +2,9 @@
 @section('content')
     <div class="card m-4 card-primary card-outline mb-4">
         <div class="card-header">
-            <h3 class="card-title">Berita</h3>
+            <h3 class="card-title">Tentang</h3>
             <div class="float-end">
-                <a href="{{ route('berita.index') }}" class="btn btn-sm btn-primary">Back</a>
+                <a href="{{ route('tentang.index') }}" class="btn btn-sm btn-primary">Back</a>
             </div>
         </div> <!-- /.card-header -->
         <div class="card-body p-0">
@@ -13,7 +13,7 @@
                 </div>
             </div>
                 <div class="card-body">
-                    <form action="{{ route('berita.update', $beritas->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('tentang.update', ['tentang' => $tentangs->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -55,7 +55,7 @@
                 </div>
                 </form>
             </table>
-            {{-- {!! $beritaes->withQueryString()->links('pagination::bootstrap-4') !!} --}}
+            {{-- {!! $tentanges->withQueryString()->links('pagination::bootstrap-4') !!} --}}
         </div> <!-- /.card-body -->
     </div> <!-- /.card -->
 @endsection

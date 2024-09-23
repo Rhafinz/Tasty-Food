@@ -1,196 +1,235 @@
-<!doctype html>
-<html lang="en" data-bs-theme="blue-theme">
+<!DOCTYPE html>
+<html lang="en"> <!--begin::Head-->
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Maxton | Bootstrap 5 Admin Dashboard Template</title>
-    <!--favicon-->
-    <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png">
-    <!-- loader-->
-    <link href="assets/css/pace.min.css" rel="stylesheet">
-    <script src="assets/js/pace.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>AdminLTE 4 | Register Page v2</title><!--begin::Primary Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="AdminLTE 4 | Register Page v2">
+    <meta name="author" content="ColorlibHQ">
+    <meta name="description"
+        content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
+    <meta name="keywords"
+        content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard">
+    <!--end::Primary Meta Tags--><!--begin::Fonts-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+        integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    <!--end::Fonts--><!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+        integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+        integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+    <!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.css') }}"><!--end::Required Plugin(AdminLTE)-->
+</head> <!--end::Head--> <!--begin::Body-->
 
-    <!--plugins-->
-    <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/metismenu/metisMenu.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/metismenu/mm-vertical.css">
-    <!--bootstrap css-->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
-    <!--main css-->
-    <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
-    <link href="sass/main.css" rel="stylesheet">
-    <link href="sass/dark-theme.css" rel="stylesheet">
-    <link href="sass/blue-theme.css" rel="stylesheet">
-    <link href="sass/responsive.css" rel="stylesheet">
+<body class="register-page bg-body-secondary">
+    <div class="register-box"> <!-- /.register-logo -->
+        <div class="card card-outline card-primary">
+            <div class="card-header"> <a href="../index2.html"
+                    class="link-dark text-center link-offset-2 link-opacity-100 link-opacity-50-hover">
+                    <h1 class="mb-0"> <b>TastyFood</b>
+                    </h1>
+                </a> </div>
+            <div class="card-body register-card-body">
+                <p class="register-box-msg">Register a new member</p>
+                <form action="{{ route('register') }}" method="POST">
+                    @csrf
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="registerFullName" type="text"
+                                class="form-control @error('name') is-invalid @enderror" name="name" required
+                                autocomplete="name" autofocus>
 
-</head>
-
-<body>
-
-
-    <!--authentication-->
-
-    <div class="section-authentication-cover">
-        <div class="">
-            <div class="row g-0">
-
-                <div
-                    class="col-12 col-xl-7 col-xxl-8 auth-cover-left align-items-center justify-content-center d-none d-xl-flex border-end bg-transparent">
-
-                    <div class="card rounded-0 mb-0 border-0 shadow-none bg-transparent bg-none">
-                        <div class="card-body">
-                            <img src="assets/images/auth/register1.png" class="img-fluid auth-img-cover-login"
-                                width="500" alt="">
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <label for="registerFullName">Full Name</label>
                         </div>
+                        <div class="input-group-text"> <span class="bi bi-person"></span> </div>
                     </div>
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="registerEmail" type="email"
+                                class="form-control @error('email') is-invalid @enderror" name="email" required
+                                autocomplete="email">
 
-                </div>
-
-                <div class="col-12 col-xl-5 col-xxl-4 auth-cover-right align-items-center justify-content-center">
-                    <div class="card rounded-0 m-3 border-0 shadow-none bg-none">
-                        <div class="card-body p-sm-5">
-                            <img src="assets/images/logo1.png" class="mb-4" width="145" alt="">
-                            <h4 class="fw-bold">Get Started Now</h4>
-                            <p class="mb-0">Enter your credentials to create your account</p>
-
-                            <div class="row g-3 my-4">
-                                <div class="col-12 col-lg-6">
-                                    <button
-                                        class="btn btn-filter py-2 font-text1 fw-bold d-flex align-items-center justify-content-center w-100"><img
-                                            src="assets/images/apps/05.png" width="20" class="me-2"
-                                            alt="">Google</button>
-                                </div>
-                                <div class="col col-lg-6">
-                                    <button
-                                        class="btn btn-filter py-2 font-text1 fw-bold d-flex align-items-center justify-content-center w-100"><img
-                                            src="assets/images/apps/17.png" width="20" class="me-2"
-                                            alt="">Facebook</button>
-                                </div>
-                            </div>
-
-                            <div class="separator section-padding">
-                                <div class="line"></div>
-                                <p class="mb-0 fw-bold">OR</p>
-                                <div class="line"></div>
-                            </div>
-
-                            <div class="form-body mt-4">
-                                <form class="row g-3" method="POST" action="{{ route('register') }}">
-                                    @csrf
-                                    <div class="col-12">
-                                        <label for="inputUsername" class="form-label">Name</label>
-                                        <input type="text" name="name"
-                                            class="form-control @error('name') is-invalid @enderror" id="inputUsername"
-                                            placeholder="Name">
-                                        @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputEmailAddress" class="form-label">Email Address</label>
-                                        <input type="email" name="email"
-                                            class="form-control @error('email') is-invalid @enderror" id="inputEmailAddress"
-                                            placeholder="example@user.com">
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputChoosePassword" class="form-label">Password</label>
-                                        <div class="input-group" id="show_hide_password">
-                                            <input type="password" name="password"
-                                                class="form-control @error('password') is-invalid @enderror"
-                                                id="inputChoosePassword" placeholder="Enter Password">
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                            <a href="javascript:;" class="input-group-text bg-transparent"><i
-                                                    class="bi bi-eye-slash-fill"></i></a>
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="inputChoosePassword" class="form-label">Password
-                                                Confirmation</label>
-                                            <div class="input-group" id="show_hide_password">
-                                                <input type="password" name="password_confirmation"
-                                                    class="form-control" id="inputChoosePasswordConfirmation"
-                                                    placeholder="Enter Password">
-                                                <a href="javascript:;" class="input-group-text bg-transparent"><i
-                                                        class="bi bi-eye-slash-fill"></i></a>
-                                            </div>
-                                        </div>
-                                        {{-- <div class="col-12">
-                    <label for="inputSelectCountry" class="form-label">Country</label>
-                    <select class="form-select" id="inputSelectCountry" aria-label="Default select example">
-                      <option selected="">India</option>
-                      <option value="1">United Kingdom</option>
-                      <option value="2">America</option>
-                      <option value="3">Dubai</option>
-                    </select>
-                  </div> --}}
-                                        <div class="col-12">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
-                                                    id="flexSwitchCheckChecked">
-                                                <label class="form-check-label" for="flexSwitchCheckChecked">I read
-                                                    and agree to Terms &amp; Conditions</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="d-grid">
-                                                <button type="submit" class="btn btn-grd-danger">Register</button>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="text-start">
-                                                <p class="mb-0">Already have an account? <a href="{{ url('login') }}">Sign in here</a></p>
-                                            </div>
-                                        </div>
-                                </form>
-                            </div>
-
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <label for="registerEmail">Email</label>
                         </div>
+                        <div class="input-group-text"> <span class="bi bi-envelope"></span> </div>
                     </div>
-                </div>
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="registerPassword" type="password"
+                                class="form-control @error('password') is-invalid @enderror" name="password" required
+                                autocomplete="new-password">
 
-            </div>
-            <!--end row-->
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <label for="registerPassword">Password</label>
+                        </div>
+                        <div class="input-group-text"> <span class="bi bi-lock-fill"></span> </div>
+                    </div>
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <input id="registerConfirmPassword" type="password" class="form-control"
+                                name="password_confirmation" required autocomplete="new-password">
+                            <label for="registerConfirmPassword">Confirm Password</label>
+                        </div>
+                        <div class="input-group-text"> <span class="bi bi-lock-fill"></span> </div>
+                    </div> <!--begin::Row-->
+                    <div class="row">
+                        <div class="col-8 d-inline-flex align-items-center mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    I agree to the <a href="#">terms</a> </label>
+                            </div>
+                        </div> <!-- /.col -->
+                        <!-- /.col -->
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </div> <!--end::Row-->
+                </form>
+                {{-- <div class="social-auth-links text-center mb-3 d-grid gap-2">
+                    <p>- OR -</p> <a href="#" class="btn btn-primary"> <i class="bi bi-facebook me-2"></i> Sign in using Facebook
+                    </a> <a href="#" class="btn btn-danger"> <i class="bi bi-google me-2"></i> Sign in using Google+
+                    </a>
+                </div> <!-- /.social-auth-links --> --}}
+                <p class="mb-">
+                        I already have a account? <a href="{{ route('login') }}" class="link-primary text-center mb-3"> Sign in
+                    </a> </p>
+            </div> <!-- /.register-card-body -->
         </div>
-    </div>
-
-    <!--authentication-->
-
-
-
-
-    <!--plugins-->
-    <script src="assets/js/jquery.min.js"></script>
-
+    </div> <!-- /.register-box --> <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js"
+        integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="{{ asset('admin/dist/js/adminlte.js') }}"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
-        $(document).ready(function() {
-            $("#show_hide_password a").on('click', function(event) {
-                event.preventDefault();
-                if ($('#show_hide_password input').attr("type") == "text") {
-                    $('#show_hide_password input').attr('type', 'password');
-                    $('#show_hide_password i').addClass("bi-eye-slash-fill");
-                    $('#show_hide_password i').removeClass("bi-eye-fill");
-                } else if ($('#show_hide_password input').attr("type") == "password") {
-                    $('#show_hide_password input').attr('type', 'text');
-                    $('#show_hide_password i').removeClass("bi-eye-slash-fill");
-                    $('#show_hide_password i').addClass("bi-eye-fill");
-                }
-            });
+        const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+        const Default = {
+            scrollbarTheme: "os-theme-light",
+            scrollbarAutoHide: "leave",
+            scrollbarClickScroll: true,
+        };
+        document.addEventListener("DOMContentLoaded", function() {
+            const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+            if (
+                sidebarWrapper &&
+                typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+            ) {
+                OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                    scrollbars: {
+                        theme: Default.scrollbarTheme,
+                        autoHide: Default.scrollbarAutoHide,
+                        clickScroll: Default.scrollbarClickScroll,
+                    },
+                });
+            }
         });
-    </script>
-
-</body>
+    </script> <!--end::OverlayScrollbars Configure--> <!--end::Script-->
+</body><!--end::Body-->
 
 </html>
+
+
+
+
+{{--
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Register') }}</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection --}}
