@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 body,
 html {
     margin: 0;
@@ -7,6 +9,7 @@ html {
     font-family: "Poppins", sans-serif;
     background-color: #f4f4f4;
     overflow-x: hidden;
+    font-size: 1rem;
     scroll-behavior: smooth;
 }
 
@@ -43,6 +46,11 @@ html {
     padding: 30px;
 }
 
+.konten, .kecil,
+.card-text {
+    font-weight: 500;
+}
+
 .container h1 {
     font-size: 3em;
     font-weight: bold;
@@ -50,8 +58,10 @@ html {
 
 .navbar-nav .nav-link {
     font-weight: bold;
+    font-family: 'Poppins', sans-serif;
     margin-right: 20px;
     margin-top: 10px;
+    font-weight: 500;
 }
 
 .navbar-nav .nav-link:hover {
@@ -59,10 +69,8 @@ html {
 }
 
 .content {
-    position: absolute;
-    top: 365px;
-    left: 50px;
-    right: 10%;
+    margin-top: 240px;
+    margin-left: -65px;
     max-width: 665px;
     transform: translateY(-50%);
     padding: 0 20px;
@@ -74,6 +82,10 @@ html {
     font-weight: 300; /* Sesuaikan jika perlu */
 }
 
+.content h1 b {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
 .black-line {
     border: 0;
     height: 2px;
@@ -102,7 +114,7 @@ p {
 
 .about p {
     width: 666px;
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
     line-height: 1.6em;
@@ -145,6 +157,7 @@ p {
 .about span {
     display: block;
     margin-bottom: 1em;
+    font-weight: 500;
 }
 
 .gallery {
@@ -163,17 +176,12 @@ p {
     align-items: center;
 }
 
-.card {
+.gallery-card {
     align-items: center;
     text-align: center;
     border-radius: 15px;
     margin-top: 80px;
-    transition: transform 0.1s ease;
     box-shadow: 0px 0px 5px black;
-}
-
-.card:hover {
-    transform: scale(1.05);
 }
 
 .card-image {
@@ -186,12 +194,13 @@ p {
 
 .news-title {
     text-align: center;
-    margin: 20px 0;
+    margin-top: 90px;
+    margin-bottom: 50px;
     font-size: 24px;
     font-weight: bold;
 }
 
-.card {
+.berita-card {
     border: none;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -218,16 +227,161 @@ p {
     color: #6c757d;
 }
 
+.berita-card .card-title,
+.kecil-card .card-title {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.bodis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+
 .read-more {
     color: #f39c12;
     font-weight: bold;
+    position: relative;
+    display: inline-block;
     text-decoration: none;
+    margin-top: auto;
 }
 
-.read-more:hover {
-    text-decoration: underline;
+.read-more::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Ketebalan garis bawah */
+    background-color: #f39c12; /* Ganti dengan warna yang diinginkan */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.read-more:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.read-besar {
+    color: #f39c12;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.read-besar::after {
+    content: '';
+    position: absolute;
+    left: 0; /* Align to the left */
+    bottom: -5px; /* Position below the text */
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: #f39c12; /* Underline color */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.read-besar:hover::after {
+    width: 33%; /* Expands to full width on hover */
 }
 
 .berita {
     text-align: left;
+}
+
+.kecil-card {
+    height: 370px;
+    overflow: hidden;
+}
+
+.kecil-card img {
+    height: 170px;
+}
+
+.card-panjang {
+    height: 765px;
+}
+
+.galeri-title {
+    text-align: center;
+    margin: 50px 0 50px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.galeri {
+    justify-content: center;
+    background-color: white;
+    gap: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.galeri img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 15px;
+    padding-bottom: 100%;
+    background-color: #f8f8f8;
+}
+
+.image-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.image-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+}
+
+.image-shadow:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.galeri-btn {
+    display: block;
+    width: 250px; /* Set the width as needed */
+    margin: 30px auto; /* Center the button */
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border: none;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth hover effect */
+    font-weight: 500;
+}
+
+.galeri-btn:hover {
+    background-color: darkgray; /* Change on hover */
+}
+
+.footer {
+    background-color: #000;
+}
+
+@font-face {
+    font-family: "MyFont";
+    src: url("myfont.woff2") format("woff2");
+    font-display: swap;
 }
