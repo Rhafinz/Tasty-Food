@@ -28,3 +28,4 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], fu
 });
 
 Route::get('/', [FrontController::class, 'home']);
+Route::get('galeri', [FrontController::class, 'galeri'])->name('front.galeri');

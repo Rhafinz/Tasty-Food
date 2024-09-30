@@ -9,4 +9,8 @@ class FrontController extends Controller
     public function home() {
         return view('home');
     }
+
+    public function galeri() {
+        return view('galeri');
+    }
 }

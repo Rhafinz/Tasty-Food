@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap");
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Montserrat", sans-serif !important;
+    background-color: #f4f4f4 !important;
+    overflow-x: hidden;
+    font-size: 1rem;
+    scroll-behavior: smooth;
+}
+
+.ms-auto {
+    margin-right: -80px;
+}
+
+.background-image-other {
+    background-size: 100%;
+    background-image: url("/assets/ASET/Group 70@2x.png");
+    background-position: top center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    color: white;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.navbar {
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.navbar-nav .nav-link {
+    color: white; /* Mengubah warna tautan menjadi putih */
+    margin-right: 0.7rem;
+}
+
+.navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: -20px;
+    text-decoration: none; /* Menghapus garis bawah */
+    color: white; /* Warna normal */
+    transition: color 0.3s ease; /* Menambahkan transisi untuk perubahan warna */
+}
+
+.navbar .navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    color: #ccc; /* Pastikan hover tetap berwarna putih */
+    transition: color 0.3s ease; /* Menambahkan transisi untuk perubahan warna */
+}
+
+.thick {
+    font-size: 3.1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff; /* Adjust text color as needed */
+    position: relative;
+    top: -350px; /* Adjust to position it vertically */
+    left: 275px;
+    transform: translate(-50%, -50%); /* Center the text */
+    z-index: 2; /* Ensure the text is above the background */
+}
+
+
+/* slider */
+
+.slider {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+    margin-top: -60px;
+    margin-bottom: 60px;
+}
+
+.content {
+    max-width: 1130px;
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.carousel-item img {
+    width: 100%;
+    max-height: 450px;
+    border-radius: 30px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+/* Custom carousel controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Menambahkan efek bayangan */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.carousel-control-prev {
+    left: -90px;
+}
+
+.carousel-control-next {
+    right: -90px;
+}
+
+.carousel-control-prev-icon i,
+.carousel-control-next-icon i {
+    font-size: 1.5rem;
+    color: black;
+}
+
+/* Fully opaque controls */
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* PHOTO */
+.photo {
+    background-color: white;
+    padding: 50px 0; /* Tambahkan padding agar tidak terlalu rapat dengan elemen lainnya */
+}
+
+.container-img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Mengatur agar gambar tetap di tengah secara horizontal */
+    text-align: center; /* Memastikan konten tetap rapi di tengah */
+    margin-top: 90px;
+}
+
+.rounded-img {
+    border-radius: 20px;
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 10px; /* Tambahkan margin untuk jarak antar gambar */
+}
+
+.rounded-img img {
+    width: 100%; /* Lebar gambar 100% dari container */
+    height: 100%; /* Tinggi gambar 100% dari container */
+    object-fit: cover; /* Gambar akan menutupi seluruh area tanpa meregang */
+}
+
+.row {
+    justify-content: center; /* Mengatur gambar tetap rapi di tengah */
+}
+
+/* Footer */
+.footer {
+    padding: 5rem; /* Mengurangi padding atas dan bawah */
+    margin-top: 100px;
+    margin-bottom: -50px;
+    background-color: #000000;
+    color: #f4f4f4;
+}
+
+.footer h5 {
+    font-weight: bold;
+    margin-bottom: 15px; /* Mengurangi jarak bawah judul */
+}
+
+.footer p {
+    color: #b5b5b5;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 35px; /* Mengurangi ukuran ikon sosial */
+    height: 35px;
+    line-height: 35px;
+    margin-right: 8px; /* Mengurangi jarak antar ikon */
+    text-align: center;
+    color: #ffffff;
+    border-radius: 50%;
+    background-color: #3b5998;
+}
+
+.social-icons a.twitter {
+    background-color: #1da1f2;
+}
+
+.social-icons a i {
+    font-size: 18px; /* Mengurangi ukuran ikon */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 15px; /* Mengurangi padding atas */
+    margin-top: 15px; /* Mengurangi jarak atas */
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* Mengurangi jarak antar item */
+    font-weight: 700;
+    font-size: small;
+}
+
+.contact-info li i {
+    margin-right: 8px; /* Mengurangi jarak antar ikon dan teks */
+}
+
+.list-unstyled li {
+    margin-bottom: 8px; /* Mengurangi jarak antar item */
+    font-weight: 700;
+    font-size: small;
+}
+
+.botten {
+    display: grid;
+    place-items: center; /* Menengahkan item secara horizontal dan vertikal */
+    padding-bottom: 15px; /* Mengurangi padding bawah */
+}
+
+.btn-more {
+    margin-top: 15px; /* Mengurangi jarak atas */
+    padding: 8px 16px; /* Mengurangi padding tombol */
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-more:hover {
+    background-color: #555; /* Change to a lighter shade */
+    color: #fff; /* Maintain text color */
+    transition: background-color 0.3s; /* Smooth transition */
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap');
 
 body,
 html {
@@ -6,7 +6,7 @@ html {
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     background-color: #f4f4f4;
     overflow-x: hidden;
     font-size: 1rem;
@@ -36,14 +36,14 @@ html {
 
 .navbar-brand {
     font-size: 1.8rem;
-    font-family: Arial, sans-serif;
     margin-left: -80px;
     color: #000000;
 }
 
 .navbar {
-    background: transparent;
-    padding: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 35px;
 }
 
 .konten, .kecil,
@@ -58,7 +58,6 @@ html {
 
 .navbar-nav .nav-link {
     font-weight: bold;
-    font-family: 'Poppins', sans-serif;
     margin-right: 20px;
     margin-top: 10px;
     font-weight: 500;
@@ -82,10 +81,11 @@ html {
     font-weight: 300; /* Sesuaikan jika perlu */
 }
 
-.content h1 b {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
+.content b {
+    font-weight: 900;
 }
+
+
 .black-line {
     border: 0;
     height: 2px;
@@ -215,6 +215,9 @@ p {
 
 .card-body {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .card-title {
@@ -223,12 +226,13 @@ p {
 }
 
 .card-text {
+    margin-bottom: auto;
     font-size: 13px;
     color: #6c757d;
 }
 
 .berita-card .card-title,
-.kecil-card .card-title {
+.kecil-card {
     margin-bottom: 20px;
     line-height: 1.6;
 }
@@ -240,11 +244,8 @@ p {
     height: 100%;
 }
 
-
-
 .read-more {
     color: #f39c12;
-    font-weight: bold;
     position: relative;
     display: inline-block;
     text-decoration: none;
@@ -254,22 +255,22 @@ p {
 .read-more::after {
     content: '';
     position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
+    left: 50%; /* Awal dari tengah */
+    bottom: -5px; /* Jarak garis dari teks */
+    width: 0; /* Awalnya tidak ada lebar */
     height: 2px; /* Ketebalan garis bawah */
-    background-color: #f39c12; /* Ganti dengan warna yang diinginkan */
+    background-color: #f39c12; /* Warna garis */
     transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%); /* Pindahkan garis ke tengah */
 }
 
 .read-more:hover::after {
-    width: 100%;
-    left: 0;
+    width: 100%; /* Mengubah lebar garis menjadi 100% dari lebar teks saat hover */
+    left: 50%; /* Tetap di tengah */
+    transform: translateX(-50%); /* Pastikan tetap di tengah saat hover */
 }
-
 .read-besar {
     color: #f39c12;
-    font-weight: bold;
     position: relative;
     display: inline-block;
     text-decoration: none;
@@ -297,6 +298,7 @@ p {
 
 .kecil-card {
     height: 370px;
+    margin: 0 0;
     overflow: hidden;
 }
 
@@ -320,7 +322,6 @@ p {
     background-color: white;
     gap: 5px;
     margin-top: 10px;
-    border-radius: 10px;
 }
 
 .galeri img {
@@ -376,12 +377,88 @@ p {
     background-color: darkgray; /* Change on hover */
 }
 
+/* Footer */
 .footer {
-    background-color: #000;
+    padding: 5rem;
+    /* margin-top: 3rem; */
+    background-color: #000000;
+    color: #f4f4f4;
+}
+.footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.footer p {
+    color: #b5b5b5;
+}
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 50%;
+    background-color: #3b5998;
+}
+.social-icons a.twitter {
+    background-color: #1da1f2;
+}
+.social-icons a i {
+    font-size: 20px;
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
 }
 
-@font-face {
-    font-family: "MyFont";
-    src: url("myfont.woff2") format("woff2");
-    font-display: swap;
+.contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: small;
 }
+.contact-info li i {
+    margin-right: 10px;
+}
+.list-unstyled li {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: small;
+}
+
+.botten {
+    display: grid;
+    place-items: center; /* Menengahkan item secara horizontal dan vertikal */
+    /* height: 100vh; Mengatur tinggi kontainer ke 100% viewport */
+    padding-bottom: 25px;
+}
+
+.btn-more {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-more:hover {
+    background-color: #555; /* Change to a lighter shade */
+    color: #fff; /* Maintain text color */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
