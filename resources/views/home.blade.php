@@ -175,7 +175,7 @@
                     </div>
                 @endforeach
             </div>
-            <a href="{{ route('front.galeri') }}" class="galeri-btn">LIHAT LEBIH BANYAK</a>
+            <a href="{{ route('galeri') }}" class="galeri-btn">LIHAT LEBIH BANYAK</a>
         </div>
     </section>
 @endsection

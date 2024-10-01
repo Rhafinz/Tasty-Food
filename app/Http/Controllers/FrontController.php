@@ -13,4 +13,8 @@ class FrontController extends Controller
     public function galeri() {
         return view('galeri');
     }
+
+    public function tentang() {
+        return view('tentang');
+    }
 }
