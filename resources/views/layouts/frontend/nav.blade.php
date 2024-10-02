@@ -6,9 +6,9 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">HOME</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('tentang') }}">TENTANG</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">BERITA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('berita') }}">BERITA</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('galeri') }}">GALERI</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">KONTAK</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('kontak') }}">KONTAK</a></li>
                 </ul>
             </div>
         </nav>

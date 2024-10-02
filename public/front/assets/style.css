@@ -255,20 +255,19 @@ p {
 .read-more::after {
     content: '';
     position: absolute;
-    left: 50%; /* Awal dari tengah */
+    left: 0; /* Awal dari kiri */
     bottom: -5px; /* Jarak garis dari teks */
     width: 0; /* Awalnya tidak ada lebar */
     height: 2px; /* Ketebalan garis bawah */
     background-color: #f39c12; /* Warna garis */
-    transition: width 0.3s ease, left 0.3s ease;
-    transform: translateX(-50%); /* Pindahkan garis ke tengah */
+    transition: width 0.3s ease;
 }
 
 .read-more:hover::after {
-    width: 100%; /* Mengubah lebar garis menjadi 100% dari lebar teks saat hover */
-    left: 50%; /* Tetap di tengah */
-    transform: translateX(-50%); /* Pastikan tetap di tengah saat hover */
+    width: 70%; /* Mengubah lebar garis menjadi 100% dari lebar teks saat hover */
+    /* Tidak perlu left dan transform di sini */
 }
+
 .read-besar {
     color: #f39c12;
     position: relative;
@@ -289,7 +288,7 @@ p {
 }
 
 .read-besar:hover::after {
-    width: 33%; /* Expands to full width on hover */
+    width: 31%; /* Expands to full width on hover */
 }
 
 .berita {

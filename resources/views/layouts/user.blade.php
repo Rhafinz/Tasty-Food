@@ -15,6 +15,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('front/assets/style2.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/navbar.css') }}">
 </head>
 
 <body>

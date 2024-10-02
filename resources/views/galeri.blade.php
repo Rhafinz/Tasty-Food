@@ -10,11 +10,11 @@
                         alt="Food 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('assets/ASET/ella-olsson-mmnKI8kMxpc-unsplash.jpg') }}" class="d-block img-fluid"
+                    <img src="{{ asset('assets/ASET/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}" class="d-block img-fluid"
                         alt="Food 2">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('assets/ASET/ella-olsson-mmnKI8kMxpc-unsplash.jpg') }}" class="d-block img-fluid"
+                    <img src="{{ asset('assets/ASET/jonathan-borba-Gkc_xM3VY34-unsplash.jpg') }}" class="d-block img-fluid"
                         alt="Food 3">
                 </div>
             </div>
@@ -32,7 +32,6 @@
                 </span>
                 <span class="visually-hidden">Next</span>
             </button>
-
         </div>
     </section>
 

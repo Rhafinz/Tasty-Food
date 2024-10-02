@@ -30,3 +30,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], fu
 Route::get('/', [FrontController::class, 'home']);
 Route::get('galeri', [FrontController::class, 'galeri'])->name('galeri');
 Route::get('tentang', [FrontController::class, 'tentang'])->name('tentang');
+Route::get('berita', [FrontController::class, 'berita'])->name('berita');
+Route::get('kontak', [FrontController::class, 'kontak'])->name('kontak');
