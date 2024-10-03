@@ -33,10 +33,9 @@
             <div class="row g-5">
                 @php
                     $beritas = App\Models\Berita::orderBy('id', 'asc')->get();
-                    $duplicatedBeritas = $beritas->concat($beritas); // Menggabungkan koleksi dengan dirinya sendiri
                 @endphp
 
-                @foreach ($duplicatedBeritas as $item)
+                @foreach ($beritas as $item)
                     <div class="col-md-3"> <!-- 4 kolom per baris -->
                         <div class="card berita-card distance-card">
                             <img alt="Fresh vegetables on a table" class="card-img-top" height="200"
