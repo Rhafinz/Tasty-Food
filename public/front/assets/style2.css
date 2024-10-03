@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap");
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -10,6 +11,8 @@ body, html {
     font-size: 1rem;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    will-change: transform; /* Memberi tahu browser untuk mengoptimasi elemen ini */
+    transform: translateZ(0); /* Memanfaatkan hardware acceleration */
 }
 
 /* General Section Styles */
@@ -17,8 +20,7 @@ body, html {
     background-color: #f4f4f4;
     padding: 50px 0;
     margin: -60px 0 -200px 0;
-
-}   
+}
 
 .content {
     max-width: 1130px;
@@ -36,7 +38,8 @@ body, html {
 }
 
 /* Carousel Controls */
-.carousel-control-prev-icon, .carousel-control-next-icon {
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -59,13 +62,15 @@ body, html {
     right: -90px;
 }
 
-.carousel-control-prev-icon i, .carousel-control-next-icon i {
+.carousel-control-prev-icon i,
+.carousel-control-next-icon i {
     font-size: 1.5rem;
     color: black;
 }
 
 /* Fully opaque controls */
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next {
     opacity: 1;
     pointer-events: auto;
 }
@@ -167,8 +172,10 @@ body, html {
     object-fit: cover;
 }
 
-.rounded-image, .rounded-image1, .rounded-image-misi{
-    border-radius: 20px; /* Konsisten di semua gambar */
+.rounded-image,
+.rounded-image1,
+.rounded-image-misi {
+    border-radius: 18px; /* Konsisten di semua gambar */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
     object-fit: cover; /* Pastikan gambar tetap sesuai proporsi */
 }
@@ -191,7 +198,6 @@ body, html {
     margin: 0 10px; /* Jarak antar gambar */
     border-radius: 15px; /* Opsional: Untuk memberikan efek sudut melengkung */
 }
-
 
 /* Responsivitas */
 @media (max-width: 768px) {
@@ -216,68 +222,168 @@ body, html {
     }
 }
 
-
 /* news */
 
-.news-nusantara {
+.row-news {
+    display: flex; /* Menggunakan flexbox untuk satu baris */
+    align-items: center; /* Vertikal center pada elemen */
+}
+
+.text-content-news {
+    padding-left: 10px;
+    padding-right: 37px;
+    color: black;
+    letter-spacing: 0.05rem;
+}
+
+.text-content-news h3 {
+    font-size: 1.7rem;
+}
+
+.text-content-news p {
+    font-size: 0.8rem;
+    color: #000000;
+    font-weight: 500;
+    margin-right: -40px;
+    line-height: 1.5;
+}
+
+.news-content {
     background-color: #f4f4f4;
-    padding: 50px 0; /* Tambahkan padding jika diperlukan */
-    width: 100%; /* Pastikan section ini mengambil seluruh lebar */
+    padding: 130px 0 150px; /* Increased bottom padding to 100px */
+    margin-top: 140px; /* Keep margin top as is */
 }
 
-.hero-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+.rounded-image-news {
+    width: 100%; /* Lebar lebih besar */
+    height: 500px; /* Tinggi lebih kecil */
+    object-fit: cover; /* Pastikan gambar tetap proporsional */
+    overflow: hidden;
+    justify-content: center;
+    margin: -30px -15px; /* Jarak antar gambar */
+    border-radius: 15px; /* Opsional: Untuk memberikan efek sudut melengkung */
 }
 
-.card {
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.btn-black {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: 600; /* Bold text */
+    color: white; /* Teks berwarna putih */
+    background-color: black; /* Warna latar belakang tombol hitam */
+    border: none; /* Menghapus border default */
+    text-align: center;
+    text-decoration: none; /* Menghapus garis bawah */
+    cursor: pointer; /* Menampilkan pointer saat hover */
+    transition: background-color 0.3s ease; /* Efek transisi saat hover */
+    width: 300px; /* Lebar tombol */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.card img {
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.card-body {
-    padding: 1rem;
-}
-
-.card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-}
-
-.card-text {
-    color: #666;
-}
-
-.btn-warning {
-    background-color: #ffa500;
-    color: #fff;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-warning:hover {
-    background-color: #e59400;
-}
-
-h2 {
-    font-size: 1.75rem;
+.btn-black:hover {
+    background-color: #333; /* Warna latar belakang saat hover */
 }
 
 @media (max-width: 768px) {
-    .hero-section {
+    .news-content {
         text-align: center;
     }
 }
 
+/* news-other */
+
+.news-other {
+    margin: 70px -15px;
+}
+
+.berita-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    overflow: hidden; /* Agar elemen anak tidak keluar dari card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sedikit bayangan untuk tampilan 3D */
+    min-height: 380px;
+    min-width: 280px;
+    margin: -18px -15px;
+}
+
+.berita-card img {
+    width: 100%; /* Lebar gambar akan otomatis menyesuaikan ukuran card */
+    height: 175px; /* Tentukan tinggi yang diinginkan */
+    object-fit: cover; /* Gambar akan menutupi area yang ada tanpa terpotong */
+    border-top-left-radius: 18px; /* Menyelaraskan radius sudut gambar dengan card */
+    border-top-right-radius: 18px;
+}
+
+.card-body {
+    flex-grow: 1;
+    flex-direction: column; /* Mengatur agar konten diatur secara vertikal */
+    justify-content: space-between; /* Memisahkan title dan text dari read more */
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #000000; /* Warna teks yang lebih lembut */
+    margin-bottom: 15px;
+    margin-right: 30px;
+    margin-top: auto;
+}
+
+.read-more {
+    max-width: max-content; /* Lebar elemen sesuai dengan panjang teks */
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: #ff9d00;
+    position: relative;
+    display: inline-block; /* Pastikan hanya sepanjang teks */
+    transition: color 0.3s;
+    margin-top: auto;
+    padding-bottom: 2px; /* Sedikit jarak di bawah teks */
+    width: auto;
+    white-space: nowrap;
+}
+
+/* Pseudo-element for the underline */
+.read-more::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Garis di bawah teks */
+    width: 0; /* Lebar garis dimulai dari 0 */
+    height: 2px;
+    background-color: #ff9d00; /* Warna garis */
+    transition: width 0.3s ease;
+}
+
+/* Hover effect to animate the underline */
+.read-more:hover::after {
+    width: 100%; /* Garis hanya akan selebar teks */
+}
+
+.read-more:hover {
+    color: #ff9d00; /* Warna teks tetap */
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .berita-card img {
+        height: auto; /* Gambar akan menyesuaikan tinggi yang lebih kecil pada perangkat mobile */
+    }
+}
 
 /* Footer */
 .footer {
@@ -332,7 +438,8 @@ h2 {
 }
 
 /* Contact Info */
-.contact-info li, .list-unstyled li {
+.contact-info li,
+.list-unstyled li {
     display: flex;
     align-items: center;
     margin-bottom: 8px;

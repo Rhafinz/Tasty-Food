@@ -2,35 +2,56 @@
 @section('content')
     <h2 class="thick"><b>BERITA KAMI</b></h2>
     <!-- Hero Section -->
-    <section class="container my-5 news-nusantara">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <img src="food.jpg" alt="Makanan Khas Nusantara" class="img-fluid rounded hero-image">
-            </div>
-            <div class="col-lg-6">
-                <h1 class="display-5 mb-4">Apa Saja Makanan Khas Nusantara?</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, sapien id ultricies gravida.
-                </p>
-                <a href="#" class="btn btn-dark">Baca Selengkapnya</a>
+    <section class="news-content">
+        <div class="container news-nusantara">
+            <div class="row row-news">
+                <!-- Bagian Gambar Misi -->
+                <div class="col-md-6">
+                    <img src="{{ asset('assets/ASET/eiliv-aceron-ZuIDLSz3XLg-unsplash.jpg') }}" alt="News Image"
+                        class="img-fluid rounded-image-news">
+                </div>
+                <!-- Bagian Teks Misi -->
+                <div class="col-md-6 text-content-news">
+                    <h3 class="mb-4"><b>APA SAJA MAKANAN KHAS NUSANTARA?</b></h3>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu
+                        rutrum commodo,
+                        dui diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim neque, vel
+                        luctus ex. Fusce sit amet viverra ante.</p>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu
+                        rutrum commodo,
+                        dui diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim neque, vel
+                        luctus ex. Fusce sit amet viverra ante.</p>
+
+                    <a href="#" class="btn-black"><b>BACA SELENGKAPNYA</b></a>
+                </div>
             </div>
         </div>
     </section>
+    <section class="news-other">
+        <div class="container">
+            <h3 class="news-other"><b>BERITA LAINNYA</b></h3>
+            <div class="row g-5">
+                @php
+                    $beritas = App\Models\Berita::orderBy('id', 'asc')->get();
+                    $duplicatedBeritas = $beritas->concat($beritas); // Menggabungkan koleksi dengan dirinya sendiri
+                @endphp
 
-    <!-- Berita Section -->
-    <section class="container news-other">
-        <h2 class="text-center mb-4">Berita Lainnya</h2>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <img src="news1.jpg" class="card-img-top" alt="News 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Lorem Ipsum</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="#" class="btn btn-warning">Baca Selengkapnya</a>
+                @foreach ($duplicatedBeritas as $item)
+                    <div class="col-md-3"> <!-- 4 kolom per baris -->
+                        <div class="card berita-card distance-card">
+                            <img alt="Fresh vegetables on a table" class="card-img-top" height="200"
+                                src="{{ asset('/storage/beritas/' . $item->image) }}" width="600" />
+                            <div class="card-body d-flex">
+                                <h5 class="card-title">{{ $item->judul }}</h5>
+                                <p class="card-text">{{ $item->deskripsi }}</p>
+                                <a class="read-more" href="#">
+                                    Baca selengkapnya
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-            <!-- Repeat .col-md-6 .col-lg-4 blocks for more news -->
         </div>
     </section>
 @endsection

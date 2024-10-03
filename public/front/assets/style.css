@@ -245,6 +245,7 @@ p {
 }
 
 .read-more {
+    align-self: flex-start; /* Pastikan berada di posisi awal dan tidak terpengaruh flex */
     color: #f39c12;
     position: relative;
     display: inline-block;
@@ -264,11 +265,12 @@ p {
 }
 
 .read-more:hover::after {
-    width: 70%; /* Mengubah lebar garis menjadi 100% dari lebar teks saat hover */
+    width: 100%; /* Mengubah lebar garis menjadi 100% dari lebar teks saat hover */
     /* Tidak perlu left dan transform di sini */
 }
 
 .read-besar {
+    max-width: max-content; /* Lebar elemen sesuai dengan panjang teks */
     color: #f39c12;
     position: relative;
     display: inline-block;
@@ -288,7 +290,7 @@ p {
 }
 
 .read-besar:hover::after {
-    width: 31%; /* Expands to full width on hover */
+    width: 100%; /* Expands to full width on hover */
 }
 
 .berita {
