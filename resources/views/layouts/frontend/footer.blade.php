@@ -6,7 +6,7 @@
                 <p class="custom-paragraph">
                     Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua. Ut <br> enim ad minim veniam, quis nostrud <br> exercitation ullamco laboris nisi ut aliquip ex ea <br> commodo consequat.
                 </p>
-                <div class="social-icons">
+                <div class="social-icons mb-3">
                     <a href="#" class="facebook fa-brands fa-facebook"></a>
                     <a href="#" class="twitter fa-brands fa-twitter"></a>
                 </div>

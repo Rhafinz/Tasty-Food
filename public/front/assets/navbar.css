@@ -6,7 +6,7 @@ html {
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: "Montserrat", sans-serif !important;
+    font-family: "Montserrat", sans-serif;
     overflow-x: hidden;
     font-size: 1rem;
     scroll-behavior: smooth;
@@ -75,6 +75,18 @@ html {
     position: relative;
     margin-top: -350px; /* Adjust to position it vertically */
     margin-left: 300px;
+    transform: translate(-50%, -50%); /* Center the text */
+    z-index: 2; /* Ensure the text is above the background */
+}
+
+.thick-contact {
+    font-size: 3.1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff; /* Adjust text color as needed */
+    position: relative;
+    margin-top: -350px; /* Adjust to position it vertically */
+    margin-left: 290px;
     transform: translate(-50%, -50%); /* Center the text */
     z-index: 2; /* Ensure the text is above the background */
 }
