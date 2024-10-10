@@ -25,11 +25,11 @@ html {
 .hero {
     background-image: url("/assets/ASET/img-4-2000x2000.png");
     background-size: cover;
-    height: 55rem;
-    width: 55rem;
+    height: 140vh;
+    width: 140vh;
     position: absolute;
     top: -215px;
-    right: -250px;
+    right: -290px;
     color: white;
     z-index: 1;
 }
@@ -64,7 +64,7 @@ html {
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ddd;
+    color: #8b8b8b;
 }
 
 .content {
@@ -91,7 +91,7 @@ html {
     height: 2px;
     border-top: 3px solid #000000;
     background-color: #000000;
-    width: 13%;
+    width: 10%;
     margin: 20px 0;
     position: relative;
     right: -3px;
@@ -112,7 +112,7 @@ p {
     font-weight: bold;
 }
 
-.about p {
+.about-p {
     width: 666px;
     max-width: 700px;
     margin: 0 auto;
@@ -160,7 +160,7 @@ p {
     font-weight: 500;
 }
 
-.gallery {
+.gallery-content {
     background-image: url("/assets/ASET/monika-grabkowska-P1aohbiT-EY-unsplash.jpg");
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: darken;
@@ -179,22 +179,29 @@ p {
 .gallery-card {
     align-items: center;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 18px;
     margin-top: 80px;
-    box-shadow: 0px 0px 5px black;
+    padding-bottom: 30px;
+    box-shadow: 0px 0px 3px black;
+}
+
+.font-tiny {
+    font-size: 0.8rem;
+    padding: 0 20px;
 }
 
 .card-image {
     width: 220px;
     height: 220px;
     border-radius: 50%;
-    margin-top: -140px;
+    margin-top: -110px;
+    margin-bottom: -20px;
     display: block;
 }
 
 .news-title {
     text-align: center;
-    margin-top: 90px;
+    margin-top: 100px;
     margin-bottom: 50px;
     font-size: 24px;
     font-weight: bold;
@@ -242,6 +249,7 @@ p {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    max-height: 1000px;
 }
 
 .read-more {

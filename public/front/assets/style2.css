@@ -11,6 +11,7 @@ html {
     font-size: 1rem;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    background-color: #f4f4f4;
     will-change: transform; /* Memberi tahu browser untuk mengoptimasi elemen ini */
     transform: translateZ(0); /* Memanfaatkan hardware acceleration */
 }
@@ -18,13 +19,12 @@ html {
 /* General Section Styles */
 .slider {
     background-color: #f4f4f4;
-    padding: 50px 0;
-    margin: -60px 0 -200px 0;
+    margin-top: 50px;
 }
 
-.content {
+.content-gallery {
     max-width: 1130px;
-    margin: 280px auto;
+    margin: 140px 130px;
     border-radius: 30px;
 }
 
@@ -32,8 +32,8 @@ html {
 .carousel-item img {
     width: 100%;
     max-height: 450px;
-    border-radius: 30px;
     object-fit: cover;
+    border-radius: 30px;
     margin: 0 20px 20px 0;
 }
 
@@ -55,11 +55,11 @@ html {
 }
 
 .carousel-control-prev {
-    left: -90px;
+    left: -80px;
 }
 
 .carousel-control-next {
-    right: -90px;
+    right: -80px;
 }
 
 .carousel-control-prev-icon i,
@@ -78,7 +78,9 @@ html {
 /* Photo Section */
 .photo {
     background-color: white;
-    padding: 50px 0;
+    padding-top: 35px;
+    padding-bottom: 90px;
+    margin-bottom: -150px;
 }
 
 .container-img {
@@ -90,7 +92,8 @@ html {
 
 .rounded-img {
     border-radius: 20px;
-    width: 270px;
+    width: 100%;
+    max-width: 270px;
     height: 270px;
     object-fit: cover;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
@@ -107,7 +110,6 @@ html {
 /* Tasty Food Section */
 
 .tastyFood {
-    background-color: #f4f4f4;
     padding: 50px 0 50px; /* Ubah padding bawah menjadi lebih kecil */
     max-height: 800px;
     display: flex;
@@ -117,14 +119,17 @@ html {
 
 .visi {
     background-color: white;
-    padding: 100px 0; /* Menambahkan ruang di atas dan bawah */
+    padding: 25px 0; /* Menambahkan ruang di atas dan bawah */
     min-height: 400px; /* Atur tinggi minimum untuk elemen */
+    margin-bottom: -50px;
 }
 
 .misi {
     background-color: white;
-    padding: 100px 0; /* Menambahkan ruang di atas dan bawah */
+    padding: 25px 0; /* Menambahkan ruang di atas dan bawah */
     min-height: 400px; /* Atur tinggi minimum untuk elemen */
+    padding-bottom: 90px;
+    margin-bottom: -150px;
 }
 
 .tasty-food-section {
@@ -230,10 +235,9 @@ html {
 }
 
 .text-content-news {
-    padding-left: 10px;
-    padding-right: 37px;
-    color: black;
-    letter-spacing: 0.05rem;
+    display: flex;
+    flex-direction: column; /* Mengatur konten dalam kolom */
+    justify-content: center; /* Menyelaraskan konten secara vertikal */
 }
 
 .text-content-news h3 {
@@ -249,9 +253,9 @@ html {
 }
 
 .news-content {
-    background-color: #f4f4f4;
-    padding: 130px 0 150px; /* Increased bottom padding to 100px */
-    margin-top: 140px; /* Keep margin top as is */
+    padding-top: 100px;
+    padding-bottom: 55px;
+    margin-top: 30px; /* Keep margin top as is */
 }
 
 .rounded-image-news {
@@ -264,8 +268,19 @@ html {
     border-radius: 15px; /* Opsional: Untuk memberikan efek sudut melengkung */
 }
 
+.row-news {
+    display: flex; /* Menggunakan Flexbox untuk menyusun kolom */
+    justify-content: center; /* Menempatkan semua konten di tengah */
+    align-items: center; /* Menyelaraskan konten secara vertikal */
+}
+
+.btn-container {
+    display: flex; /* Menggunakan Flexbox untuk container tombol */
+    margin-top: 20px; /* Menambahkan margin atas untuk spasi */
+}
+
+/* Kustomisasi tombol */
 .btn-black {
-    display: inline-block;
     padding: 15px 30px;
     font-size: 14px;
     font-weight: 600; /* Bold text */
@@ -277,25 +292,39 @@ html {
     cursor: pointer; /* Menampilkan pointer saat hover */
     transition: background-color 0.3s ease; /* Efek transisi saat hover */
     width: 300px; /* Lebar tombol */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Menggunakan Flexbox untuk teks di dalam tombol */
+    justify-content: center; /* Tengah secara horizontal dalam tombol */
+    align-items: center; /* Tengah secara vertikal dalam tombol */
 }
 
 .btn-black:hover {
     background-color: #333; /* Warna latar belakang saat hover */
+    color: white; /* Pastikan teks tetap putih saat hover */
 }
 
+/* Responsivitas */
 @media (max-width: 768px) {
-    .news-content {
-        text-align: center;
+    .row-news {
+        flex-direction: column; /* Mengatur kolom menjadi satu kolom pada perangkat kecil */
+        align-items: center; /* Menyelaraskan konten di tengah */
+    }
+
+    .text-content-news {
+        text-align: center; /* Menyelaraskan teks di tengah */
     }
 }
-
 /* news-other */
 
 .news-other {
+    background-color: white;
+    margin-bottom: -150px;
+    padding-bottom: 130px;
+}
+
+.news-other-title {
+    padding-top: 100px;
     margin: 70px -15px;
+
 }
 
 .berita-card {
@@ -306,7 +335,7 @@ html {
     border-radius: 18px;
     overflow: hidden; /* Agar elemen anak tidak keluar dari card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sedikit bayangan untuk tampilan 3D */
-    min-height: 380px;
+    max-height: 380px;
     min-width: 280px;
     margin: -18px -15px;
 }
@@ -389,9 +418,9 @@ html {
 
 /* Contact Section */
 .contact-container {
+    background-color: white;
     text-align: center;
-    margin-top: 170px;
-    padding: 50px 100px;
+    padding: 100px 100px;
 }
 
 .contact-container h2 {
@@ -402,6 +431,7 @@ html {
 
 /* Form Layout */
 .contact-layout {
+    align-items: center;
     display: flex;
     justify-content: space-between;
     max-width: 1200px; /* Increase the max-width to make the layout larger */
@@ -433,25 +463,53 @@ html {
 }
 
 /* Form Inputs */
+/* Form Inputs */
 .input-field {
     width: 100%;
     padding: 33px;
     border: 2px solid #a5a5a5;
     border-radius: 15px;
     font-size: 16px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for both border and shadow */
 }
 
+.input-field:focus {
+    border-color: #272727; /* Border color on focus */
+    outline: none;         /* Removes the default outline */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on focus */
+}
+
+/* Textarea Field */
 .textarea-field {
     height: 300px;
-    width: 100%; /* Ensure textarea takes full width of the right column */
+    width: 100%;
+    border: 2px solid #a5a5a5;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.textarea-field:focus {
+    border-color: #272727; /* Border color on focus for the textarea */
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on focus */
 }
 
 /* Button at the bottom */
 .form-group:last-child {
-    display: flex;           /* Enables flexbox for alignment */
-    justify-content: center; /* Center the button horizontally */
-    width: 100%;            /* Full width of the form group */
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
+
+
+/* Button at the bottom */
+.form-group:last-child {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 
 .action-button {
     background-color: #000; /* Background color */
@@ -476,7 +534,8 @@ html {
 /* Contact Info Section */
 .info-section {
     display: flex;
-    justify-content: center; /* Center the info cards horizontally */
+    background-color: white;
+    justify-content: space-between; /* Center the info cards horizontally */
     padding: 40px;
 }
 
@@ -487,18 +546,18 @@ html {
     display: flex;
     height: 50vh;
     margin: 0;
-        background-color: #fff;
+    background-color: #fff;
 }
-.kontak-info {
-    justify-content: space-around;
-    display: flex;
-    width: 80%;
 
-}
 .contact-info {
     text-align: center;
-    margin-top: 50px;
 }
+
+.contact-infoo {
+    text-align: left;
+}
+
+
 .contact-info .icon {
     background-color: black;
     justify-content: center;
@@ -539,7 +598,36 @@ html {
     }
 }
 
+/* Maps */
+.map {
+    margin-top: 100px;
+    margin-bottom: -60px;
+    display: flex;
+    justify-content: center;
+}
 
+#map {
+    height: 550px;
+    width: 1200px;
+    max-width: 100%; /* Membatasi lebar peta maksimal 100% dari layar */
+    max-height: 100vh; /* Membatasi tinggi peta maksimal 100% dari tinggi viewport */
+}
+
+/* Responsivitas agar ukuran peta tetap proporsional di layar kecil */
+@media (max-width: 1200px) {
+    #map {
+        width: 90%; /* Lebar peta di layar kecil */
+        height: 400px; /* Tinggi yang tetap proporsional */
+    }
+}
+
+/* Responsivitas untuk layar yang lebih kecil lagi */
+@media (max-width: 768px) {
+    #map {
+        width: 100%; /* Lebar penuh untuk layar sangat kecil */
+        height: 300px; /* Lebih kecil lagi untuk layar yang sangat sempit */
+    }
+}
 /* Footer */
 .footer {
     padding: 5rem;

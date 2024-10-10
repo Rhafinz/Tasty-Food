@@ -1,7 +1,8 @@
     @extends('layouts.user')
     @section('content')
-        <h2 class="content-about"><b>TENTANG KAMI</b></h2>
-
+    <div class="content">
+        <h2><b>TENTANG KAMI</b></h2>
+    </div>
         <section class="tastyFood">
             <div class="container">
                 <div class="row tasty-food-section">

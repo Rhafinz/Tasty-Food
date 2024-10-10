@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->string('subject');
+            $table->string('subject')->nullable(true)->default('example@gmail.com');
             $table->string('name');
             $table->string('email');
             $table->text('message');

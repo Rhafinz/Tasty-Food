@@ -1,9 +1,10 @@
 @extends('layouts.user')
 @section('content')
-<h2 class="thick"><b>GALERI KAMI</b></h2>
-    <!-- Carousel -->
+<div class="content">
+    <h2><b>GALERI KAMI</b></h2>
+</div>    <!-- Carousel -->
     <section class="slider">
-        <div id="foodCarousel" class="carousel slide content" data-bs-ride="carousel">
+        <div id="foodCarousel" class="carousel slide content-gallery" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="{{ asset('assets/ASET/ella-olsson-mmnKI8kMxpc-unsplash.jpg') }}" class="d-block img-fluid"

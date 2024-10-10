@@ -1,6 +1,8 @@
 @extends('layouts.user')
 @section('content')
-    <h2 class="thick"><b>BERITA KAMI</b></h2>
+    <div class="content">
+        <h2><b>BERITA KAMI</b></h2>
+    </div>
     <!-- Hero Section -->
     <section class="news-content">
         <div class="container news-nusantara">
@@ -8,7 +10,7 @@
                 <!-- Bagian Gambar Misi -->
                 <div class="col-md-6">
                     <img src="{{ asset('assets/ASET/eiliv-aceron-ZuIDLSz3XLg-unsplash.jpg') }}" alt="News Image"
-                        class="img-fluid rounded-image-news">
+                        class="img-fluid rounded-image-news mb-3">
                 </div>
                 <!-- Bagian Teks Misi -->
                 <div class="col-md-6 text-content-news">
@@ -22,35 +24,38 @@
                         dui diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim neque, vel
                         luctus ex. Fusce sit amet viverra ante.</p>
 
-                    <a href="#" class="btn-black"><b>BACA SELENGKAPNYA</b></a>
+                    <div class="btn-container"> <!-- Tambahkan div wrapper untuk tombol -->
+                        <a href="#" class="btn-black"><b>BACA SELENGKAPNYA</b></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="news-other">
-        <div class="container">
-            <h3 class="news-other"><b>BERITA LAINNYA</b></h3>
-            <div class="row g-5">
-                @php
-                    $beritas = App\Models\Berita::orderBy('id', 'asc')->get();
-                @endphp
 
-                @foreach ($beritas as $item)
-                    <div class="col-md-3"> <!-- 4 kolom per baris -->
-                        <div class="card berita-card distance-card">
-                            <img alt="Fresh vegetables on a table" class="card-img-top" height="200"
-                                src="{{ asset('/storage/beritas/' . $item->image) }}" width="600" />
-                            <div class="card-body d-flex">
-                                <h5 class="card-title">{{ $item->judul }}</h5>
-                                <p class="card-text">{{ $item->deskripsi }}</p>
-                                <a class="read-more" href="#">
-                                    Baca selengkapnya
-                                </a>
-                            </div>
+<section class="news-other">
+    <div class="container">
+        <h3 class="news-other-title"><b>BERITA LAINNYA</b></h3>
+        <div class="row g-5">
+            @php
+                $beritas = App\Models\Berita::orderBy('id', 'asc')->get();
+            @endphp
+
+            @foreach ($beritas as $item)
+                <div class="col-md-6 col-lg-3"> <!-- 4 kolom per baris pada layar besar, 2 kolom pada layar kecil -->
+                    <div class="card berita-card distance-card">
+                        <img alt="Fresh vegetables on a table" class="card-img-top" src="{{ asset('/storage/beritas/' . $item->image) }}" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ $item->judul }}</h5>
+                            <p class="card-text">{{ $item->deskripsi }}</p>
+                            <a class="read-more" href="#">
+                                Baca selengkapnya
+                            </a>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
+
 @endsection

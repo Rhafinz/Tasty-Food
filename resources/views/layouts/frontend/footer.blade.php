@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-2">
                 <h5>Contact Info</h5>
-                <ul class="list-unstyled contact-info">
+                <ul class="list-unstyled contact-info contact-infoo">
                     <li><i class="fas fa-envelope"></i> tastyfood@gmail.com</li>
                     <li><i class="fas fa-phone"></i> +62 812 3456 7890</li>
                     <li><i class="fas fa-map-marker-alt"></i> Kota Bandung, Jawa Barat</li>

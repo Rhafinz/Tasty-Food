@@ -6,7 +6,7 @@ use App\Http\Controllers\TentangController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\FrontController;
-use App\Http\Middleware\IsAdmin;
+ use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
     return view('home');
@@ -32,3 +32,4 @@ Route::get('galeri', [FrontController::class, 'galeri'])->name('galeri');
 Route::get('tentang', [FrontController::class, 'tentang'])->name('tentang');
 Route::get('berita', [FrontController::class, 'berita'])->name('berita');
 Route::get('kontak', [FrontController::class, 'kontak'])->name('kontak');
+Route::post('kontak',[App\Http\Controllers\MessageController::class,'store'])->name('message.store');
