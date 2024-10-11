@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap");
 
 body,
 html {
@@ -9,10 +9,9 @@ html {
     font-family: "Montserrat", sans-serif;
     background-color: #f4f4f4;
     overflow-x: hidden;
-    font-size: 1rem;
-    scroll-behavior: smooth;
 }
 
+/* header */
 .background-image {
     background-size: cover;
     background-position: center;
@@ -20,35 +19,32 @@ html {
     width: 100%;
     position: relative;
     color: white;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .hero {
-    background-image: url("/assets/ASET/img-4-2000x2000.png");
+    background-image: url('/assets/ASET/img-4-2000x2000.png');
     background-size: cover;
-    height: 140vh;
-    width: 140vh;
+    height: 125vh;
+    width: 125vh;
     position: absolute;
-    top: -215px;
-    right: -290px;
+    top: -144px;
+    right: -195px;
     color: white;
     z-index: 1;
 }
 
 .navbar-brand {
     font-size: 1.8rem;
+    font-family: Arial, sans-serif;
     margin-left: -80px;
     color: #000000;
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    margin-left: 35px;
-}
-
-.konten, .kecil,
-.card-text {
-    font-weight: 500;
+    background: transparent;
+    padding: 30px;
 }
 
 .container h1 {
@@ -57,10 +53,9 @@ html {
 }
 
 .navbar-nav .nav-link {
-    font-weight: bold;
+    font-weight: 500;
     margin-right: 20px;
     margin-top: 10px;
-    font-weight: 500;
 }
 
 .navbar-nav .nav-link:hover {
@@ -68,322 +63,341 @@ html {
 }
 
 .content {
-    margin-top: 240px;
-    margin-left: -65px;
-    max-width: 665px;
+    position: absolute;
+    top: 365px;
+    left: 50px;
+    /* Adjusted to provide more space on the sides */
+    right: 10%;
+    /* Adjusted to provide more space on the sides */
+    max-width: 655px;
+    /* Reduced width to make content smaller */
     transform: translateY(-50%);
     padding: 0 20px;
+    /* Optional: Add padding for better spacing inside */
     color: #000000;
 }
 
 .content h1 {
     font-size: 3em;
-    font-weight: 300; /* Sesuaikan jika perlu */
+    font-weight: 300px;
 }
-
-.content b {
-    font-weight: 900;
-}
-
 
 .black-line {
     border: 0;
     height: 2px;
     border-top: 3px solid #000000;
+    /* Thickness of the line */
     background-color: #000000;
-    width: 10%;
+    /* Black color */
+    width: 12%;
+    /* Fixed width */
     margin: 20px 0;
+    /* Margin to center and space out */
     position: relative;
+    /* Keeps it in place relative to its container */
     right: -3px;
 }
 
-.black-line1 {
-    border: 0;
-    height: 2px;
-    border-top: 3px solid #000;
-    background-color: #000;
-    width: 9%;
-    margin: 10px auto;
-    position: relative;
-    top: -20px;
-}
-
 p {
-    font-weight: bold;
-}
-
-.about-p {
-    width: 666px;
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 1.6em;
-    padding: 20px;
-    box-sizing: border-box;
+    font-weight: 550;
+    text-justify: auto;
 }
 
 .btn-black {
     display: inline-block;
     padding: 15px 30px;
     font-size: 18px;
-    font-weight: 600;
-    color: white;
-    background-color: black;
-    border: none;
+    font-weight: 600; /* Bold text */
+    color: white; /* Teks berwarna putih */
+    background-color: black; /* Warna latar belakang tombol hitam */
+    border: none; /* Menghapus border default */
     text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 300px;
+    text-decoration: none; /* Menghapus garis bawah */
+    cursor: pointer; /* Menampilkan pointer saat hover */
+    transition: background-color 0.3s ease; /* Efek transisi saat hover */
+    width: 300px; /* Lebar tombol */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .btn-black:hover {
-    background-color: #333;
+    background-color: #333; /* Warna latar belakang saat hover */
 }
 
-.about {
-    background-color: white;
-    padding: 10px;
-    line-height: 1.6;
-}
-
-.about h3 {
-    margin-top: 55px;
-}
-
-.about span {
-    display: block;
-    margin-bottom: 1em;
-    font-weight: 500;
-}
-
-.gallery-content {
-    background-image: url("/assets/ASET/monika-grabkowska-P1aohbiT-EY-unsplash.jpg");
-    background-color: rgba(0, 0, 0, 0.5);
-    background-blend-mode: darken;
-    width: 100%;
-    height: 630px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 13px;
-    align-items: center;
-}
-
-.gallery-card {
-    align-items: center;
+/* Content About */
+.aboute p{
     text-align: center;
-    border-radius: 18px;
-    margin-top: 80px;
-    padding-bottom: 30px;
-    box-shadow: 0px 0px 3px black;
 }
 
-.font-tiny {
-    font-size: 0.8rem;
-    padding: 0 20px;
+.grid-container {
+    display: grid;
+    place-items: center; /* Menengahkan item secara horizontal dan vertikal */
+    /* height: 100vh; Mengatur tinggi kontainer ke 100% viewport */
+}
+
+.aboute-text {
+    /* padding: 20px; */
+    background-color: lightgray;
+    text-align: center; /* Menengahkan teks di dalam card */
+    width: 300px; /* Atur lebar card sesuai kebutuhan */
+}
+
+/* Content Article */
+.article {
+    background-image: url('/assets/ASET/monika-grabkowska-P1aohbiT-EY-unsplash.jpg');
+    background-color: rgba(0, 0, 0, 0.5); /* Warna overlay hitam dengan transparansi */
+    background-blend-mode: darken; /* Blend mode untuk mempergelap gambar */
+    width: 100%; /* Atur lebar */
+    /* height: 630px; Atur tinggi */
+    padding: 5rem;
+    background-size: cover; /* Sesuaikan ukuran gambar */
+    background-position: center; /* Pusatkan gambar */
+    position: relative;
+    display: flex; /* Menggunakan Flexbox */
+    flex-wrap: wrap; /* Membuat kartu berpindah ke baris berikutnya jika tidak ada ruang */
+    justify-content: center; /* Pusatkan kartu secara horizontal */
+    gap: 13px; /* Jarak antar kartu */
+    align-items: center;
+}
+
+.article-title {
+    font-size: 1.7rem;
+}
+
+.article-text {
+    font-size: 0.9rem;
+    justify-content: center;
+}
+
+.card {
+    padding: 20px; /* Padding untuk card */
+    text-align: center; /* Pusatkan teks di dalam kartu */
+    border-radius: 15px; /* Sudut melengkung */
+    max-width: 270px; /* Lebar maksimum */
+    min-height: 300px; /* Tinggi minimum untuk kartu (pendek) */
+    margin-top: 100px; /* Jarak atas dari galeri */
+}
+
+.hover-info {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+
 }
 
 .card-image {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    margin-top: -110px;
-    margin-bottom: -20px;
+    width: 220px; /* Lebar gambar */
+    height: 220px; /* Tinggi gambar */
+    border-radius: 50%; /* Membuat gambar berbentuk bulat */
+    margin-top: -140px; /* Pindahkan gambar ke atas */
     display: block;
 }
 
-.news-title {
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 50px;
-    font-size: 24px;
-    font-weight: bold;
+/* Content News */
+.news {
+    display: grid;
+    place-items: center; /* Menengahkan item secara horizontal dan vertikal */
+    /* height: 100vh; Mengatur tinggi kontainer ke 100% viewport */
 }
 
-.berita-card {
+.container-news {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 1rem;
+}
+
+.news-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card-big, .news-card {
+    margin-bottom: 15px; /* Jarak antar card */
+}
+
+.aspect-ratio {
+    width: 100%; /* Full width */
+    height: 0;
+    padding-bottom: 66.67%; /* 3:2 aspect ratio */
+    position: relative;
+    overflow: hidden; /* Hide overflow */
+}
+
+.aspect-ratio img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%; /* Cover the full width */
+    height: auto; /* Maintain aspect ratio */
+    min-height: 100%; /* Ensure it fills the container height */
+    transform: translate(-50%, -50%); /* Center the image */
+}
+
+
+.news-card {
     border: none;
+    background-color: white;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Initial box shadow */
+    overflow: hidden; /* Agar konten tidak melampaui sudut bulat */
+    transition: box-shadow 0.3s; /* Efek transisi saat hover */
+    display: flex;
+    flex-direction: column; /* Pastikan konten dalam kolom disusun secara vertikal */
+    justify-content: space-between; /* Memastikan ruang terdistribusi merata */
 }
 
-.card img {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+.news-card-big {
+    border: none;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Initial box shadow */
+    overflow: hidden; /* Agar konten tidak melampaui sudut bulat */
+    transition: box-shadow 0.3s; /* Efek transisi saat hover */
+    display: flex;
+    flex-direction: column; /* Pastikan konten dalam kolom disusun secara vertikal */
+    justify-content: space-between; /* Memastikan ruang terdistribusi merata */
+    height: 97.5%; /* Maintain aspect ratio */
+    /* min-height: 97.5%; Ensure it fills the container height */
+
+}
+
+.news-img-top {
+    border-top-left-radius: 10px; /* Sudut kiri atas bulat */
+    border-top-right-radius: 10px; /* Sudut kanan atas bulat */
     object-fit: cover;
     display: block;
 }
 
-.card-body {
+.news-body {
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
-.card-title {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.card-text {
-    margin-bottom: auto;
-    font-size: 13px;
-    color: #6c757d;
-}
-
-.berita-card .card-title,
-.kecil-card {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.bodis {
+.content-news{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    max-height: 1000px;
+    flex-grow: 1; /* Membuat .news-body mengisi ruang tersisa */
+
+}
+
+.news-body a {
+    margin-top: auto;
+}
+
+.news-title {
+    font-weight: bold;
+}
+
+.news-text {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.news {
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .read-more {
-    align-self: flex-start; /* Pastikan berada di posisi awal dan tidak terpengaruh flex */
     color: #f39c12;
+    font-weight: 600;
     position: relative;
     display: inline-block;
     text-decoration: none;
     margin-top: auto;
+
+}
+
+.card-news-big {
+    color: #f39c12;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    align-self: flex-start; /* Menempatkan tautan di kanan bawah */
+    margin-top: auto; /* Mengatur jarak dari atas agar berada di bawah */
 }
 
 .read-more::after {
     content: '';
     position: absolute;
-    left: 0; /* Awal dari kiri */
-    bottom: -5px; /* Jarak garis dari teks */
-    width: 0; /* Awalnya tidak ada lebar */
-    height: 2px; /* Ketebalan garis bawah */
-    background-color: #f39c12; /* Warna garis */
-    transition: width 0.3s ease;
-}
-
-.read-more:hover::after {
-    width: 100%; /* Mengubah lebar garis menjadi 100% dari lebar teks saat hover */
-    /* Tidak perlu left dan transform di sini */
-}
-
-.read-besar {
-    max-width: max-content; /* Lebar elemen sesuai dengan panjang teks */
-    color: #f39c12;
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 10px; /* Adjust as needed */
-}
-
-.read-besar::after {
-    content: '';
-    position: absolute;
-    left: 0; /* Align to the left */
-    bottom: -5px; /* Position below the text */
+    left: 0;
+    bottom: 0;
     width: 0;
-    height: 2px; /* Thickness of the underline */
-    background-color: #f39c12; /* Underline color */
+    height: 2px; /* Ketebalan garis bawah */
+    background-color: #f39c12; /* Ganti dengan warna yang diinginkan */
     transition: width 0.3s ease, left 0.3s ease;
 }
 
-.read-besar:hover::after {
-    width: 100%; /* Expands to full width on hover */
+.read-more:hover::after {
+    width: 100%;
+    left: 0;
 }
 
-.berita {
-    text-align: left;
+/* Content Gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    border-radius: 10px; /* Radius sudut */
+
 }
 
-.kecil-card {
-    height: 370px;
-    margin: 0 0;
-    overflow: hidden;
-}
-
-.kecil-card img {
-    height: 170px;
-}
-
-.card-panjang {
-    height: 765px;
-}
-
-.galeri-title {
-    text-align: center;
-    margin: 50px 0 50px 0;
+.gallery-title {
+    margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
+    display: grid;
+    place-items: center; /* Menengahkan item secara horizontal dan vertikal */
+    /* height: 100vh; Mengatur tinggi kontainer ke 100% viewport */
 }
 
-.galeri {
-    justify-content: center;
-    background-color: white;
-    gap: 5px;
-    margin-top: 10px;
+.gallery .col-md-3 {
+    padding: 5px; /* Adjust the padding to control the spacing */
 }
 
-.galeri img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    margin-bottom: 10px;
+.rounded-border {
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 18px; /* Rounded corners */
+    overflow: hidden; /* Ensure children are contained */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Box shadow */
 }
 
-.image-container {
+.square-crop {
+    width: 100%; /* Make it responsive */
+    height: 0;
+    padding-bottom: 100%; /* Maintains a 1:1 aspect ratio */
     position: relative;
-    overflow: hidden;
-    width: 100%;
-    border-radius: 15px;
-    padding-bottom: 100%;
-    background-color: #f8f8f8;
+    overflow: hidden; /* Ensures any overflow is hidden */
 }
 
-.image-container img {
+
+.square-crop img {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Adjust based on your image dimensions */  /* auto */
+    height: 100%; /* Adjust based on your image dimensions */
     object-fit: cover;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Center the image */
 }
 
 .image-shadow {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s;
-}
-
-.image-shadow:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.galeri-btn {
-    display: block;
-    width: 250px; /* Set the width as needed */
-    margin: 30px auto; /* Center the button */
-    padding: 10px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    border: none;
-    text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s; /* Smooth hover effect */
-    font-weight: 500;
-}
-
-.galeri-btn:hover {
-    background-color: darkgray; /* Change on hover */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Image shadow */
 }
 
 /* Footer */
@@ -429,7 +443,6 @@ p {
     padding-top: 20px;
     margin-top: 20px;
 }
-
 .contact-info li {
     display: flex;
     align-items: center;
@@ -464,10 +477,43 @@ p {
     font-weight: bold;
     text-decoration: none;
 }
-
 .btn-more:hover {
     background-color: #555; /* Change to a lighter shade */
     color: #fff; /* Maintain text color */
     transition: background-color 0.3s; /* Smooth transition */
 }
 
+
+/* Adjust gallery for smaller devices */
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items */
+}
+
+/* section UI */
+
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .card-image {
+            width: 100%; /* Make image responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .news-img-top {
+            width: 100%; /* Responsive news images */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .square-crop img {
+            width: 100%; /* Responsive gallery images */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .news-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Atur agar kolom pertama tetap di atas */
+        }
+    }
