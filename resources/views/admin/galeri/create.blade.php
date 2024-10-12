@@ -16,6 +16,16 @@
                     <form action="{{ route('galeri.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
+                            <label for="foto" class="form-label">Slider</label>
+                            <input type="file" name="slider" class="form-control @error('slider') is-invalid @enderror"
+                                id="inputUserstatus" placeholder="slider">
+                            @error('slider')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
                             <label for="foto" class="form-label">Image</label>
                             <input type="file" name="img" class="form-control @error('img') is-invalid @enderror"
                                 id="inputUserstatus" placeholder="img">

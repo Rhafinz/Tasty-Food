@@ -2,46 +2,37 @@
 @section('content')
     <div class="card m-4">
         <div class="card-header">
-            <h3 class="card-title">Kontak</h3>
-            <div class="float-end">
-                @php
-                    $kontakCount = App\Models\Kontak::count(); // Hitung jumlah record
-                @endphp
-
-                @if ($kontakCount < 1)
-                    <a href="{{ route('kontak.create') }}" class="btn btn-sm btn-primary">Add</a>
-                @else
-                    <button class="btn btn-sm btn-secondary" disabled>Maksimal Data Hanya Satu</button>
-                @endif
-            </div>
+            <h3 class="card-title">Message</h3>
         </div> <!-- /.card-header -->
         <div class="card-body p-0">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th style="width: 10px">#</th>
+                        <th>Subject</th>
+                        <th>Name</th>
                         <th>Email</th>
-                        <th>No Telepon</th>
-                        <th>Alamat</th>
+                        <th>Message</th>
                         <th style="text-align: center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @php $no = 1; @endphp
-                    @forelse ($kontaks as $data)
+                    @forelse ($message as $data)
                         <tr class="align-middle">
                             <td>{{ $no++ }}</td>
+                            <td>{{ $data->subject }}</td>
+                            <td>{{ $data->name }}</td>
                             <td>{{ $data->email }}</td>
-                            <td>{{ $data->no_telp }}</td>
-                            <td>{{ $data->alamat }}</td>
+                            <td>{{ $data->message }}</td>
                             <td class="text-center">
-                                <form action="{{ route('kontak.destroy', $data->id) }}" method="POST">
+                                <form action="{{ route('message.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="action-buttons-grid">
-                                        <a href="{{ route('kontak.edit', $data->id) }}"
-                                            class="btn btn-sm btn-success">Edit</a>
-                                        <a href="{{ route('kontak.destroy', $data->id) }}" class="btn btn-sm btn-danger"
+                                        {{-- <a href="{{ route('message.edit', $data->id) }}"
+                                            class="btn btn-sm btn-success">Edit</a> --}}
+                                        <a href="{{ route('message.destroy', $data->id) }}" class="btn btn-sm btn-danger"
                                             data-confirm-delete="true">Delete</a>
                                     </div>
                                 </form>
@@ -55,7 +46,7 @@
                     @endforelse
                 </tbody>
             </table>
-            {{-- {!! $kontakes->withQueryString()->links('pagination::bootstrap-4') !!} --}}
+            {{-- {!! $galeries->withQueryString()->links('pagination::bootstrap-4') !!} --}}
         </div> <!-- /.card-body -->
     </div> <!-- /.card -->
 @endsection

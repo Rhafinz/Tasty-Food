@@ -12,6 +12,7 @@
                 <thead>
                     <tr>
                         <th style="width: 10px">#</th>
+                        <th>Slider</th>
                         <th>Images</th>
                         <th style="text-align: center">Action</th>
                     </tr>
@@ -22,7 +23,11 @@
                         <tr class="align-middle">
                             <td>{{ $no++ }}</td>
                             <td>
-                                <img src="{{ asset('/storage/galeries/' . $data->img) }}" class="rounded"
+                                <img src="{{ asset('/storage/galeries/slider/' . $data->slider) }}" class="rounded"
+                                    style="width: 150px">
+                            </td>
+                            <td>
+                                <img src="{{ asset('/storage/galeries/img/' . $data->img) }}" class="rounded"
                                     style="width: 150px">
                             </td>
                             <td class="text-center">

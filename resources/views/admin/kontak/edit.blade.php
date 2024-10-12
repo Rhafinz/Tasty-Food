@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="card m-4 card-primary card-outline mb-4">
+    <div class="card m-4 card-success card-outline mb-4">
         <div class="card-header">
             <h3 class="card-title">Kontak</h3>
             <div class="float-end">
@@ -18,7 +18,7 @@
                 @method('PUT')
                 <div class="mb-3">
                     <label for="foto" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                    <input type="email" name="email" value="{{ old('email', $kontaks->email) }}" class="form-control @error('email') is-invalid @enderror"
                         id="inputUserstatus" placeholder="email">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="foto" class="form-label">No Telepon</label>
-                    <input type="text" inputmode="numeric" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror"
+                    <input type="text" inputmode="numeric" value="{{ old('no_telp', $kontaks->no_telp) }}" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror"
                         id="inputUserstatus" placeholder="No Telepon">
                     @error('no_telp')
                         <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                 <div class="mb-3">
                     <label for="alamat" class="form-label">Alamat</label>
                     <textarea name="alamat" cols="20" rows="5" class="form-control @error('alamat') is-invalid @enderror"
-                        id="inputUserstatus" placeholder="Alamat"></textarea>
+                        id="inputUserstatus" placeholder="Alamat">{{ old('alamat', $kontaks->alamat) }}</textarea>
                     @error('alamat')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

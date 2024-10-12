@@ -48,6 +48,13 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"> <a href="{{ route('message.index') }}" class="nav-link"> <i
+                                    class="nav-icon bi bi-circle"></i>
+                                <p>Pesan</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul> <!--end::Sidebar Menu-->
         </nav>

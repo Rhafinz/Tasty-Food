@@ -18,7 +18,7 @@ class BeritaController extends Controller
         $beritas = Berita::latest()->paginate();
 
         confirmDelete("Delete", "Are You Sure?");
-        return view('admin.berita.index', data: compact('beritas'));
+        return view('admin.berita.index', compact('beritas'));
     }
 
     /**
@@ -48,7 +48,7 @@ class BeritaController extends Controller
         $image->storeAs('public/beritas', $image->hashName());
         $beritas->image = $image->hashName();
         $beritas->save();
-        Alert()->success('Success', 'Data Berhasil Di Simpan')->autoClose(2000);
+        Alert()->success('Success', 'Data Berhasil Di Simpan');
         return redirect()->route('berita.index');
     }
 
@@ -89,7 +89,7 @@ class BeritaController extends Controller
         Storage::delete('public/beritas/' . $beritas->image);
         $beritas->image = $image->hashName();
         $beritas->save();
-        Alert()->success('Success', 'Data Berhasil Di Edit')->autoClose(2000);
+        Alert()->success('Success', 'Data Berhasil Di Edit');
         return redirect()->route('berita.index');
     }
 

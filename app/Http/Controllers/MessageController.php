@@ -8,22 +8,38 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
+    public function index()
+    {
+        $message = Message::latest()->paginate();
+
+        confirmDelete("Delete", "Apakah Anda Yakin Menghapus Data Ini?");
+        return view('admin.message.index', data: compact('message'));
+    }
+
     public function store(Request $request)
     {
         // ADD Message
-        $this->validate( $request, [
-            'name'=>'required',
-            'email'=>'required',
-            'message'=>'required',
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
         ]);
 
         $message = new Message();
-        $message->name =$request->name;
-        $message->email =$request->email;
-        $message->message =$request->message;
+        $message->name = $request->name;
+        $message->email = $request->email;
+        $message->message = $request->message;
         $message->save();
-        Alert::success('Success', 'Your message has been sent successfully!');
+        toast()->success('Success', 'Pesan Sudah Di Kirim');
 
         return redirect()->route('kontak');
+    }
+
+    public function destroy($id)
+    {
+        $message = Message::findOrFail($id);
+        $message->delete();
+        toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
+        return redirect()->route('message.index');
     }
 }

@@ -48,7 +48,7 @@ class TentangController extends Controller
         $image->storeAs('public/tentangs', $image->hashName());
         $tentangs->image = $image->hashName();
         $tentangs->save();
-        Alert()->success('Success', 'Data Berhasil Di Simpan')->autoClose(2000);
+        Alert()->success('Success', 'Data Berhasil Di Simpan');
         return redirect()->route('tentang.index');
     }
 
@@ -89,7 +89,7 @@ class TentangController extends Controller
         Storage::delete('public/tentangs/' . $tentangs->image);
         $tentangs->image = $image->hashName();
         $tentangs->save();
-        Alert()->success('Success', 'Data Berhasil Di Edit')->autoClose(2000);
+        Alert()->success('Success', 'Data Berhasil Di Edit');
         return redirect()->route('tentang.index');
     }
 

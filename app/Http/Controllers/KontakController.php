@@ -17,7 +17,7 @@ class KontakController extends Controller
         $kontaks = Kontak::latest()->paginate();
 
         confirmDelete("Delete", "Are You Sure?");
-        return view('admin.kontak.index', data: compact('kontaks'));
+        return view('admin.kontak.index', compact('kontaks'));
     }
 
     /**

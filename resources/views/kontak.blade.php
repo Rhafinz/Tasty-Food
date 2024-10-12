@@ -9,7 +9,7 @@
             @csrf
             <div class="left-column">
                 <div class="form-group">
-                    <input type="text" placeholder="Subject" class="input-field" name="subject">
+                    <input type="text" placeholder="Subject" class="input-field" name="subject" value="example@gmail.com">
                 </div>
                 <div class="form-group">
                     <input type="text" placeholder="Name" class="input-field" name="name">
@@ -30,32 +30,34 @@
     </section>
 
     <section class="info-section">
+        @php $kontaks = App\Models\Kontak::first(); @endphp <!-- Ambil satu kontak -->
         <div class="container mb-3">
             <div class="row">
-                <div class="col-md-4  contact-info">
+                <div class="col-md-4 contact-info">
                     <div class="icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h5>EMAIL</h5>
-                    <p class="inpo">tastyfood@gmail.com</p>
+                    <p class="inpo">{{ $kontaks->email }}</p> <!-- Menampilkan email -->
                 </div>
                 <div class="col-md-4 contact-info">
                     <div class="icon">
                         <i class="fas fa-phone"></i>
                     </div>
                     <h5>PHONE</h5>
-                    <p class="inpo">+62 812 3456 7890</p>
+                    <p class="inpo">{{ $kontaks->no_telp }}</p> <!-- Menampilkan nomor telepon -->
                 </div>
                 <div class="col-md-4 contact-info">
                     <div class="icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <h5>LOCATION</h5>
-                    <p class="inpo">Kota Bandung, Jawa Barat</p>
+                    <p class="inpo">{{ $kontaks->alamat }}</p> <!-- Menampilkan alamat -->
                 </div>
             </div>
         </div>
     </section>
+
 
     {{-- map sementara --}}
     <section class="map">
