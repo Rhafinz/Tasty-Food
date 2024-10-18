@@ -45,12 +45,6 @@
                             loading="lazy">
                     </div>
                 @endforeach
-                @foreach ($galeries as $item)
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <img src="{{ asset('/storage/galeries/img/' . $item->img) }}" class="rounded-img" alt="Food"
-                            loading="lazy">
-                    </div>
-                @endforeach
             </div>
         </div>
     </section>

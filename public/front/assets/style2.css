@@ -630,6 +630,7 @@ html {
         height: 300px; /* Lebih kecil lagi untuk layar yang sangat sempit */
     }
 }
+
 /* Footer */
 .footer {
     padding: 5rem;
@@ -682,6 +683,10 @@ html {
     margin-top: 15px;
 }
 
+.custom-paragraph {
+    padding-right: 190px;
+}
+
 /* Contact Info */
 .contact-info li,
 .list-unstyled li {
@@ -699,8 +704,9 @@ html {
 /* Button and Other Styles */
 .botten {
     display: grid;
+    text-decoration: none;
     place-items: center;
-    padding-bottom: 15px;
+    padding-top: 50px;
 }
 
 .btn-more {
@@ -709,6 +715,7 @@ html {
     background-color: #000;
     color: #fff;
     border: none;
+    text-decoration: none;
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: bold;

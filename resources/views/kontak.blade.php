@@ -9,7 +9,8 @@
             @csrf
             <div class="left-column">
                 <div class="form-group">
-                    <input type="text" placeholder="Subject" class="input-field" name="subject" value="example@gmail.com">
+                    <input type="text" placeholder="Subject" class="input-field" name="subject"
+                        value="{{ old('subject', 'example@gmail.com') }}">
                 </div>
                 <div class="form-group">
                     <input type="text" placeholder="Name" class="input-field" name="name">
@@ -58,11 +59,16 @@
         </div>
     </section>
 
-
-    {{-- map sementara --}}
+    {{-- map --}}
     <section class="map">
         <div id="map">
-
+            @php
+                $kontak = App\Models\Kontak::first();
+            @endphp
+            <script>
+                // Ambil alamat dari database yang dikirim melalui controller
+                var alamat="{{ $kontak->alamat }}" ;
+            </script>
         </div>
     </section>
 @endsection

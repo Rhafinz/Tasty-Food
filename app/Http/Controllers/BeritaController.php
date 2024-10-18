@@ -41,7 +41,7 @@ class BeritaController extends Controller
             'image' => 'image|mimes:jpeg,jpg,png',
         ]);
 
-        $beritas = new berita($request->all());
+        $beritas = new Berita($request->all());
         $beritas->judul = $request->judul;
         $beritas->deskripsi = $request->deskripsi;
         $image = $request->file('image');

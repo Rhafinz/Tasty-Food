@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kontak;
+use App\Models\Kontak;
 use ALert;
 use Validator;
 use Illuminate\Http\Request;

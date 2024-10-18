@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tentang;
+use App\Models\Tentang;
 use Validator;
 use Alert;
-use Storage;
 use Illuminate\Http\Request;
 
 class TentangController extends Controller
@@ -37,16 +36,13 @@ class TentangController extends Controller
     {
         $this->validate($request, [
             'judul' => 'required',
-            'deskripsi' => 'required',
-            'image' => 'image|mimes:jpeg,jpg,png',
+            'konten' => 'required',
         ]);
 
         $tentangs = new Tentang($request->all());
         $tentangs->judul = $request->judul;
+        $tentangs->konten = $request->konten;
         $tentangs->deskripsi = $request->deskripsi;
-        $image = $request->file('image');
-        $image->storeAs('public/tentangs', $image->hashName());
-        $tentangs->image = $image->hashName();
         $tentangs->save();
         Alert()->success('Success', 'Data Berhasil Di Simpan');
         return redirect()->route('tentang.index');
@@ -77,17 +73,13 @@ class TentangController extends Controller
         // vallidate form
         $this->validate($request, [
             'judul' => 'required',
-            'deskripsi' => 'required',
-            'image' => 'image|mimes:jpeg,jpg,png',
+            'konten' => 'required',
         ]);
 
         $tentangs = Tentang::findOrFail($id);
         $tentangs->judul = $request->judul;
+        $tentangs->konten = $request->konten;
         $tentangs->deskripsi = $request->deskripsi;
-        $image = $request->file('image');
-        $image->storeAs('public/tentangs', $image->hashName());
-        Storage::delete('public/tentangs/' . $tentangs->image);
-        $tentangs->image = $image->hashName();
         $tentangs->save();
         Alert()->success('Success', 'Data Berhasil Di Edit');
         return redirect()->route('tentang.index');
@@ -101,7 +93,6 @@ class TentangController extends Controller
         $tentangs = Tentang::findOrFail($id);
         $tentangs->delete();
         toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
-        Storage::delete('public/tentangs/' . $tentangs->image);
         return redirect()->route('tentang.index');
     }
 }

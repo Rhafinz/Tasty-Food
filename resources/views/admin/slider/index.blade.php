@@ -2,9 +2,9 @@
 @section('content')
     <div class="card m-4">
         <div class="card-header">
-            <h3 class="card-title">Tentang</h3>
+            <h3 class="card-title">Slider</h3>
             <div class="float-end">
-                <a href="{{ route('tentang.create') }}" class="btn btn-sm btn-primary">Add</a>
+                <a href="{{ route('slider.create') }}" class="btn btn-sm btn-primary">Add</a>
             </div>
         </div> <!-- /.card-header -->
         <div class="card-body p-0">
@@ -12,28 +12,27 @@
                 <thead>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>Judul</th>
-                        <th>Konten</th>
-                        <th>Deskripsi</th>
+                        <th>Slider</th>
                         <th style="text-align: center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @php $no = 1; @endphp
-                    @forelse ($tentangs as $data)
+                    @forelse ($slideres as $data)
                         <tr class="align-middle">
                             <td>{{ $no++ }}</td>
-                            <td>{{ $data->judul }}</td>
-                            <td>{{ $data->konten }}</td>
-                            <td>{{ $data->deskripsi }}</td>
+                            <td>
+                                <img src="{{ asset('/storage/sliders/' . $data->slider) }}" class="rounded"
+                                    style="width: 150px">
+                            </td>
                             <td class="text-center">
-                                <form action="{{ route('tentang.destroy', $data->id) }}" method="POST">
+                                <form action="{{ route('slider.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="action-buttons-grid">
-                                        <a href="{{ route('tentang.edit', $data->id) }}"
-                                            class="btn btn-sm btn-success mb-3">Edit</a>
-                                        <a href="{{ route('tentang.destroy', $data->id) }}" class="btn btn-sm btn-danger"
+                                        <a href="{{ route('slider.edit', $data->id) }}"
+                                            class="btn btn-sm btn-success">Edit</a>
+                                        <a href="{{ route('slider.destroy', $data->id) }}" class="btn btn-sm btn-danger"
                                             data-confirm-delete="true">Delete</a>
                                     </div>
                                 </form>
@@ -47,7 +46,7 @@
                     @endforelse
                 </tbody>
             </table>
-            {{-- {!! $galeries->withQueryString()->links('pagination::bootstrap-4') !!} --}}
+            {{-- {!! $slideres->withQueryString()->links('pagination::bootstrap-4') !!} --}}
         </div> <!-- /.card-body -->
     </div> <!-- /.card -->
 @endsection

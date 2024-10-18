@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\galery;
+use App\Models\Galery;
 use Illuminate\Http\Request;
 use Storage;
 use Validator;
@@ -35,17 +35,13 @@ class GaleryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'slider' => 'image|mimes:jpeg,jpg,png',
             'img' => 'image|mimes:jpeg,jpg,png',
         ]);
 
         $galeries = new Galery($request->all());
         $img = $request->file('img');
-        $slider = $request->file('slider');
         $img->storeAs('public/galeries/img', $img->hashName());
-        $slider->storeAs('public/galeries/slider', $slider->hashName());
         $galeries->img = $img->hashName();
-        $galeries->slider = $slider->hashName();
         $galeries->save();
         Alert()->success('Success', 'Data Berhasil Di Simpan');
         return redirect()->route('galeri.index');
@@ -96,7 +92,6 @@ class GaleryController extends Controller
         $galeries = Galery::findOrFail($id);
         $galeries->delete();
         toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
-        Storage::delete('public/galeries/slider/' . $galeries->slider);
         Storage::delete('public/galeries/img/' . $galeries->img);
         return redirect()->route('galeri.index');
     }

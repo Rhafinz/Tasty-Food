@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('content')
     {{-- content About --}}
-    <section class="aboute mt-3" style="background-color: #ffffff">
+    <section class="aboute mt-3">
         <div class="grid-container p-3 text-center ">
             <h2 class="m-3"><b>TENTANG KAMI</b></h2>
             <div class=" abouteText col-6 mx-center my-4 text-center">
@@ -11,7 +11,6 @@
                     Fusce sit amet viverra ante.</p>
             </div>
             <div class="black-line mb-3"></div><br>
-
         </div>
     </section>
 
@@ -92,7 +91,8 @@
                                     </div>
                                     <div class="news-body">
                                         <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo,
+                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Praesent commodo,
                                         </p>
                                         <a href="#" class="read-more">Baca selengkapnya</a>
                                     </div>
@@ -107,7 +107,8 @@
                                     </div>
                                     <div class="news-body">
                                         <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo,
+                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Praesent commodo,
                                         </p>
                                         <a href="#" class="read-more">Baca selengkapnya</a>
                                     </div>
@@ -122,7 +123,8 @@
                                     </div>
                                     <div class="news-body">
                                         <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo,
+                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Praesent commodo,
                                         </p>
                                         <a href="#" class="read-more">Baca selengkapnya</a>
                                     </div>
@@ -137,7 +139,8 @@
                                     </div>
                                     <div class="news-body">
                                         <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo,
+                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Praesent commodo,
                                         </p>
                                         <a href="#" class="read-more">Baca
                                             selengkapnya</a>
@@ -158,22 +161,19 @@
                 <h2 class="m-3"><b>GALLERI KAMI</b></h2>
             </div>
             <div class="row gallery">
-
                 @php
                     $galery = App\Models\Galery::orderBy('id', 'asc')->get();
                 @endphp
-
                 @foreach ($galery->take(6) as $item)
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-4">
                         <div class="rounded-border">
                             <div class="square-crop">
-                                <img src="{{ asset('/storage/galeries/' . $item->img) }}"
+                                <img src="{{ asset('/storage/galeries/img/' . $item->img) }}"
                                     class="rounded img-fluid image-shadow">
                             </div>
                         </div>
                     </div>
                 @endforeach
-
             </div>
             <div class="botten">
                 <a class="btn-more" href="{{ route('galeri') }}">

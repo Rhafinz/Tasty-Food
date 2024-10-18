@@ -22,11 +22,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], fu
     Route::resource('berita', App\Http\Controllers\BeritaController::class);
     Route::resource('kontak', App\Http\Controllers\KontakController::class);
     Route::resource('message', App\Http\Controllers\MessageController::class);
+    Route::resource('slider', App\Http\Controllers\SliderController::class);
 });
 
 Route::get('/', [FrontController::class, 'home']);
 Route::get('galeri', [FrontController::class, 'galeri'])->name('galeri');
 Route::get('tentang', [FrontController::class, 'tentang'])->name('tentang');
 Route::get('berita', [FrontController::class, 'berita'])->name('berita');
+Route::get('berita/load-more', [FrontController::class, 'loadMore'])->name('newsLoad');
 Route::get('kontak', [FrontController::class, 'kontak'])->name('kontak');
 Route::post('kontak',[App\Http\Controllers\MessageController::class,'store'])->name('message.store');

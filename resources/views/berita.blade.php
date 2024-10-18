@@ -32,30 +32,70 @@
         </div>
     </section>
 
-<section class="news-other">
-    <div class="container">
-        <h3 class="news-other-title"><b>BERITA LAINNYA</b></h3>
-        <div class="row g-5">
-            @php
-                $beritas = App\Models\Berita::orderBy('id', 'asc')->get();
-            @endphp
-
-            @foreach ($beritas as $item)
-                <div class="col-md-6 col-lg-3"> <!-- 4 kolom per baris pada layar besar, 2 kolom pada layar kecil -->
-                    <div class="card berita-card distance-card">
-                        <img alt="Fresh vegetables on a table" class="card-img-top" src="{{ asset('/storage/beritas/' . $item->image) }}" />
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ $item->judul }}</h5>
-                            <p class="card-text">{{ $item->deskripsi }}</p>
-                            <a class="read-more" href="#">
-                                Baca selengkapnya
-                            </a>
+    <section class="news-other">
+        <div class="container">
+            <h3 class="news-other-title"><b>BERITA LAINNYA</b></h3>
+            <div class="row g-5" id="news-container">
+                @php
+                    $news = App\Models\Berita::orderBy('id', 'asc')->paginate(4);
+                    // $duplicatedNews = $news->concat($news)
+                @endphp
+                @foreach ($news as $item)
+                    <div class="col-md-6 col-lg-3"> <!-- 4 kolom per baris pada layar besar, 2 kolom pada layar kecil -->
+                        <div class="card berita-card distance-card">
+                            <img alt="Fresh vegetables on a table" class="card-img-top"
+                                src="{{ asset('/storage/beritas/' . $item->image) }}" />
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ $item->judul }}</h5>
+                                <p class="card-text">{{ $item->deskripsi }}</p>
+                                <a class="read-more" href="#">
+                                    Baca selengkapnya
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+            <div class="botten">
+                @if ($news->hasMorePages())
+                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-more text-white">LIHAT LEBIH BANYAK</a>
+                @endif
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <script>
+        let newsSkip = {{ $news->count() }}; // Mulai dengan jumlah berita yang ada
+
+        function loadMore(event) {
+            event.preventDefault(); // Mencegah perilaku default link
+            fetch(`{{ route('newsLoad') }}?skip=${newsSkip}`)
+                .then(response => response.json())
+                .then(data => {
+                    const newsContainer = document.getElementById('news-container');
+                    data.forEach(item => {
+                        const newItem = document.createElement('div');
+                        newItem.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
+                        newItem.innerHTML = `
+                    <div class="card berita-card distance-card">
+                            <img alt="Fresh vegetables on a table" class="card-img-top"
+                                src="{{ asset('/storage/beritas/') }}/${item.image}" />
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ $item->judul }}</h5>
+                                <p class="card-text">{{ $item->deskripsi }}</p>
+                                <a class="read-more" href="#">
+                                    Baca selengkapnya
+                                </a>
+                            </div>
+                        </div>`;
+                        newsContainer.appendChild(newItem);
+                    });
+                    newsSkip += data.length; // Increment skip untuk pemuatan berikutnya
+                    if (data.length < 4) {
+                        document.getElementById('loadMore').style.display = 'none'; // Sembunyikan jika tidak ada lagi
+                    }
+                })
+                .catch(error => console.error('Error loading more news:', error));
+        }
+    </script>
 @endsection

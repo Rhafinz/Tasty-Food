@@ -11,32 +11,54 @@ html {
     overflow-x: hidden;
 }
 
+
 /* header */
-.background-image {
+.header {
     background-size: cover;
+    background-attachment: fixed;
     background-position: center;
     height: 100%;
     width: 100%;
     position: relative;
-    color: white;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    background-color: #f4f4f4;
+    overflow: hidden;
 }
+
 
 .hero {
     background-image: url('/assets/ASET/img-4-2000x2000.png');
     background-size: cover;
-    height: 125vh;
-    width: 125vh;
+    height: 130vh; /* Tinggi awal, bisa disesuaikan */
+    width: 130vh; /* Lebar awal, bisa disesuaikan */
     position: absolute;
-    top: -144px;
-    right: -195px;
+    top: -220px; /* Offset vertikal, bisa disesuaikan */
+    right: -220px; /* Offset horizontal, bisa disesuaikan */
     color: white;
     z-index: 1;
 }
 
+/* Media Query untuk perangkat lebih kecil */
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh; /* Sesuaikan tinggi untuk perangkat kecil */
+        width: 60vw; /* Sedikit kurangi lebar di perangkat kecil */
+        right: -20px; /* Atur offset agar tidak menghalangi */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 60vh; /* Sesuaikan tinggi lebih kecil untuk ponsel */
+        width: 70vw; /* Lebar diatur lebih kecil */
+        right: -10px; /* Offset ke kanan lebih kecil di ponsel */
+    }
+}
+
+
+/* Navbar */
 .navbar-brand {
     font-size: 1.8rem;
+    font-weight: 700;
     font-family: Arial, sans-serif;
     margin-left: -80px;
     color: #000000;
@@ -45,11 +67,6 @@ html {
 .navbar {
     background: transparent;
     padding: 30px;
-}
-
-.container h1 {
-    font-size: 3em;
-    font-weight: bold;
 }
 
 .navbar-nav .nav-link {
@@ -62,18 +79,15 @@ html {
     color: #8b8b8b;
 }
 
+/* Content */
 .content {
     position: absolute;
     top: 365px;
     left: 50px;
-    /* Adjusted to provide more space on the sides */
     right: 10%;
-    /* Adjusted to provide more space on the sides */
     max-width: 655px;
-    /* Reduced width to make content smaller */
     transform: translateY(-50%);
     padding: 0 20px;
-    /* Optional: Add padding for better spacing inside */
     color: #000000;
 }
 
@@ -82,50 +96,131 @@ html {
     font-weight: 300px;
 }
 
+/* Black Line */
 .black-line {
     border: 0;
     height: 2px;
     border-top: 3px solid #000000;
-    /* Thickness of the line */
     background-color: #000000;
-    /* Black color */
     width: 12%;
-    /* Fixed width */
     margin: 20px 0;
-    /* Margin to center and space out */
     position: relative;
-    /* Keeps it in place relative to its container */
     right: -3px;
 }
 
+/* Paragraph */
 p {
     font-weight: 550;
     text-justify: auto;
 }
 
+/* Button */
 .btn-black {
     display: inline-block;
     padding: 15px 30px;
     font-size: 18px;
-    font-weight: 600; /* Bold text */
-    color: white; /* Teks berwarna putih */
-    background-color: black; /* Warna latar belakang tombol hitam */
-    border: none; /* Menghapus border default */
+    font-weight: 600;
+    color: white;
+    background-color: black;
+    border: none;
     text-align: center;
-    text-decoration: none; /* Menghapus garis bawah */
-    cursor: pointer; /* Menampilkan pointer saat hover */
-    transition: background-color 0.3s ease; /* Efek transisi saat hover */
-    width: 300px; /* Lebar tombol */
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .btn-black:hover {
-    background-color: #333; /* Warna latar belakang saat hover */
+    background-color: #333;
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        padding: 20px;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+        margin-left: 0;
+    }
+
+    .navbar-nav .nav-link {
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
+    /* Content */
+    .content {
+        top: 50%;
+        left: 20px;
+        right: 20px;
+        max-width: 100%;
+        padding: 0 15px;
+        transform: translateY(-50%);
+    }
+
+    .content h1 {
+        font-size: 2.2em;
+    }
+
+    /* Button */
+    .btn-black {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Navbar */
+    .navbar {
+        padding: 15px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+        margin-left: 0;
+    }
+
+    .navbar-nav .nav-link {
+        margin-right: 5px;
+        margin-top: 5px;
+        font-size: 0.9rem;
+    }
+
+    /* Content */
+    .content {
+        top: 50%;
+        left: 10px;
+        right: 10px;
+        max-width: 100%;
+        padding: 0 10px;
+        transform: translateY(-50%);
+    }
+
+    .content h1 {
+        font-size: 1.8em;
+    }
+
+    /* Button */
+    .btn-black {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px 15px;
+    }
 }
 
 /* Content About */
+.aboute {
+    background-color: white;
+    position: relative;
+}
+
 .aboute p{
     text-align: center;
 }
@@ -414,6 +509,12 @@ p {
 .footer p {
     color: #b5b5b5;
 }
+
+.custom-paragraph {
+    padding-right: 190px;
+}
+
+
 .footer a {
     color: #ffffff;
     text-decoration: none;

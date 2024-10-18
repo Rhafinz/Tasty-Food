@@ -78,7 +78,7 @@
                         </div> <!-- /.col -->
                         <div class="col-12 mb-3">
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Register</button>
+                                <button type="submit" class="btn btn-primary">Login</button>
                             </div>
                         </div> <!-- /.col -->
                     </div> <!--end::Row-->
