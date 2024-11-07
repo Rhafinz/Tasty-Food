@@ -17,7 +17,7 @@ class TentangController extends Controller
         $tentangs = Tentang::latest()->paginate();
 
         confirmDelete("Delete", "Are You Sure?");
-        return view('admin.tentang.index', data: compact('tentangs'));
+        return view('admin.tentang.index', compact('tentangs'));
     }
 
     /**

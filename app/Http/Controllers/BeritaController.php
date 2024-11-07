@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\berita;
+use App\Models\Berita;
 use Validator;
 use Alert;
 use Storage;
@@ -57,7 +57,8 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        //
+        $beritas = Berita::findOrFail($id);
+        return view('admin.berita.show', compact('beritas'));
     }
 
     /**
@@ -78,17 +79,25 @@ class BeritaController extends Controller
         $this->validate($request, [
             'judul' => 'required',
             'deskripsi' => 'required',
-            'image' => 'image|mimes:jpeg,jpg,png',
+            'image' => 'image|nullable|mimes:jpeg,jpg,png',
         ]);
 
         $beritas = Berita::findOrFail($id);
         $beritas->judul = $request->judul;
         $beritas->deskripsi = $request->deskripsi;
-        $image = $request->file('image');
-        $image->storeAs('public/beritas', $image->hashName());
-        Storage::delete('public/beritas/' . $beritas->image);
-        $beritas->image = $image->hashName();
+
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            Storage::delete('public/beritas/' . $beritas->image);
+
+            // Simpan gambar baru
+            $image = $request->file('image');
+            $image->storeAs('public/beritas', $image->hashName());
+            $beritas->image = $image->hashName();
+        }
+
         $beritas->save();
+
         Alert()->success('Success', 'Data Berhasil Di Edit');
         return redirect()->route('berita.index');
     }

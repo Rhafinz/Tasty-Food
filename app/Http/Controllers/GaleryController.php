@@ -40,7 +40,7 @@ class GaleryController extends Controller
 
         $galeries = new Galery($request->all());
         $img = $request->file('img');
-        $img->storeAs('public/galeries/img', $img->hashName());
+        $img->storeAs('public/galeries', $img->hashName());
         $galeries->img = $img->hashName();
         $galeries->save();
         Alert()->success('Success', 'Data Berhasil Di Simpan');
@@ -77,7 +77,7 @@ class GaleryController extends Controller
         $galeries = Galery::findOrFail($id);
         $img = $request->file('img');
         $img->storeAs('public/galeries', $img->hashName());
-        Storage::delete('public/galeries/' . $galeries->image);
+        Storage::delete('public/galeries/' . $galeries->img);
         $galeries->img = $img->hashName();
         $galeries->save();
         Alert()->success('Success', 'Data Berhasil Di Edit');
@@ -92,7 +92,7 @@ class GaleryController extends Controller
         $galeries = Galery::findOrFail($id);
         $galeries->delete();
         toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
-        Storage::delete('public/galeries/img/' . $galeries->img);
+        Storage::delete('public/galeries/' . $galeries->img);
         return redirect()->route('galeri.index');
     }
 }

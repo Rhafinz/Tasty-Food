@@ -19,7 +19,7 @@
                         <div class="mb-3">
                             <label for="foto" class="form-label">Slider</label>
                             <input type="file" name="slider" class="form-control @error('slider') is-invalid @enderror"
-                                id="inputUserstatus" placeholder="slider" value="{{old($slideres->slider)}}">
+                                id="inputUserstatus" placeholder="slider" value="{{old($sliders->slider)}}">
                             @error('slider')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

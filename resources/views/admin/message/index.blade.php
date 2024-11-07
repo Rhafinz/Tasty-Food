@@ -13,6 +13,8 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Message</th>
+                        <th>Kapan Pesan Dibuat</th>
+                        {{-- <th>Status</th> --}}
                         <th style="text-align: center">Action</th>
                     </tr>
                 </thead>
@@ -25,6 +27,17 @@
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->message }}</td>
+                            <td>{{ $data->created_at ? $data->created_at->setTimezone('Asia/Jakarta')->format('d M Y H:i') : 'N/A' }}</td>
+                            {{-- <td>
+                                @if ($data->is_read)
+                                    <i class="fa-regular fa-circle-check text-success"></i>
+                                    <span class="text-success">Sudah Dibaca</span>
+                                @else
+                                    <i class="fa-regular fa-circle-xmark text-danger"></i>
+                                    <span class="text-danger">Belum Dibaca</span>
+                                @endif
+                            </td> --}}
+
                             <td class="text-center">
                                 <form action="{{ route('message.destroy', $data->id) }}" method="POST">
                                     @csrf
@@ -32,6 +45,8 @@
                                     <div class="action-buttons-grid">
                                         {{-- <a href="{{ route('message.edit', $data->id) }}"
                                             class="btn btn-sm btn-success">Edit</a> --}}
+                                        {{-- <a href="{{ route('message.show', $data->id) }}"
+                                            class="btn btn-sm btn-warning">Show</a> --}}
                                         <a href="{{ route('message.destroy', $data->id) }}" class="btn btn-sm btn-danger"
                                             data-confirm-delete="true">Delete</a>
                                     </div>
@@ -40,7 +55,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="text-center">
+                            <td colspan="8" class="text-center">
                                 Data Data Belum Tersedia.
                             </td>
                     @endforelse

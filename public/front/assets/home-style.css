@@ -9,6 +9,8 @@ html {
     font-family: "Montserrat", sans-serif;
     background-color: #f4f4f4;
     overflow-x: hidden;
+    will-change: transform; /* Memberi tahu browser untuk mengoptimasi elemen ini */
+    transform: translateZ(0); /* Memanfaatkan hardware acceleration */
 }
 
 
@@ -65,6 +67,8 @@ html {
 }
 
 .navbar {
+    position: relative;
+    z-index: 100;
     background: transparent;
     padding: 30px;
 }
@@ -146,7 +150,7 @@ p {
 
     .navbar-brand {
         font-size: 1.5rem;
-        margin-left: 0;
+        margin-left: 40px;
     }
 
     .navbar-nav .nav-link {
@@ -215,6 +219,107 @@ p {
     }
 }
 
+/* Hamburger menu */
+.navbar-toggler {
+    position: absolute;
+    left: 10px; /* Posisi di sebelah kiri */
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-top: -4px
+}
+
+/* Styling untuk sidebar */
+.sidebar {
+    position: fixed; /* Tetap di posisi tetap */
+    top: 0; /* Menempatkan di atas halaman */
+    left: -300px; /* Mulai di luar layar */
+    height: 100vh; /* Tinggi 100% viewport */
+    width: 250px;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001; /* Pastikan di atas overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: left 0.3s ease;
+    padding: 1.5rem;
+    border-bottom-right-radius: 18px;
+}
+
+.sidebar.active {
+    left: 0; /* Masukkan dari kiri saat aktif */
+}
+
+.overlay {
+    position: fixed; /* Tetap di posisi tetap */
+    top: 0; /* Menempatkan di atas halaman */
+    left: 0;
+    height: 100vh; /* Tinggi 100% viewport */
+    width: 100vw; /* Lebar 100% viewport */
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+    z-index: 1000; /* Pastikan di bawah sidebar */
+    display: none; /* Tersembunyi secara default */
+}
+
+.overlay.active {
+    display: block; /* Tampilkan overlay saat aktif */
+}
+
+/* Sidebar header styling */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #343a40;
+}
+
+/* Sidebar navigation styling */
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #495057;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.sidebar-nav a:hover {
+    color: #007bff;
+}
+
+/* Sidebar footer styling */
+.sidebar-footer {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+
 /* Content About */
 .aboute {
     background-color: white;
@@ -252,7 +357,7 @@ p {
     display: flex; /* Menggunakan Flexbox */
     flex-wrap: wrap; /* Membuat kartu berpindah ke baris berikutnya jika tidak ada ruang */
     justify-content: center; /* Pusatkan kartu secara horizontal */
-    gap: 13px; /* Jarak antar kartu */
+    gap: 14px; /* Jarak antar kartu */
     align-items: center;
 }
 
@@ -269,9 +374,10 @@ p {
     padding: 20px; /* Padding untuk card */
     text-align: center; /* Pusatkan teks di dalam kartu */
     border-radius: 15px; /* Sudut melengkung */
-    max-width: 270px; /* Lebar maksimum */
+    max-width: 285px; /* Lebar maksimum */
     min-height: 300px; /* Tinggi minimum untuk kartu (pendek) */
     margin-top: 100px; /* Jarak atas dari galeri */
+    align-items: center;
 }
 
 .hover-info {
@@ -307,8 +413,7 @@ p {
 .container-news {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 0 3.6rem;
     margin-top: 1rem;
 }
 
@@ -397,6 +502,7 @@ p {
 .news-text {
     color: #6c757d;
     font-size: 0.9rem;
+    padding-right: 10px;
 }
 
 .news {
@@ -441,58 +547,65 @@ p {
 }
 
 /* Content Gallery */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-    padding-bottom: 15px;
-    margin-top: 10px;
-    border-radius: 10px; /* Radius sudut */
-
-}
-
 .gallery-title {
     margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
     display: grid;
     place-items: center; /* Menengahkan item secara horizontal dan vertikal */
-    /* height: 100vh; Mengatur tinggi kontainer ke 100% viewport */
 }
 
-.gallery .col-md-3 {
-    padding: 5px; /* Adjust the padding to control the spacing */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Jarak antar elemen */
+    padding-bottom: 15px;
+    margin-top: 10px;
 }
 
+.col-md-4 {
+    padding: 5px; /* Mengatur padding untuk kontrol jarak */
+    display: flex;
+    justify-content: center; /* Pusatkan elemen di dalam grid */
+}
+
+.container-img {
+    margin: 0 72px;
+}
+
+/* Style untuk gambar */
 .rounded-border {
+    border-radius: 20px; /* Sudut membulat */
+    width: 100%; /* Full width */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Bayangan kotak */
+    overflow: hidden; /* Pastikan anak elemen terjaga */
     border: 1px solid #ddd; /* Light border */
-    border-radius: 18px; /* Rounded corners */
-    overflow: hidden; /* Ensure children are contained */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Box shadow */
 }
 
-.square-crop {
-    width: 100%; /* Make it responsive */
-    height: 0;
-    padding-bottom: 100%; /* Maintains a 1:1 aspect ratio */
-    position: relative;
-    overflow: hidden; /* Ensures any overflow is hidden */
-}
-
-
-.square-crop img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%; /* Adjust based on your image dimensions */  /* auto */
-    height: 100%; /* Adjust based on your image dimensions */
+/* Gambar dengan sudut membulat */
+.rounded-img {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: 380px;
     object-fit: cover;
-    transform: translate(-50%, -50%); /* Center the image */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 8px;
 }
 
+.rounded-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Efek bayangan pada gambar */
 .image-shadow {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Image shadow */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Bayangan gambar */
 }
 
 /* Footer */

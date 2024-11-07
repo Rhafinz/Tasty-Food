@@ -11,7 +11,7 @@
                 @if ($kontakCount < 1)
                     <a href="{{ route('kontak.create') }}" class="btn btn-sm btn-primary">Add</a>
                 @else
-                    <button class="btn btn-sm btn-secondary" disabled>Maksimal Data Hanya Satu</button>
+                    <button class="btn btn-sm btn-secondary" disabled>there can only be one data</button>
                 @endif
             </div>
         </div> <!-- /.card-header -->

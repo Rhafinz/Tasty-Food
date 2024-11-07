@@ -40,7 +40,7 @@ class KontakController extends Controller
             'alamat' => 'required',
         ]);
 
-        $kontaks = new kontak($request->all());
+        $kontaks = new Kontak($request->all());
         $kontaks->email = $request->email;
         $kontaks->no_telp = $request->no_telp;
         $kontaks->alamat = $request->alamat;
@@ -52,7 +52,7 @@ class KontakController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(kontak $kontak)
+    public function show(Kontak $kontak)
     {
         //
     }

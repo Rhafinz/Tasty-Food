@@ -49,14 +49,14 @@
                 <div class="row mt-5">
                     <!-- Bagian Teks Misi -->
                     <div class="col-md-6 text-content">
+                        <div class="col-md-6">
+                            <img src="{{ asset('assets/ASET/sanket-shah-SVA7TyHxojY-unsplash.jpg') }}" alt="Misi Image"
+                                class="img-fluid rounded-image-misi">
+                        </div>
                         <h3><b>{{ $misi->judul }}</b></h3>
                         <p>{{ $misi->konten }}</p>
                     </div>
                     <!-- Bagian Gambar Misi -->
-                    <div class="col-md-6">
-                        <img src="{{ asset('assets/ASET/sanket-shah-SVA7TyHxojY-unsplash.jpg') }}" alt="Misi Image"
-                            class="img-fluid rounded-image-misi">
-                    </div>
                 </div>
             </div>
         </section>

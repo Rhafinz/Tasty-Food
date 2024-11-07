@@ -18,7 +18,7 @@
                 </thead>
                 <tbody>
                     @php $no = 1; @endphp
-                    @forelse ($slideres as $data)
+                    @forelse ($sliders as $data)
                         <tr class="align-middle">
                             <td>{{ $no++ }}</td>
                             <td>

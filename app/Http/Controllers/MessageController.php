@@ -35,6 +35,18 @@ class MessageController extends Controller
         return redirect()->route('kontak');
     }
 
+    public function show($id)
+    {
+        $message = Message::findOrFail($id);
+
+        // Update status menjadi sudah dibaca
+        $message->is_read = true;
+        $message->save();
+
+        return view('message.show', compact('message'));
+    }
+
+
     public function destroy($id)
     {
         $message = Message::findOrFail($id);

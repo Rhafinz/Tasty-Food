@@ -22,42 +22,33 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item"> <a href="{{ route('galeri.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
+                                    class="nav-icon fas fa-image"></i>
                                 <p>Galery</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
+
                         <li class="nav-item"> <a href="{{ route('tentang.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
+                                    class="nav-icon fas fa-address-card"></i>
                                 <p>Tentang</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item"> <a href="{{ route('berita.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
+                                    class="nav-icon fas fa-newspaper"></i>
                                 <p>Berita</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item"> <a href="{{ route('kontak.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
+                                    class="nav-icon fas fa-address-book"></i>
                                 <p>Kontak</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item"> <a href="{{ route('message.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
+                                    class="nav-icon fas fa-envelope"></i>
                                 <p>Pesan</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item"> <a href="{{ route('slider.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
+                                    class="nav-icon bi bi-images"></i>
                                 <p>Slider</p>
                             </a>
                         </li>

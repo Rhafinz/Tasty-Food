@@ -39,7 +39,7 @@ class SliderController extends Controller
 
         $sliders = new Slider($request->all());
         $slider = $request->file('slider');
-        $slider->storeAs('public/sliders/slider', $slider->hashName());
+        $slider->storeAs('public/sliders', $slider->hashName());
         $sliders->slider = $slider->hashName();
         $sliders->save();
         Alert()->success('Success', 'Data Berhasil Di Simpan');
@@ -60,7 +60,7 @@ class SliderController extends Controller
     public function edit($id)
     {
         $sliders = Slider::findOrFail($id);
-        return view('admin.galeri.edit', compact('sliders'));
+        return view('admin.slider.edit', compact('sliders'));
     }
 
     /**
@@ -76,7 +76,7 @@ class SliderController extends Controller
         $sliders = Slider::findOrFail($id);
         $slider = $request->file('slider');
         $slider->storeAs('public/sliders', $slider->hashName());
-        Storage::delete('public/sliders/' . $sliders->image);
+        Storage::delete('public/sliders/' . $sliders->slider);
         $sliders->slider = $slider->hashName();
         $sliders->save();
         Alert()->success('Success', 'Data Berhasil Di Edit');
@@ -91,7 +91,7 @@ class SliderController extends Controller
         $sliders = Slider::findOrFail($id);
         $sliders->delete();
         toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
-        Storage::delete('public/sliders/slider/' . $sliders->slider);
+        Storage::delete('public/sliders/' . $sliders->slider);
         return redirect()->route('slider.index');
     }
 }

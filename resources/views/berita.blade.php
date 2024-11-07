@@ -37,7 +37,7 @@
             <h3 class="news-other-title"><b>BERITA LAINNYA</b></h3>
             <div class="row g-5" id="news-container">
                 @php
-                    $news = App\Models\Berita::orderBy('id', 'asc')->paginate(4);
+                    $news = App\Models\Berita::orderBy('id', 'desc')->paginate(4);
                     // $duplicatedNews = $news->concat($news)
                 @endphp
                 @foreach ($news as $item)
@@ -46,9 +46,11 @@
                             <img alt="Fresh vegetables on a table" class="card-img-top"
                                 src="{{ asset('/storage/beritas/' . $item->image) }}" />
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">{{ $item->judul }}</h5>
-                                <p class="card-text">{{ $item->deskripsi }}</p>
-                                <a class="read-more" href="#">
+                                <h5 class="card-title">{{ Str::limit($item->judul, 15, '...') }}</h5>
+                                <!-- Batasi judul hingga 50 karakter -->
+                                <p class="card-text">{{ Str::limit($item->deskripsi, 100, '...') }}</p>
+                                <!-- Batasi deskripsi hingga 100 karakter -->
+                                <a class="read-more" href="{{ route('berita.show', $item->id) }}">
                                     Baca selengkapnya
                                 </a>
                             </div>
@@ -58,7 +60,8 @@
             </div>
             <div class="botten">
                 @if ($news->hasMorePages())
-                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-more text-white">LIHAT LEBIH BANYAK</a>
+                    <a href="#" id="loadMore" onclick="loadMore(event)" class="btn-more text-white">LIHAT LEBIH
+                        BANYAK</a>
                 @endif
             </div>
         </div>
@@ -67,6 +70,13 @@
     <script>
         let newsSkip = {{ $news->count() }}; // Mulai dengan jumlah berita yang ada
 
+        function truncateText(text, maxLength) {
+            if (text.length > maxLength) {
+                return text.slice(0, maxLength) + '...'; // Memotong teks dan menambahkan "..."
+            }
+            return text; // Jika panjang teks kurang dari batas, biarkan apa adanya
+        }
+
         function loadMore(event) {
             event.preventDefault(); // Mencegah perilaku default link
             fetch(`{{ route('newsLoad') }}?skip=${newsSkip}`)
@@ -74,20 +84,24 @@
                 .then(data => {
                     const newsContainer = document.getElementById('news-container');
                     data.forEach(item => {
+                        const truncatedTitle = truncateText(item.judul, 15); // Batasi judul hingga 15 karakter
+                        const truncatedDescription = truncateText(item.deskripsi,
+                            100); // Batasi deskripsi hingga 15 karakter
+
                         const newItem = document.createElement('div');
-                        newItem.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
+                        newItem.className = 'col-md-6 col-lg-3';
                         newItem.innerHTML = `
                     <div class="card berita-card distance-card">
-                            <img alt="Fresh vegetables on a table" class="card-img-top"
-                                src="{{ asset('/storage/beritas/') }}/${item.image}" />
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">{{ $item->judul }}</h5>
-                                <p class="card-text">{{ $item->deskripsi }}</p>
-                                <a class="read-more" href="#">
-                                    Baca selengkapnya
-                                </a>
-                            </div>
-                        </div>`;
+                        <img alt="Fresh vegetables on a table" class="card-img-top"
+                            src="{{ asset('/storage/beritas/') }}/${ item.image }" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${ truncatedTitle }</h5>
+                            <p class="card-text">${ truncatedDescription }</p>
+                                <a class="read-more" href="{{ route('berita.show', '') }}/${ item.id }" />
+                                Baca selengkapnya
+                            </a>
+                        </div>
+                    </div>`;
                         newsContainer.appendChild(newItem);
                     });
                     newsSkip += data.length; // Increment skip untuk pemuatan berikutnya

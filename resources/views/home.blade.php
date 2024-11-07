@@ -16,7 +16,7 @@
 
     {{-- content Article --}}
     <section class="content-article">
-        <div class="article">
+        <div class="article gap-3">
             <div class="card">
                 <img class="card-image" src="{{ asset('assets/ASET/img-1.png') }}" alt="">
                 <h2 class="card1 mb-3">
@@ -65,88 +65,33 @@
                     <div class="col-md-6">
                         <div class="news-card-big">
                             <div class="aspect-ratio">
-                                <img src="{{ asset('assets/ASET/fathul-abrar-T-qI_MI2EMA-unsplash.jpg') }}"
-                                    class="news-img-top" alt="Food Image">
+                                <img src="{{ asset('/storage/beritas/' . $latestNews->image) }}" class="news-img-top"
+                                    alt="{{ $latestNews->title }}">
                             </div>
                             <div class="news-body content-news mb-auto">
-                                <h5 class="news-title"> LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT</h5>
-                                <p class="news-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Fuscescelerisque magna aliquet
-                                    cursus tempus. Duis viverra metus et turpis elementum elementum. Aliquam rutrum placerat
-                                    tellus et suscipit. Curabitur facilisis lectus vitae eros malesuada eleifend. Mauris
-                                    eget tellus odio. Phasellus vestibulum turpis ac sem commodo, at posuere eros consequat.
-                                </p>
-                                <a href="#" class="read-more card-news-big">Baca selengkapnya</a>
+                                <h5 class="news-title">{{ $latestNews->judul }}</h5>
+                                <p class="news-text">{{ $latestNews->deskripsi }}</p>
+                                <a href="{{ route('news.show', $latestNews->id )}}" class="read-more card-news-big">Baca selengkapnya</a>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-6">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <div class="news-card mb-4">
-                                    <div class="aspect-ratio">
-                                        <img src="{{ asset('assets/ASET/sanket-shah-SVA7TyHxojY-unsplash.jpg') }}"
-                                            class="news-img-top" alt="Food Image">
-                                    </div>
-                                    <div class="news-body">
-                                        <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Praesent commodo,
-                                        </p>
-                                        <a href="#" class="read-more">Baca selengkapnya</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="news-card mb-4">
-                                    <div class="aspect-ratio">
-                                        <img src="{{ asset('assets/ASET/sebastian-coman-photography-eBmyH7oO5wY-unsplash.jpg') }}"
-                                            class="news-img-top" alt="Food Image">
-                                    </div>
-                                    <div class="news-body">
-                                        <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Praesent commodo,
-                                        </p>
-                                        <a href="#" class="read-more">Baca selengkapnya</a>
+                            @foreach ($otherNews as $news)
+                                <div class="col-sm-6">
+                                    <div class="news-card mb-4">
+                                        <div class="aspect-ratio">
+                                            <img src="{{ asset('/storage/beritas/' . $news->image) }}" class="news-img-top"
+                                                alt="{{ $news->title }}">
+                                        </div>
+                                        <div class="news-body">
+                                            <h5 class="news-title">{{ Str::limit($news->judul, 15) }}</h5>
+                                            <p class="news-text">{{ Str::limit($news->deskripsi, 100) }}</p>
+                                            <a href="{{ route('news.show', $news->id )}}" class="read-more">Baca selengkapnya</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="news-card mb-4">
-                                    <div class="aspect-ratio">
-                                        <img src="{{ asset('assets/ASET/jimmy-dean-Jvw3pxgeiZw-unsplash.jpg') }}"
-                                            class="news-img-top" alt="Food Image">
-                                    </div>
-                                    <div class="news-body">
-                                        <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Praesent commodo,
-                                        </p>
-                                        <a href="#" class="read-more">Baca selengkapnya</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="news-card mb-4">
-                                    <div class="aspect-ratio">
-                                        <img src="{{ asset('assets/ASET/luisa-brimble-HvXEbkcXjSk-unsplash.jpg') }}"
-                                            class="news-img-top" alt="Food Image">
-                                    </div>
-                                    <div class="news-body">
-                                        <h5 class="news-title">LOREM IPSUM</h5>
-                                        <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Praesent commodo,
-                                        </p>
-                                        <a href="#" class="read-more">Baca
-                                            selengkapnya</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -154,24 +99,21 @@
         </div>
     </section>
 
+
     {{-- content Galery --}}
-    <section class="content-galery" style="background-color: #ffffff">
-        <div class="galery">
+    <section class="photo" style="background-color: white">
+        <div class="container-img">
             <div class="gallery-title p-3">
                 <h2 class="m-3"><b>GALLERI KAMI</b></h2>
             </div>
-            <div class="row gallery">
+            <div class="row content-img">
                 @php
                     $galery = App\Models\Galery::orderBy('id', 'asc')->get();
                 @endphp
                 @foreach ($galery->take(6) as $item)
-                    <div class="col-md-3 col-sm-4">
-                        <div class="rounded-border">
-                            <div class="square-crop">
-                                <img src="{{ asset('/storage/galeries/img/' . $item->img) }}"
-                                    class="rounded img-fluid image-shadow">
-                            </div>
-                        </div>
+                    <div class="col-md-4 col-sm-4">
+                        <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="rounded-img" alt="Food"
+                            loading="lazy">
                     </div>
                 @endforeach
             </div>
@@ -180,5 +122,6 @@
                     LIHAT LEBIH BANYAK
                 </a>
             </div>
+        </div>
     </section>
 @endsection

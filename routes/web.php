@@ -5,8 +5,10 @@ use App\Http\Controllers\FrontController;
 use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
+
     return view('home');
 });
+
 
 Auth::routes();
 
@@ -29,6 +31,7 @@ Route::get('/', [FrontController::class, 'home']);
 Route::get('galeri', [FrontController::class, 'galeri'])->name('galeri');
 Route::get('tentang', [FrontController::class, 'tentang'])->name('tentang');
 Route::get('berita', [FrontController::class, 'berita'])->name('berita');
+Route::get('news/show/{id}', [FrontController::class, 'show'])->name('news.show');
 Route::get('berita/load-more', [FrontController::class, 'loadMore'])->name('newsLoad');
 Route::get('kontak', [FrontController::class, 'kontak'])->name('kontak');
 Route::post('kontak',[App\Http\Controllers\MessageController::class,'store'])->name('message.store');
