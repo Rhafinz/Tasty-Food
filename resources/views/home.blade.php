@@ -70,7 +70,7 @@
                             </div>
                             <div class="news-body content-news mb-auto">
                                 <h5 class="news-title">{{ $latestNews->judul }}</h5>
-                                <p class="news-text">{{ $latestNews->deskripsi }}</p>
+                                <p class="news-text-big">{{ $latestNews->deskripsi }}</p>
                                 <a href="{{ route('news.show', $latestNews->id )}}" class="read-more card-news-big">Baca selengkapnya</a>
                             </div>
                         </div>
@@ -111,17 +111,19 @@
                     $galery = App\Models\Galery::orderBy('id', 'asc')->get();
                 @endphp
                 @foreach ($galery->take(6) as $item)
-                    <div class="col-md-4 col-sm-4">
-                        <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="rounded-img" alt="Food"
-                            loading="lazy">
+                    <div class="col-12 col-sm-6 col-md-4 p-2"> <!-- Tampilkan 3 kolom di layar besar -->
+                        <div class="square">
+                            <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="img-fluid rounded-img" alt="Gallery Image" loading="lazy">
+                        </div>
                     </div>
                 @endforeach
             </div>
-            <div class="botten">
+            <div class="botten text-center">
                 <a class="btn-more" href="{{ route('galeri') }}">
                     LIHAT LEBIH BANYAK
                 </a>
             </div>
         </div>
     </section>
+
 @endsection

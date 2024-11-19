@@ -13,7 +13,6 @@ html {
     transform: translateZ(0); /* Memanfaatkan hardware acceleration */
 }
 
-
 /* header */
 .header {
     background-size: cover;
@@ -26,9 +25,8 @@ html {
     overflow: hidden;
 }
 
-
 .hero {
-    background-image: url('/assets/ASET/img-4-2000x2000.png');
+    background-image: url("/assets/ASET/img-4-2000x2000.png");
     background-size: cover;
     height: 130vh; /* Tinggi awal, bisa disesuaikan */
     width: 130vh; /* Lebar awal, bisa disesuaikan */
@@ -50,12 +48,12 @@ html {
 
 @media (max-width: 480px) {
     .hero {
+        top: -100px;
         height: 60vh; /* Sesuaikan tinggi lebih kecil untuk ponsel */
         width: 70vw; /* Lebar diatur lebih kecil */
-        right: -10px; /* Offset ke kanan lebih kecil di ponsel */
+        right: -50px; /* Offset ke kanan lebih kecil di ponsel */
     }
 }
-
 
 /* Navbar */
 .navbar-brand {
@@ -188,7 +186,7 @@ p {
 
     .navbar-brand {
         font-size: 1.2rem;
-        margin-left: 0;
+        margin-left: -10px;
     }
 
     .navbar-nav .nav-link {
@@ -199,7 +197,7 @@ p {
 
     /* Content */
     .content {
-        top: 50%;
+        top: 60%;
         left: 10px;
         right: 10px;
         max-width: 100%;
@@ -222,13 +220,13 @@ p {
 /* Hamburger menu */
 .navbar-toggler {
     position: absolute;
-    left: 10px; /* Posisi di sebelah kiri */
+    left: -5px; /* Posisi di sebelah kiri */
     background-color: transparent;
     border: none;
     color: rgb(0, 0, 0);
     font-size: 1.8rem;
     cursor: pointer;
-    margin-top: -4px
+    margin-top: 90px;
 }
 
 /* Styling untuk sidebar */
@@ -319,14 +317,13 @@ p {
     color: #6c757d;
 }
 
-
 /* Content About */
 .aboute {
     background-color: white;
     position: relative;
 }
 
-.aboute p{
+.aboute p {
     text-align: center;
 }
 
@@ -345,8 +342,13 @@ p {
 
 /* Content Article */
 .article {
-    background-image: url('/assets/ASET/monika-grabkowska-P1aohbiT-EY-unsplash.jpg');
-    background-color: rgba(0, 0, 0, 0.5); /* Warna overlay hitam dengan transparansi */
+    background-image: url("/assets/ASET/monika-grabkowska-P1aohbiT-EY-unsplash.jpg");
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.5
+    ); /* Warna overlay hitam dengan transparansi */
     background-blend-mode: darken; /* Blend mode untuk mempergelap gambar */
     width: 100%; /* Atur lebar */
     /* height: 630px; Atur tinggi */
@@ -392,7 +394,6 @@ p {
     text-align: center;
     padding: 20px;
     border-radius: 8px;
-
 }
 
 .card-image {
@@ -422,7 +423,8 @@ p {
     flex-direction: column;
 }
 
-.news-card-big, .news-card {
+.news-card-big,
+.news-card {
     margin-bottom: 15px; /* Jarak antar card */
 }
 
@@ -443,7 +445,6 @@ p {
     min-height: 100%; /* Ensure it fills the container height */
     transform: translate(-50%, -50%); /* Center the image */
 }
-
 
 .news-card {
     border: none;
@@ -469,7 +470,6 @@ p {
     justify-content: space-between; /* Memastikan ruang terdistribusi merata */
     height: 97.5%; /* Maintain aspect ratio */
     /* min-height: 97.5%; Ensure it fills the container height */
-
 }
 
 .news-img-top {
@@ -483,12 +483,11 @@ p {
     padding: 20px;
 }
 
-.content-news{
+.content-news {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1; /* Membuat .news-body mengisi ruang tersisa */
-
 }
 
 .news-body a {
@@ -497,11 +496,17 @@ p {
 
 .news-title {
     font-weight: bold;
+    font-size: 1.35rem;
+}
+
+.news-text-big {
+    color: #6c757d;
+    font-size: 0.85rem;
 }
 
 .news-text {
     color: #6c757d;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     padding-right: 10px;
 }
 
@@ -517,7 +522,6 @@ p {
     display: inline-block;
     text-decoration: none;
     margin-top: auto;
-
 }
 
 .card-news-big {
@@ -531,7 +535,7 @@ p {
 }
 
 .read-more::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: 0;
@@ -555,6 +559,7 @@ p {
     place-items: center; /* Menengahkan item secara horizontal dan vertikal */
 }
 
+/* Menyusun galeri */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -564,46 +569,44 @@ p {
     margin-top: 10px;
 }
 
+/* Mengatur jarak dan tata letak kolom */
 .col-md-4 {
-    padding: 5px; /* Mengatur padding untuk kontrol jarak */
+    padding: 5px;
     display: flex;
-    justify-content: center; /* Pusatkan elemen di dalam grid */
+    justify-content: center; /* Memusatkan elemen dalam grid */
 }
 
 .container-img {
     margin: 0 72px;
 }
 
-/* Style untuk gambar */
-.rounded-border {
-    border-radius: 20px; /* Sudut membulat */
-    width: 100%; /* Full width */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Bayangan kotak */
-    overflow: hidden; /* Pastikan anak elemen terjaga */
-    border: 1px solid #ddd; /* Light border */
-}
-
-/* Gambar dengan sudut membulat */
-.rounded-img {
-    display: flex;
-    justify-content: center;
-    border-radius: 20px;
+/* Menjaga aspek rasio persegi pada gambar */
+.square {
+    position: relative;
     width: 100%;
-    max-width: 400px;
-    height: 380px;
-    object-fit: cover;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    margin: 8px;
+    padding-bottom: 100%; /* Aspek rasio 1:1 untuk kotak */
 }
 
-.rounded-img img {
+.square img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
 }
 
-/* Efek bayangan pada gambar */
+/* Mengubah tampilan pada layar yang lebih tinggi */
+@media (min-width: 992px) {
+    .content-img .col-lg-12 {
+        display: inline-flex;
+    }
+}
+
+/* Efek bayangan tambahan */
 .image-shadow {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Bayangan gambar */
 }
@@ -626,7 +629,6 @@ p {
 .custom-paragraph {
     padding-right: 190px;
 }
-
 
 .footer a {
     color: #ffffff;
@@ -697,7 +699,6 @@ p {
     transition: background-color 0.3s; /* Smooth transition */
 }
 
-
 /* Adjust gallery for smaller devices */
 .gallery {
     display: flex;
@@ -707,27 +708,26 @@ p {
 
 /* section UI */
 
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .card-image {
-            width: 100%; /* Make image responsive */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .news-img-top {
-            width: 100%; /* Responsive news images */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .square-crop img {
-            width: 100%; /* Responsive gallery images */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .news-column {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; /* Atur agar kolom pertama tetap di atas */
-        }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-image {
+        width: 100%; /* Make image responsive */
+        height: auto; /* Maintain aspect ratio */
     }
+
+    .news-img-top {
+        width: 100%; /* Responsive news images */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .square-crop img {
+        width: 100%; /* Responsive gallery images */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .news-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Atur agar kolom pertama tetap di atas */
+    }
+}

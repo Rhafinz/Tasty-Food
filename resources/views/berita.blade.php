@@ -13,7 +13,7 @@
                         class="img-fluid rounded-image-news mb-3">
                 </div>
                 <!-- Bagian Teks Misi -->
-                <div class="col-md-6 text-content-news">
+                <div class="col-12 col-md-6 text-content-news">
                     <h3 class="mb-4"><b>APA SAJA MAKANAN KHAS NUSANTARA?</b></h3>
                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu
                         rutrum commodo,

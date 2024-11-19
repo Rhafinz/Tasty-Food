@@ -14,16 +14,16 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-table"></i>
+                <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-database"></i>
                         <p>
-                            Tables List
+                            Kelola Data
                             <i class="nav-arrow bi bi-chevron-right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item"> <a href="{{ route('galeri.index') }}" class="nav-link"> <i
                                     class="nav-icon fas fa-image"></i>
-                                <p>Galery</p>
+                                <p>Galeri</p>
                             </a>
                         </li>
 
