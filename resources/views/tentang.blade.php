@@ -17,9 +17,9 @@
                     </p>
                 </div>
                 <div class="col-12 col-md-6 image-content d-flex justify-content-center">
-                    <img src="{{ asset('assets/ASET/brooke-lark-oaz0raysASk-unsplash.jpeg') }}" alt="Tasty Food 1"
+                    <img src="{{ asset('assets/ASET/brooke-lark-oaz0raysASk-unsplash.jpg') }}" alt="Tasty Food 1"
                         loading="lazy" class="img-fluid rounded-image me-2">
-                    <img src="{{ asset('assets/ASET/sebastian-coman-photography-eBmyH7oO5wY-unsplash.jpeg') }}"
+                    <img src="{{ asset('assets/ASET/sebastian-coman-photography-eBmyH7oO5wY-unsplash.jpg') }}"
                         alt="Tasty Food 2" loading="lazy" class="img-fluid rounded-image">
                 </div>
             </div>

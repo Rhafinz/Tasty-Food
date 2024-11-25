@@ -343,12 +343,7 @@ p {
 /* Content Article */
 .article {
     background-image: url("/assets/ASET/monika-grabkowska-P1aohbiT-EY-unsplash.jpg");
-    background-color: rgba(
-        0,
-        0,
-        0,
-        0.5
-    ); /* Warna overlay hitam dengan transparansi */
+    background-color: rgba( 0, 0, 0, 0.5 ); /* Warna overlay hitam dengan transparansi */
     background-blend-mode: darken; /* Blend mode untuk mempergelap gambar */
     width: 100%; /* Atur lebar */
     /* height: 630px; Atur tinggi */

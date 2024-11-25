@@ -12,7 +12,7 @@
                 <thead>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>Slider</th>
+                        <th class="text-center">Slider</th>
                         <th style="text-align: center">Action</th>
                     </tr>
                 </thead>
@@ -21,9 +21,9 @@
                     @forelse ($sliders as $data)
                         <tr class="align-middle">
                             <td>{{ $no++ }}</td>
-                            <td>
+                            <td align="center">
                                 <img src="{{ asset('/storage/sliders/' . $data->slider) }}" class="rounded"
-                                    style="width: 150px">
+                                    style="width: 250px; height: 150px; object-fit: cover;">
                             </td>
                             <td class="text-center">
                                 <form action="{{ route('slider.destroy', $data->id) }}" method="POST">

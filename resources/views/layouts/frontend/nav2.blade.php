@@ -1,7 +1,7 @@
 <div class="background-image-other">
     <!-- Overlay untuk menutup sidebar ketika area luar sidebar diklik -->
     <div class="overlay"></div>
-    <div class="container pt-4">
+    <div class="container pt-2">
         <nav class="navbar navbar-expand-lg pe-4 nav-other">
             <h1><a class="navbar-brand tasty-food" href="{{ url('/') }}">TASTY FOOD</a></h1>
             <button class="navbar-toggler" type="button">

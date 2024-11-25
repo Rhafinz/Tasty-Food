@@ -99,7 +99,7 @@ html {
 
     .navbar .navbar-brand {
         font-size: 1.2rem; /* Adjust brand size for smaller screens */
-        margin-left: 55px; /* Center brand */
+        margin-left: 24px; /* Center brand */
     }
 
     .navbar-nav {
@@ -116,7 +116,7 @@ html {
 
     .content {
         top: 75%; /* Adjust top position for better centering */
-        left: 1%; /* Reduce left space */
+        left: -4%; /* Reduce left space */
         right: 10%; /* Adjust right space */
         max-width: 90%;
         padding: 0 10px;
@@ -176,9 +176,9 @@ html {
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 2rem;
+    font-size: 1.8rem;
     cursor: pointer;
-    margin-left: auto; /* Move to the right */
+    margin-left: 335px; /* Move to the right */
     margin-top: -40px;
 }
 

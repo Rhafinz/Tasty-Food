@@ -45,16 +45,18 @@
     </section>
 
 
-        <section class="photo">
-            <div class="container container-img">
-                <div class="row">
-                    @foreach ($galeries as $item)
-                        <div class="col-lg-3 col-md-4 col-sm-6">
+    <section class="photo">
+        <div class="container container-img">
+            <div class="row">
+                @foreach ($galeries as $item)
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="square">
                             <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="rounded-img" alt="Food"
                                 loading="lazy">
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
-        </section>
-    @endsection
+        </div>
+    </section>
+@endsection
