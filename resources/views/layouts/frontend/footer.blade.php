@@ -1,20 +1,19 @@
 @php
     $kontak = App\Models\Kontak::first();
+    $judul = App\Models\Tentang::Find(1);
 @endphp
 
 <section class="content-footer">
     <div class="footer">
         <div class="row">
             <div class="col-md-6">
-                <h5>Tasty Food</h5>
+                <h5>Delish Food</h5>
                 <p class="custom-paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
+                    {{ $judul->konten }}
                 </p>
-                <div class="social-icons mb-3">
-                    <a href="#" class="facebook fa-brands fa-facebook"></a>
-                    <a href="#" class="twitter fa-brands fa-twitter"></a>
+                <div class="social-icons mb-3" style="text-decoration: none">
+                    <a href="https://www.facebook.com/share/1BNYyVzw5x/" class="facebook fa-brands fa-facebook" style="text-decoration: none"></a>
+                    <a href="https://www.instagram.com/kehangrapi/" class="instagram fa-brands fa-instagram" style="text-decoration: none"></a>
                 </div>
             </div>
             <div class="col-md-2">

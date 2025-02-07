@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('beritas', function (Blueprint $table) {
+        Schema::create('reseps', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->text('judul');
-            $table->text('deskripsi');
-            $table->string('slug')->unique(); // Menambahkan kolom slug
+            $table->string('nama_resep');
+            $table->text('deskripsi')->nullable();
+            $table->text('bahan');
+            $table->text('langkah');
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('beritas');
+        Schema::dropIfExists('reseps');
     }
 };

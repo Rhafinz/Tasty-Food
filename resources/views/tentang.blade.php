@@ -54,7 +54,13 @@
                 <!-- Teks berada di bawah gambar untuk layar kecil -->
                 <div class="col-12 col-md-6 text-content text-center text-md-start order-2 order-md-1">
                     <h3><b>{{ $misi->judul }}</b></h3>
-                    <p>{{ $misi->konten }}</p>
+                    <ol>
+                        @foreach (explode('. ', $misi->konten) as $key => $point)
+                            @if ($point)
+                                <li>{{ $point }}</li>
+                            @endif
+                        @endforeach
+                    </ol>
                 </div>
             </div>
         </div>

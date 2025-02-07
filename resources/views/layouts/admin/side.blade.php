@@ -2,7 +2,7 @@
     <div class="sidebar-brand"> <!--begin::Brand Link--> <a href="./index.html" class="brand-link">
             <!--begin::Brand Image--> <img src="{{ asset('admin/dist/assets/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                 class="brand-image opacity-75 shadow"> <!--end::Brand Image--> <!--begin::Brand Text--> <span
-                class="brand-text fw-light">TastyFood</span> <!--end::Brand Text--> </a> <!--end::Brand Link--> </div>
+                class="brand-text fw-light">DelishFood</span> <!--end::Brand Text--> </a> <!--end::Brand Link--> </div>
     <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
     <div class="sidebar-wrapper">
         <nav class="mt-2"> <!--begin::Sidebar Menu-->
@@ -50,6 +50,11 @@
                         <li class="nav-item"> <a href="{{ route('slider.index') }}" class="nav-link"> <i
                                     class="nav-icon bi bi-images"></i>
                                 <p>Slider</p>
+                            </a>
+                        </li>
+                        <li class="nav-item"> <a href="{{ route('user.index') }}" class="nav-link"> <i
+                                    class="nav-icon bi bi-person"></i>
+                                <p>User</p>
                             </a>
                         </li>
                     </ul>

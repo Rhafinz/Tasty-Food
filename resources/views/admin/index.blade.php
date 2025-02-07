@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container mt-5 text-center">
+    {{-- <div class="container mt-5 text-center">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
                 <!-- Card for Welcome Message -->
@@ -12,5 +12,5 @@
                 </div>
             </div>
         </div>
-    </div>
-@endsection 
+    </div> --}}
+@endsection

@@ -5,10 +5,9 @@
         <div class="grid-container p-3 text-center ">
             <h2 class="m-3"><b>TENTANG KAMI</b></h2>
             <div class=" abouteText col-6 mx-center my-4 text-center">
-                <p class="abouteText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu
-                    rutrum commodo, dui
-                    diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim neque, vel luctus ex.
-                    Fusce sit amet viverra ante.</p>
+                <p class="abouteText">
+                    {{ $judul->konten }}
+                </p>
             </div>
             <div class="black-line mb-3"></div><br>
         </div>
@@ -71,7 +70,8 @@
                             <div class="news-body content-news mb-auto">
                                 <h5 class="news-title">{{ $latestNews->judul }}</h5>
                                 <p class="news-text-big">{{ $latestNews->deskripsi }}</p>
-                                <a href="{{ route('news.show', $latestNews->id )}}" class="read-more card-news-big">Baca selengkapnya</a>
+                                <a href="{{ route('berita.show', $latestNews->slug) }}" class="read-more card-news-big">Baca
+                                    selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,8 @@
                                         <div class="news-body">
                                             <h5 class="news-title">{{ Str::limit($news->judul, 15) }}</h5>
                                             <p class="news-text">{{ Str::limit($news->deskripsi, 100) }}</p>
-                                            <a href="{{ route('news.show', $news->id )}}" class="read-more">Baca selengkapnya</a>
+                                            <a href="{{ route('berita.show', $news->slug) }}" class="read-more">Baca
+                                                selengkapnya</a>
                                         </div>
                                     </div>
                                 </div>
@@ -111,9 +112,12 @@
                     $galery = App\Models\Galery::orderBy('id', 'asc')->get();
                 @endphp
                 @foreach ($galery->take(6) as $item)
-                    <div class="col-12 col-sm-6 col-md-4 p-2"> <!-- Tampilkan 3 kolom di layar besar -->
+                    <div class="col-12 col-sm-6 col-md-4 p-2">
                         <div class="square">
-                            <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="img-fluid rounded-img" alt="Gallery Image" loading="lazy">
+                            <a href="{{ asset('/storage/galeries/' . $item->img) }}" data-lightbox="gallery">
+                                <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="img-fluid rounded-img"
+                                    alt="Gallery Image" loading="lazy">
+                            </a>
                         </div>
                     </div>
                 @endforeach

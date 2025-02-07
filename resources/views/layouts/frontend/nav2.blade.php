@@ -3,7 +3,7 @@
     <div class="overlay"></div>
     <div class="container pt-2">
         <nav class="navbar navbar-expand-lg pe-4 nav-other">
-            <h1><a class="navbar-brand tasty-food" href="{{ url('/') }}">TASTY FOOD</a></h1>
+            <h1><a class="navbar-brand tasty-food" href="{{ url('/') }}">DELISH FOOD</a></h1>
             <button class="navbar-toggler" type="button">
                 <span class="toggler-icon">&#9776;</span>
             </button>
@@ -32,7 +32,7 @@
                     <li><a href="{{ route('kontak') }}"><i class="fas fa-envelope"></i> Kontak</a></li>
                 </ul>
                 <div class="sidebar-footer">
-                    &copy; 2024 Tasty Food. All rights reserved.
+                    &copy; 2024 Delish Food. All rights reserved.
                 </div>
             </div>
         </aside>

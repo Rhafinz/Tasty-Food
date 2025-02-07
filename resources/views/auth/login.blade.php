@@ -29,7 +29,7 @@
         <div class="card card-outline card-primary">
             <div class="card-header"><a href="{{ route('home') }}"
                     class="link-dark text-center link-offset-2 link-opacity-100 link-opacity-50-hover">
-                    <h1 class="mb-0 text-center"> <b>Tasty</b>Food
+                    <h1 class="mb-0 text-center"> <b>Delish</b>Food
                     </h1>
                 </a>
             </div>
@@ -88,11 +88,6 @@
                     </a> <a href="#" class="btn btn-danger"> <i class="bi bi-google me-2"></i> Sign in using Google+
                     </a>
                 </div> <!-- /.social-auth-links --> --}}
-                <p class="mb-1"> <a href="forgot-password.html">I forgot my password</a> </p>
-                <p class="mb-0"> don't have an account yet? <a href="{{ route('register') }}" class="text-center">
-                        Sign up
-                    </a>
-                </p>
             </div> <!-- /.login-card-body -->
         </div>
     </div> <!-- /.login-box --> <!--begin::Third Party Plugin(OverlayScrollbars)-->

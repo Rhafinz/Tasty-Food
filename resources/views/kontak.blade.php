@@ -12,28 +12,48 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <input type="text" placeholder="Subject" class="form-control input-field" name="subject"
-                            value="{{ old('subject', 'example@gmail.com') }}">
+                            value="{{ old('subject', $kontak->email ?? '') }}" readonly>
                     </div>
                     <div class="mb-3">
-                        <input type="text" placeholder="Name" class="form-control input-field" name="name">
+                        <input type="text" placeholder="Name" class="form-control input-field" name="name"
+                            value="{{ old('name', Auth::user() ? Auth::user()->name : '') }}">
                     </div>
                     <div class="mb-3">
-                        <input type="email" placeholder="Email" class="form-control input-field" name="email">
+                        <input type="email" placeholder="Email" class="form-control input-field" name="email"
+                            value="{{ old('email', Auth::user() ? Auth::user()->email : '') }}">
                     </div>
                 </div>
+
+
                 <!-- Kolom Kanan -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <textarea placeholder="Message" class="form-control input-field" name="message" rows="10"></textarea>
+                        <textarea id="editor" placeholder="Message" class="form-control input-field" name="message" style="height: 12.6em"></textarea>
+                    </div>
+
+                    <!-- Input Rating -->
+                    <div class="mb-3">
+                        <label class="mb-2"><b>Rating</b></label>
+                        <div class="rating">
+                            <input type="hidden" id="ratingInput" name="rating" value="1">
+                            <i class="fa-solid fa-star" value="1"></i>
+                            <i class="fa-solid fa-star" value="2"></i>
+                            <i class="fa-solid fa-star" value="3"></i>
+                            <i class="fa-solid fa-star" value="4"></i>
+                            <i class="fa-solid fa-star" value="5"></i>
+                        </div>
+                        <input type="hidden" id="ratingInput" name="rating" value="0">
                     </div>
                 </div>
             </div>
+
             <div class="form-group">
                 <button type="submit" class="action-button"><b>KIRIM</b></button>
             </div>
         </form>
+
     </section>
-    
+
     <section class="info-section">
         @php $kontaks = App\Models\Kontak::first(); @endphp <!-- Ambil satu kontak -->
         <div class="container mb-3">
@@ -75,3 +95,30 @@
         </div>
     </section>
 @endsection
+<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor');
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const stars = document.querySelectorAll(".rating i");
+        const ratingInput = document.getElementById("ratingInput");
+
+        stars.forEach(star => {
+            star.addEventListener("click", function () {
+                const value = this.getAttribute("value");
+                ratingInput.value = value;
+
+                // Highlight bintang
+                stars.forEach(s => {
+                    if (s.getAttribute("value") <= value) {
+                        s.classList.add("active");
+                    } else {
+                        s.classList.remove("active");
+                    }
+                });
+            });
+        });
+    });
+    </script>
+

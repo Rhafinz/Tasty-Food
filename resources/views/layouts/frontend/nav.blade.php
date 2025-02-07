@@ -8,7 +8,7 @@
                 <button class="navbar-toggler" type="button">
                     <span class="toggler-icon">☰</span>
                 </button>
-                <h1><a class="navbar-brand" href="{{ url('/') }}">TASTY FOOD</a></h1>
+                <h1><a class="navbar-brand" href="{{ url('/') }}">DELISH FOOD</a></h1>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
@@ -44,7 +44,7 @@
                         <li><a href="{{ route('kontak') }}"><i class="fas fa-envelope"></i> Kontak</a></li>
                     </ul>
                     <div class="sidebar-footer">
-                        &copy; 2024 Tasty Food. All rights reserved.
+                        &copy; 2024 Delish Food. All rights reserved.
                     </div>
                 </div>
             </aside>
@@ -52,13 +52,10 @@
         <div class="content">
             <div class="black-line mb-3"></div>
             <h1 class="mb-3" style="font-weight: 500">HEALTHY</h1>
-            <h1 class="mb-3"><strong><b><b>TASTY FOOD</b></b></strong></h1>
+            <h1 class="mb-3"><strong><b><b>DELISH FOOD</b></b></strong></h1>
             <p>
                 <span class="konten" style="line-height: 2;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum
-                    commodo, dui diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim
-                    neque,
-                    vel luctus ex. Fusce sit amet viverra ante.
+                    {{ $judul->deskripsi }}
                 </span>
             </p>
             <a href="{{ route('tentang') }}" class="btn-black"><b>TENTANG KAMI</b></a>

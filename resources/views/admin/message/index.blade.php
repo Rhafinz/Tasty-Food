@@ -13,6 +13,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Message</th>
+                        <th>Rating</th>
                         <th>Kapan Pesan Dibuat</th>
                         {{-- <th>Status</th> --}}
                         <th style="text-align: center">Action</th>
@@ -25,8 +26,9 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $data->subject }}</td>
                             <td>{{ $data->name }}</td>
-                            <td>{{ $data->email }}</td>
+                            <td>{{ $data->user->email }}</td>
                             <td>{{ $data->message }}</td>
+                            <td>{{ $data->rating }}</td>
                             <td>{{ $data->created_at ? $data->created_at->setTimezone('Asia/Jakarta')->format('d M Y H:i') : 'N/A' }}</td>
                             {{-- <td>
                                 @if ($data->is_read)

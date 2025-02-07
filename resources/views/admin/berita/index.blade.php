@@ -35,7 +35,7 @@
                             </td>
                             <td>
                                 <span class="text-toggle" onclick="toggleText(this)">
-                                    {{ Str::limit($data->deskripsi, 30, ' ...') }}
+                                    {!! Str::limit($data->deskripsi, 30, ' ...') !!}
                                 </span>
                                 <span class="full-text" style="display: none;">{{ $data->deskripsi }}</span>
                             </td>

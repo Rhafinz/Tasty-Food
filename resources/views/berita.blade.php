@@ -50,7 +50,7 @@
                                 <!-- Batasi judul hingga 50 karakter -->
                                 <p class="card-text">{{ Str::limit($item->deskripsi, 100, '...') }}</p>
                                 <!-- Batasi deskripsi hingga 100 karakter -->
-                                <a class="read-more" href="{{ route('berita.show', $item->id) }}">
+                                <a class="read-more" href="{{ route('berita.show', $item->slug) }}">
                                     Baca selengkapnya
                                 </a>
                             </div>

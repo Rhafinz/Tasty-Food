@@ -46,7 +46,8 @@ html {
 }
 
 /* Carousel Controls */
-.carousel-control-prev-icon, .carousel-control-next-icon {
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -90,7 +91,6 @@ html {
 }
 
 @media (max-width: 480px) {
-
     .carousel-control-prev {
         left: -25px;
     }
@@ -98,16 +98,17 @@ html {
     .carousel-control-next {
         right: -25px;
     }
-
 }
 
-.carousel-control-prev-icon i, .carousel-control-next-icon i {
+.carousel-control-prev-icon i,
+.carousel-control-next-icon i {
     font-size: 1.5rem;
     color: black;
 }
 
 /* Fully opaque controls */
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next {
     opacity: 1;
     pointer-events: auto;
 }
@@ -120,7 +121,6 @@ html {
     padding-bottom: 90px;
     margin-bottom: -150px;
 }
-
 
 .col-lg-3 {
     display: flex;
@@ -220,7 +220,6 @@ html {
     object-fit: cover;
     margin: 0 5px; /* Menambah jarak antar gambar lebih detail */
 }
-
 
 .rounded-image,
 .rounded-image1,
@@ -478,7 +477,6 @@ html {
     color: #ff9d00; /* Warna teks tetap */
 }
 
-
 /* Responsiveness */
 @media (max-width: 768px) {
     .news-other-title {
@@ -571,6 +569,17 @@ html {
 
 /* contact */
 
+.rating i {
+    font-size: 24px;
+    color: gray;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.rating i.active {
+    color: gold;
+}
+
 /* Contact Section */
 .contact-container {
     background-color: white;
@@ -598,7 +607,6 @@ html {
     box-sizing: border-box;
     margin-bottom: 15px;
 }
-
 
 .left-column,
 .right-column {
@@ -635,7 +643,7 @@ html {
 
 .input-field:focus {
     border-color: #272727; /* Border color on focus */
-    outline: none;         /* Removes the default outline */
+    outline: none; /* Removes the default outline */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on focus */
 }
 
@@ -664,7 +672,6 @@ html {
     width: 100%;
 }
 
-
 /* Button at the bottom */
 .form-group:last-child {
     display: flex;
@@ -672,25 +679,23 @@ html {
     width: 100%;
 }
 
-
 .action-button {
     background-color: #000; /* Background color */
-    color: #fff;            /* Text color */
-    border: none;           /* No border */
-    padding: 30px 40px;    /* Padding for height and width */
-    border-radius: 10px;    /* Rounded corners */
-    font-size: 18px;       /* Font size */
-    cursor: pointer;       /* Pointer on hover */
-    margin-top: 20px;      /* Space above the button */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    padding: 30px 40px; /* Padding for height and width */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+    margin-top: 20px; /* Space above the button */
     transition: background-color 0.3s ease; /* Smooth hover effect */
-    width: 100%;           /* Make button as wide as the form */
+    width: 100%; /* Make button as wide as the form */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
 
 .action-button:hover {
     background-color: #333; /* Darker background on hover */
 }
-
 
 /* Contact Info Section */
 .info-section {
@@ -717,7 +722,6 @@ html {
 .contact-infoo {
     text-align: left;
 }
-
 
 .contact-info .icon {
     background-color: black;

@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->string('subject')->nullable(true)->default('example@gmail.com');
+            $table->bigInteger('users_id')->unsigned();
+            $table->foreign('users_id')->references('id')->on('users')->ondelete('cascade');
+            $table->string('subject')->nullable(true)->default('DelishFood@gmail.com');
             $table->string('name');
             $table->string('email');
             $table->text('message');
+            $table->decimal('rating', 2, 1)->nullable();
             $table->timestamps();
         });
     }

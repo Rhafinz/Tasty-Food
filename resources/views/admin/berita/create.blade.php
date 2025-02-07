@@ -28,7 +28,7 @@
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
                             <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"
-                                id="deskripsi" rows="4" placeholder="Deskripsi"></textarea>
+                                id="editor" rows="4" placeholder="Deskripsi"></textarea>
                             @error('deskripsi')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -58,3 +58,7 @@
         </div> <!-- /.card-body -->
     </div> <!-- /.card -->
 @endsection
+<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor');
+</script>

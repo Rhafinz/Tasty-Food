@@ -18,7 +18,7 @@
                 <div class="news-text">
                     <h1 class="news-title mb-3">{{ $news->judul }}</h1>
                     <hr>
-                    <p class="news-description mb-3">{{ $news->deskripsi }}</p>
+                    <p class="news-description mb-3">{!! $news->deskripsi !!}</p>
                     <hr>
                     <p class="news-date mb-3">
                         <small>Dibuat pada: {{ $news->created_at->format('d F Y') }}</small>
