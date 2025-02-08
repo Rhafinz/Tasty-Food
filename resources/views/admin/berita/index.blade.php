@@ -35,9 +35,10 @@
                             </td>
                             <td>
                                 <span class="text-toggle" onclick="toggleText(this)">
-                                    {!! Str::limit($data->deskripsi, 30, ' ...') !!}
+                                    {!! Str::limit(strip_tags($data->deskripsi), 30, ' ...') !!}
                                 </span>
-                                <span class="full-text" style="display: none;">{{ $data->deskripsi }}</span>
+                                <span class="full-text" style="display: none;">{!! $data->deskripsi !!}</span>
+
                             </td>
                             <td class="text-center">
                                 <form action="{{ route('berita.destroy', $data->id) }}" method="POST">

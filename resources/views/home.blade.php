@@ -69,7 +69,7 @@
                             </div>
                             <div class="news-body content-news mb-auto">
                                 <h5 class="news-title">{{ $latestNews->judul }}</h5>
-                                <p class="news-text-big">{{ $latestNews->deskripsi }}</p>
+                                <p class="news-text-big">{!! $latestNews->deskripsi !!}</p>
                                 <a href="{{ route('berita.show', $latestNews->slug) }}" class="read-more card-news-big">Baca
                                     selengkapnya</a>
                             </div>
@@ -86,7 +86,7 @@
                                         </div>
                                         <div class="news-body">
                                             <h5 class="news-title">{{ Str::limit($news->judul, 15) }}</h5>
-                                            <p class="news-text">{{ Str::limit($news->deskripsi, 100) }}</p>
+                                            <p class="news-text">{!! Str::limit($news->deskripsi, 100) !!}</p>
                                             <a href="{{ route('berita.show', $news->slug) }}" class="read-more">Baca
                                                 selengkapnya</a>
                                         </div>

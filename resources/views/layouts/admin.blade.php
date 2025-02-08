@@ -278,8 +278,14 @@
     </script> <!--end::Script-->
 
     @stack('scripts')
+    <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('deskripsi');
+    </script>
+
     @include('sweetalert::alert')
 
 </body><!--end::Body-->
 
 </html>
+        

@@ -52,6 +52,11 @@
                                 <p>Slider</p>
                             </a>
                         </li>
+                        <li class="nav-item"> <a href="{{ route('slider.index') }}" class="nav-link"> <i
+                                    class="nav-icon bi bi-images"></i>
+                                <p>Resep</p>
+                            </a>
+                        </li>
                         <li class="nav-item"> <a href="{{ route('user.index') }}" class="nav-link"> <i
                                     class="nav-icon bi bi-person"></i>
                                 <p>User</p>
