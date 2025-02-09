@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], fu
     Route::resource('kontak', App\Http\Controllers\KontakController::class);
     Route::resource('message', App\Http\Controllers\MessageController::class);
     Route::resource('slider', App\Http\Controllers\SliderController::class);
+    Route::resource('resep', App\Http\Controllers\ResepController::class);
     Route::resource('user', App\Http\Controllers\UsersController::class);
 });
 

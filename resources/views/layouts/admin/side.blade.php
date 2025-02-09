@@ -8,13 +8,13 @@
         <nav class="mt-2"> <!--begin::Sidebar Menu-->
             <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
                 <li class="nav-item menu-open"> <a href="{{ url('/home') }}" class="nav-link active"> <i
-                            class="nav-icon bi bi-speedometer"></i>
+                            class="nav-icon fa-solid fa-gauge-high"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-database"></i>
+                <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon fa-solid fa-database"></i>
                         <p>
                             Kelola Data
                             <i class="nav-arrow bi bi-chevron-right"></i>
@@ -22,7 +22,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item"> <a href="{{ route('galeri.index') }}" class="nav-link"> <i
-                                    class="nav-icon fas fa-image"></i>
+                                    class="nav-icon fa-solid fa-image"></i>
                                 <p>Galeri</p>
                             </a>
                         </li>
@@ -52,14 +52,14 @@
                                 <p>Slider</p>
                             </a>
                         </li>
-                        <li class="nav-item"> <a href="{{ route('slider.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-images"></i>
+                        <li class="nav-item"> <a href="{{ route('resep.index') }}" class="nav-link"> <i
+                                    class="nav-icon fa-solid fa-bell-concierge"></i>
                                 <p>Resep</p>
                             </a>
                         </li>
                         <li class="nav-item"> <a href="{{ route('user.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-person"></i>
-                                <p>User</p>
+                                    class="nav-icon fa-solid fa-user"></i>
+                                <p>Pengguna</p>
                             </a>
                         </li>
                     </ul>

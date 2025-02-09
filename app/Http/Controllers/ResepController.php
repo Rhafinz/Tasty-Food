@@ -12,7 +12,10 @@ class ResepController extends Controller
      */
     public function index()
     {
-        //
+        $reseps = Resep::latest()->paginate();
+
+        confirmDelete("Delete", "Are You Sure?");
+        return view('admin.resep.index', compact('reseps'));
     }
 
     /**
@@ -20,7 +23,8 @@ class ResepController extends Controller
      */
     public function create()
     {
-        //
+        $reseps = Resep::all();
+        return view('admin.resep.create', compact('reseps'));
     }
 
     /**
