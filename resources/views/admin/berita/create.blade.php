@@ -58,7 +58,11 @@
         </div> <!-- /.card-body -->
     </div> <!-- /.card -->
 @endsection
-<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace('deskripsi');
+    document.querySelectorAll("textarea").forEach((el) => {
+        ClassicEditor.create(el)
+            .catch(error => console.error(error));
+    });
 </script>
+

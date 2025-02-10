@@ -18,12 +18,12 @@
                         <div class="mb-3">
                             <label for="foto" class="form-label">Nama Resep</label>
                             <input type="text" name="nama_resep" class="form-control @error('nama_resep') is-invalid @enderror"
-                                id="inputUserstatus" placeholder="nama_resep">
+                                id="inputUserstatus" placeholder="Nama Resep">
                             @error('nama_resep')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                            @enderror`  
                         </div>
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
@@ -78,7 +78,11 @@
         </div> <!-- /.card-body -->
     </div> <!-- /.card -->
 @endsection
-<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace('deskripsi');
+    document.querySelectorAll("textarea").forEach((el) => {
+        ClassicEditor.create(el)
+            .catch(error => console.error(error));
+    });
 </script>
+

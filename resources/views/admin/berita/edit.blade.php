@@ -60,3 +60,11 @@
     </div> <!-- /.card -->
 @endsection
 
+<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
+<script>
+    document.querySelectorAll("textarea").forEach((el) => {
+        ClassicEditor.create(el)
+            .catch(error => console.error(error));
+    });
+</script>
+

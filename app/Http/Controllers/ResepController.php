@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resep;
+use Storage;
+use Alert;
+use Validator;
 use Illuminate\Http\Request;
 
 class ResepController extends Controller
@@ -32,15 +35,35 @@ class ResepController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_resep' => 'required',
+            'deskripsi' => 'required',
+            'bahan' => 'required',
+            'langkah' => 'required',
+            'gambar' => 'image|mimes:jpeg,jpg,png',
+        ]);
+
+        $reseps = new Resep($request->all());
+        $reseps->nama_resep = $request->nama_resep;
+        $reseps->deskripsi = $request->deskripsi;
+        $reseps->bahan = $request->bahan;
+        $reseps->langkah = $request->langkah;
+        $gambar = $request->file('gambar');
+        $gambar->storeAs('public/reseps', $gambar->hashName());
+        $reseps->gambar = $gambar->hashName();
+        $reseps->save();
+        Alert()->success('Success', 'Data Berhasil Di Simpan');
+        return redirect()->route('resep.index');
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Resep $resep)
+    public function show($id)
     {
-        //
+        $reseps = Resep::findOrFail($id);
+        return view('admin.resep.show', compact('reseps'));
     }
 
     /**
