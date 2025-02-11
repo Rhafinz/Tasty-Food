@@ -43,15 +43,15 @@
                             </td>
                             <td>
                                 <span class="text-toggle" onclick="toggleText(this)">
-                                    {{ Str::limit($data->bahan, 30, ' ...') }}
+                                    {!! Str::limit(strip_tags($data->bahan), 30, ' ...') !!}
                                 </span>
-                                <span class="full-text" style="display: none;">{{ $data->bahan }}</span>
+                                <span class="full-text" style="display: none;">{!! $data->bahan !!}</span>
                             </td>
                             <td>
                                 <span class="text-toggle" onclick="toggleText(this)">
-                                    {{ Str::limit($data->langkah, 30, ' ...') }}
+                                    {!! Str::limit(strip_tags($data->langkah), 30, ' ...') !!}
                                 </span>
-                                <span class="full-text" style="display: none;">{{ $data->langkah }}</span>
+                                <span class="full-text" style="display: none;">{!! $data->langkah !!}</span>
                             </td>
                             <td class="text-center">
                                 <form action="{{ route('resep.destroy', $data->id) }}" method="POST">
