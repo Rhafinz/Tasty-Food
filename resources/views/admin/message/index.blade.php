@@ -26,10 +26,14 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $data->subject }}</td>
                             <td>{{ $data->name }}</td>
-                            <td>{{ $data->user->email }}</td>
+                            <td>{{ $data->email }}</td>
                             <td>{{ $data->message }}</td>
-                            <td>{{ $data->rating }}</td>
-                            <td>{{ $data->created_at ? $data->created_at->setTimezone('Asia/Jakarta')->format('d M Y H:i') : 'N/A' }}</td>
+                            <td>
+                                {{ $data->rating }}
+                                <i class="fa-solid fa-star text-warning"></i>
+                            </td>
+                            <td>{{ $data->created_at ? $data->created_at->setTimezone('Asia/Jakarta')->format('d M Y H:i') : 'N/A' }}
+                            </td>
                             {{-- <td>
                                 @if ($data->is_read)
                                     <i class="fa-regular fa-circle-check text-success"></i>

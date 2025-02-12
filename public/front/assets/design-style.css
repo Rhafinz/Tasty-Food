@@ -517,9 +517,7 @@ html {
 }
 
 .news-image img {
-    width: 100%; /* Gambar responsif */
     height: auto; /* Mempertahankan aspek rasio */
-    border-radius: 18px; /* Sudut melengkung untuk gambar */
 }
 
 .news-text {
@@ -772,18 +770,22 @@ html {
 }
 
 /* Footer */
+
 .footer {
-    padding: 5rem;
-    margin: 150px 0 0 0;
+    margin-top: 150px;
+    padding-left: 5rem;
+    /* margin-right: -7rem; */
+    /* padding-right: 5rem; */
+    padding-top: 5rem;
+    padding-bottom: 0.5rem;
+    /* margin-top: 3rem; */
     background-color: #000000;
     color: #f4f4f4;
 }
-
 .footer h5 {
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
-
 .footer p {
     color: #b5b5b5;
 }
@@ -792,55 +794,46 @@ html {
     color: #ffffff;
     text-decoration: none;
 }
-
 .footer a:hover {
     text-decoration: underline;
 }
-
 .social-icons a {
     display: inline-block;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    margin-right: 8px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
     text-align: center;
     color: #ffffff;
     border-radius: 50%;
     background-color: #3b5998;
 }
-
 .social-icons a.twitter {
     background-color: #1da1f2;
 }
-
 .social-icons a i {
-    font-size: 18px;
+    font-size: 20px;
 }
-
 .footer-bottom {
     text-align: center;
-    padding-top: 15px;
-    margin-top: 15px;
+    padding-top: 20px;
+    margin-top: 20px;
 }
-
-.custom-paragraph {
-    padding-right: 190px;
-}
-
-/* Contact Info */
-.contact-info li,
-.list-unstyled li {
+.contact-info li {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 700;
     font-size: small;
 }
-
 .contact-info li i {
-    margin-right: 8px;
+    margin-right: 10px;
 }
-
+.list-unstyled li {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: small;
+}
 /* Button and Other Styles */
 .botten {
     display: grid;

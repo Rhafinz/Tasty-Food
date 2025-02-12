@@ -19,32 +19,34 @@ class MessageController extends Controller
 
     public function store(Request $request)
     {
-        // Pastikan pengguna sudah login
+        // Pastikan user sudah login
         if (!Auth::check()) {
-            return redirect()->route('user.login')->with('error', 'Anda harus login terlebih dahulu.');
+            return redirect()->route('kontak')->with('error', 'Anda harus login untuk mengirim pesan.');
         }
 
         // Validasi input
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
             'message' => 'required',
-            'rating' => 'nullable|numeric|min:1|max:5', // Pastikan rating antara 1-5
+            'rating' => 'nullable|numeric|min:1|max:5',
         ]);
 
-        // Menyimpan pesan dan rating
+        // Simpan pesan dengan subject otomatis ke admin
         $message = new Message();
+        $message->users_id = Auth::id(); // ID user yang sedang login
+        $message->subject = 'DelishFood@gmail.com'; // Subject otomatis
         $message->name = $request->name;
         $message->email = $request->email;
         $message->message = $request->message;
-        $message->user_id = Auth::user()->id; // Menyimpan ID pengguna yang login
-        $message->rating = $request->rating; // Menyimpan rating yang dipilih
+        $message->rating = $request->rating ?? null; // Pastikan rating tidak null jika kosong
         $message->save();
 
-        toast()->success('Success', 'Pesan Sudah Di Kirim');
-
+        toast()->success('Success', 'Pesan Sudah Dikirim');
         return redirect()->route('kontak');
     }
+
+
 
     public function show($id)
     {

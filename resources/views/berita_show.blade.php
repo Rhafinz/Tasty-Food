@@ -4,29 +4,31 @@
     <div class="content text-center">
         <h2><b>DETAIL BERITA</b></h2>
     </div>
-    <div class="container news-detail my-4">
-        <div class="row">
+
+    <div class="container my-5">
+        <div class="row g-4 align-items-center">
             <!-- Bagian Gambar -->
-            <div class="col-12 col-md-6 mb-3">
-                <div class="news-image">
+            <div class="col-12 col-md-6">
+                <div class="news-image p-3">
                     <img src="{{ asset('/storage/beritas/' . $news->image) }}" alt="{{ $news->judul }}"
-                        class="img-fluid rounded shadow">
+                        class="img-fluid rounded-5 shadow-sm w-100">
                 </div>
             </div>
+
             <!-- Bagian Teks -->
             <div class="col-12 col-md-6">
-                <div class="news-text">
-                    <h1 class="news-title mb-3">{{ $news->judul }}</h1>
+                <div class="p-3">
+                    <h1 class="news-title fw-bold mb-3">{{ $news->judul }}</h1>
                     <hr>
-                    <p class="news-description mb-3">{!! $news->deskripsi !!}</p>
+                    <p class="news-description text-secondary">{!! $news->deskripsi !!}</p>
                     <hr>
-                    <p class="news-date mb-3">
-                        <small>Dibuat pada: {{ $news->created_at->format('d F Y') }}</small>
+                    <p class="news-date text-muted">
+                        <small><i class="fas fa-calendar-alt"></i> <strong>{{ $news->created_at->translatedFormat('d F Y') }}</strong></small>
                     </p>
-                    <hr>
-                    <p class="news-date mb-3">
-                        <small>Diperbaharui pada: {{ $news->updated_at->format('d F Y') }}</small>
+                    <p class="news-date text-muted">
+                        <small><i class="fas fa-sync-alt"></i> <strong>{{ $news->updated_at->translatedFormat('d F Y') }}</strong></small>
                     </p>
+
                 </div>
             </div>
         </div>

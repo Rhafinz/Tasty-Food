@@ -16,42 +16,20 @@
     {{-- content Article --}}
     <section class="content-article">
         <div class="article gap-3">
-            <div class="card">
-                <img class="card-image" src="{{ asset('assets/ASET/img-1.png') }}" alt="">
-                <h2 class="card1 mb-3">
-                    <b class="article-title">LOREM IPSUM</b>
-                </h2>
-                <p class="mb-3 article-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum commodo.
-                </p>
-            </div>
-            <div class="card">
-                <img class="card-image" src="{{ asset('assets/ASET/img-2.png') }}" alt="">
-                <h2 class="card1 mb-3">
-                    <b class="article-title">LOREM IPSUM</b>
-                </h2>
-                <p class="mb-3 article-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum commodo.
-                </p>
-            </div>
-            <div class="card">
-                <img class="card-image" src="{{ asset('assets/ASET/img-3.png') }}" alt="">
-                <h2 class="card1 mb-3">
-                    <b class="article-title">LOREM IPSUM</b>
-                </h2>
-                <p class="mb-3 article-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum commodo.
-                </p>
-            </div>
-            <div class="card">
-                <img class="card-image" src="{{ asset('assets/ASET/img-4.png') }}" alt="">
-                <h2 class="card1 mb-3">
-                    <b class="article-title">LOREM IPSUM</b>
-                </h2>
-                <p class="mb-3 article-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum commodo.
-                </p>
-            </div>
+            @php
+                $reseps = App\Models\Resep::all();
+            @endphp
+            @foreach ($reseps as $data)
+                <div class="card">
+                    <img class="card-image" src="{{ asset('/storage/reseps/' . $data->gambar) }}" alt="">
+                    <h2 class="card1 mb-3">
+                        <b class="article-title">{{ $data->nama_resep }}</b>
+                    </h2>
+                    <p class="mb-3 article-text">
+                        {!! Str::limit($data->deskripsi, 120, ' ...') !!}
+                    </p>
+                </div>
+            @endforeach
         </div>
     </section>
 
@@ -69,7 +47,7 @@
                             </div>
                             <div class="news-body content-news mb-auto">
                                 <h5 class="news-title">{{ $latestNews->judul }}</h5>
-                                <p class="news-text-big">{!! $latestNews->deskripsi !!}</p>
+                                <p class="news-text-big">{!! Str::limit(strip_tags($latestNews->deskripsi), 550) !!}</p>
                                 <a href="{{ route('berita.show', $latestNews->slug) }}" class="read-more card-news-big">Baca
                                     selengkapnya</a>
                             </div>
@@ -86,7 +64,7 @@
                                         </div>
                                         <div class="news-body">
                                             <h5 class="news-title">{{ Str::limit($news->judul, 15) }}</h5>
-                                            <p class="news-text">{!! Str::limit($news->deskripsi, 100) !!}</p>
+                                            <p class="news-text">{!! Str::limit(strip_tags($news->deskripsi), 100) !!}</p>
                                             <a href="{{ route('berita.show', $news->slug) }}" class="read-more">Baca
                                                 selengkapnya</a>
                                         </div>
@@ -129,5 +107,4 @@
             </div>
         </div>
     </section>
-
 @endsection

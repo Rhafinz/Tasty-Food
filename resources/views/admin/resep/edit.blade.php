@@ -19,7 +19,7 @@
                 <div class="mb-3">
                     <label for="foto" class="form-label">Nama Resep</label>
                     <input type="text" name="nama_resep" class="form-control @error('nama_resep') is-invalid @enderror"
-                        id="inputUserstatus" placeholder="nama_resep">
+                        id="inputUserstatus" placeholder="Nama Resep" value="{{ old('nama_resep', $reseps->nama_resep) }}">
                     @error('nama_resep')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                 <div class="mb-3">
                     <label for="deskripsi" class="form-label">Deskripsi</label>
                     <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" rows="4"
-                        placeholder="Deskripsi"></textarea>
+                        placeholder="Deskripsi">{{ old('deskripsi', $reseps->deskripsi) }}</textarea>
                     @error('deskripsi')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
                 <div class="mb-3">
                     <label for="bahan" class="form-label">Bahan</label>
                     <textarea name="bahan" class="form-control @error('bahan') is-invalid @enderror" id="bahan" rows="4"
-                        placeholder="Bahan"></textarea>
+                        placeholder="Bahan">{{ old('bahan', $reseps->bahan) }}</textarea>
                     @error('bahan')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                 <div class="mb-3">
                     <label for="deskripsi" class="form-label">Langkah</label>
                     <textarea name="langkah" class="form-control @error('langkah') is-invalid @enderror" id="langkah" rows="4"
-                        placeholder="Langkah"></textarea>
+                        placeholder="Langkah">{{ old('langkah', $reseps->langkah) }}</textarea>
                     @error('langkah')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -66,6 +66,12 @@
                         </span>
                     @enderror
                 </div>
+                <div class="mb-3">
+                    <div class="d-md-flex d-grid align-items-center gap-3">
+                        <button type="submit" class="btn btn-primary px-4">Submit</button>
+                        <button type="reset" class="btn btn-warning  px-4">Reset</button>
+                    </div>
+                </div>
         </div>
         </form>
         </table>
@@ -73,3 +79,10 @@
     </div> <!-- /.card-body -->
     </div> <!-- /.card -->
 @endsection
+<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
+<script>
+    document.querySelectorAll("textarea").forEach((el) => {
+        ClassicEditor.create(el)
+            .catch(error => console.error(error));
+    });
+</script>

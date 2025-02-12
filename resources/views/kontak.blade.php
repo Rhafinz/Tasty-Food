@@ -5,30 +5,30 @@
     </div>
     <section class="contact-container">
         <form class="container" action="{{ route('message.store') }}" method="POST">
-            <h2 class="mb-5"><b>KONTAK KAMI</b></h2>
             @csrf
+            <h2 class="mb-5"><b>KONTAK KAMI</b></h2>
             <div class="row">
                 <!-- Kolom Kiri -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <input type="text" placeholder="Subject" class="form-control input-field" name="subject"
+                        <input type="text" placeholder="Subject" class="form-control input-field" name="name"
                             value="{{ old('subject', $kontak->email ?? '') }}" readonly>
                     </div>
                     <div class="mb-3">
                         <input type="text" placeholder="Name" class="form-control input-field" name="name"
-                            value="{{ old('name', Auth::user() ? Auth::user()->name : '') }}">
+                            value="{{ old('name', Auth::user()->name ?? '') }}" readonly>
                     </div>
                     <div class="mb-3">
                         <input type="email" placeholder="Email" class="form-control input-field" name="email"
-                            value="{{ old('email', Auth::user() ? Auth::user()->email : '') }}">
+                            value="{{ old('email', Auth::user()->email ?? '') }}" readonly>
                     </div>
                 </div>
-
 
                 <!-- Kolom Kanan -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <textarea id="editor" placeholder="Message" class="form-control input-field" name="message" style="height: 12.6em"></textarea>
+                        <textarea id="editor" placeholder="Message" class="form-control input-field" name="message"
+                            style="height: 12.6em"></textarea>
                     </div>
 
                     <!-- Input Rating -->
@@ -42,7 +42,6 @@
                             <i class="fa-solid fa-star" value="4"></i>
                             <i class="fa-solid fa-star" value="5"></i>
                         </div>
-                        <input type="hidden" id="ratingInput" name="rating" value="0">
                     </div>
                 </div>
             </div>
@@ -51,6 +50,7 @@
                 <button type="submit" class="action-button"><b>KIRIM</b></button>
             </div>
         </form>
+
 
     </section>
 
@@ -100,12 +100,12 @@
     CKEDITOR.replace('editor');
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const stars = document.querySelectorAll(".rating i");
         const ratingInput = document.getElementById("ratingInput");
 
         stars.forEach(star => {
-            star.addEventListener("click", function () {
+            star.addEventListener("click", function() {
                 const value = this.getAttribute("value");
                 ratingInput.value = value;
 
@@ -120,5 +120,4 @@
             });
         });
     });
-    </script>
-
+</script>

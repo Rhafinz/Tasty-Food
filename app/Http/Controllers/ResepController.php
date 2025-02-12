@@ -69,19 +69,47 @@ class ResepController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Resep $resep)
+    public function edit($id)
     {
-        //
+        $reseps = Resep::findOrFail($id);
+        return view('admin.resep.edit', compact('reseps'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Resep $resep)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        // vallidate form
+        $this->validate($request, [
+            'nama_resep' => 'required',
+            'deskripsi' => 'required',
+            'bahan' => 'required',
+            'langkah' => 'required',
+            'gambar' => 'image|nullable|mimes:jpeg,jpg,png',
+        ]);
 
+        $reseps = Resep::findOrFail($id);
+        $reseps->nama_resep = $request->nama_resep;
+        $reseps->deskripsi = $request->deskripsi;
+        $reseps->bahan = $request->bahan;
+        $reseps->langkah = $request->langkah;
+
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            Storage::delete('public/reseps/' . $reseps->gambar);
+
+            // Simpan gambar baru
+            $gambar = $request->file('gambar');
+            $gambar->storeAs('public/reseps', $gambar->hashName());
+            $reseps->gambar = $gambar->hashName();
+        }
+
+        $reseps->save();
+
+        Alert()->success('Success', 'Data Berhasil Di Edit');
+        return redirect()->route('resep.index');
+    }
     /**
      * Remove the specified resource from storage.
      */

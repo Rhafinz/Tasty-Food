@@ -608,7 +608,11 @@ p {
 
 /* Footer */
 .footer {
-    padding: 5rem;
+    padding-left: 5rem;
+    /* margin-right: -7rem; */
+    /* padding-right: 5rem; */
+    padding-top: 5rem;
+    padding-bottom: 0.5rem;
     /* margin-top: 3rem; */
     background-color: #000000;
     color: #f4f4f4;
@@ -619,10 +623,6 @@ p {
 }
 .footer p {
     color: #b5b5b5;
-}
-
-.custom-paragraph {
-    padding-right: 190px;
 }
 
 .footer a {
