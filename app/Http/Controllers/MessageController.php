@@ -13,7 +13,7 @@ class MessageController extends Controller
     {
         $message = Message::latest()->paginate();
 
-        confirmDelete("Delete", "Apakah Anda Yakin Menghapus Data Ini?");
+        confirmDelete("Delete", "Apakah Anda Yakin Menghapus Pesan Ini?");
         return view('admin.message.index', compact('message'));
     }
 
@@ -21,8 +21,12 @@ class MessageController extends Controller
     {
         // Pastikan user sudah login
         if (!Auth::check()) {
-            return redirect()->route('kontak')->with('error', 'Anda harus login untuk mengirim pesan.');
+            return redirect()->route('kontak')->with('error',
+                'Anda harus <a href="'.route('login').'">login</a> untuk mengirim pesan atau
+                <a href="">register</a> jika belum punya akun.'
+            );
         }
+
 
         // Validasi input
         $this->validate($request, [

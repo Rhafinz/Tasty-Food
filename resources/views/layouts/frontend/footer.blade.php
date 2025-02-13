@@ -21,7 +21,6 @@
                 <ul class="list-unstyled">
                     <li><a href="{{ route('galeri') }}">Galeri</a></li>
                     <li><a href="#">Testimoni</a></li>
-                    <li><a href="#">Karir</a></li>
                     <li><a href="{{ route('tentang') }}">Tentang Kami</a></li>
                     <li><a href="{{ route('kontak') }}">Kontak Kami</a></li>
                 </ul>
@@ -36,7 +35,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Copyright ©2024 All rights reserved</p>
+            <p>Copyright ©2025 All rights reserved</p>
         </div>
     </div>
 </section>

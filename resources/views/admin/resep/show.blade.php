@@ -1,30 +1,41 @@
-{{-- resources/views/messages/show.blade.php --}}
 @extends('layouts.admin')
 
 @section('content')
-<div class="card m-4">
-    <div class="card-header">
-        <h3 class="card-title">Detail Resep</h3>
-        <div class="float-end">
-            <a href="{{ route('resep.index') }}" class="btn btn-sm btn-primary">Back</a>
-        </div>
-    </div>
+    <div class="container my-4">
+        <div class="card shadow-lg border-0 rounded-4 p-3">
+            <div class="card-header bg-primary text-white rounded-3 position-relative">
+                <h3 class="card-title mb-0">Detail Resep</h3>
+                <a href="{{ route('resep.index') }}"
+                    class="btn btn-light btn-sm shadow-sm position-absolute top-50 end-0 translate-middle-y me-3">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali
+                </a>
+            </div>
 
-    <div class="card-body d-flex align-items-start">
-        <div class="news-image me-3">
-            <img src="{{ asset('/storage/reseps/' . $reseps->gambar) }}" alt="{{ $reseps->nama_resep }}" class="img-fluid" style="width: 350px; max-width: 150px; height: auto; border-radius: 18px;">
-        </div>
-        <div class="news-content d-flex flex-column">
-            <h4>Judul: {{ $reseps->nama_resep }}</h4>
-            <p><strong>Deskripsi :</strong> {{ $reseps->deskripsi }}</p>
-            <p><strong>Bahan :</strong> {{ $reseps->bahan }}</p>
-            <p><strong>Langkah :</strong> {{ $reseps->langkah }}</p>
-            <div class="mt-auto">
-                <hr>
-                <p class="reseps-date mb-3"><small>Dibuat pada: {{ $reseps->created_at->format('d F Y') }}</small></p>
+
+            <div class="card-body d-flex flex-column flex-md-row align-items-start gap-4">
+                <!-- Gambar Resep -->
+                <div class="news-image text-center">
+                    <img src="{{ asset('/storage/reseps/' . $reseps->gambar) }}" alt="{{ $reseps->nama_resep }}"
+                        class="img-fluid rounded-3 shadow-sm" style="width: 350px; max-width: 100%; height: auto;">
+                </div>
+
+                <!-- Konten Resep -->
+                <div class="news-content">
+                    <h4 class="fw-bold text-primary">{{ $reseps->nama_resep }}</h4>
+                    <p class="text-muted"><i class="fa-solid fa-clock"></i> Dibuat pada:
+                        {{ $reseps->created_at->format('d F Y') }}</p>
+                    <hr>
+
+                    <h5 class="fw-semibold text-dark"><i class="fa-solid fa-info-circle"></i> Deskripsi</h5>
+                    <p class="text-secondary">{!! $reseps->deskripsi !!}</p>
+
+                    <h5 class="fw-semibold text-dark mt-3"><i class="fa-solid fa-carrot"></i> Bahan</h5>
+                    <p class="text-secondary">{!! $reseps->bahan !!}</p>
+
+                    <h5 class="fw-semibold text-dark mt-3"><i class="fa-solid fa-list-ol"></i> Langkah</h5>
+                    <p class="text-secondary">{!! $reseps->langkah !!}</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 @endsection
