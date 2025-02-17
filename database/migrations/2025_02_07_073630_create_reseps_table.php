@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('bahan');
             $table->text('langkah');
             $table->string('gambar')->nullable();
+            $table->decimal('rating', 2, 1)->nullable();
             $table->timestamps();
         });
     }

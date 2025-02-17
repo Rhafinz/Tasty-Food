@@ -42,17 +42,20 @@
         </div>
     </section>
 
-    <!-- Galeri dengan Image Hover Overlay -->
     <section class="photo">
-        <div class="container container-img">
-            <div class="row">
+        <div class="container">
+            <div class="row justify-content-center">
                 @foreach ($galeries as $item)
                     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                        <div class="square img-hover">
-                            <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="rounded-img" alt="Food" loading="lazy">
-                            <div class="overlay">
-                                <i class="fas fa-search-plus"></i>
-                            </div>
+                        <div class="square img-hover text-center">
+                            <a href="{{ asset('/storage/galeries/' . $item->img) }}"
+                               data-lightbox="photo-gallery"
+                               data-title="Gallery Image">
+                                <img src="{{ asset('/storage/galeries/' . $item->img) }}"
+                                     class="img-fluid rounded-img"
+                                     alt="Gallery Image"
+                                     loading="lazy">
+                            </a>
                         </div>
                     </div>
                 @endforeach

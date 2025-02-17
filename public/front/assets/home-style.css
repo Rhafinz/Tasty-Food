@@ -9,7 +9,7 @@ html {
     font-family: "Montserrat", sans-serif;
     background-color: #f4f4f4;
     overflow-x: hidden;
-    will-change: transform; /* Memberi tahu browser untuk mengoptimasi elemen ini */
+    /* will-change: transform; Memberi tahu browser untuk mengoptimasi elemen ini */
     transform: translateZ(0); /* Memanfaatkan hardware acceleration */
 }
 
@@ -573,6 +573,11 @@ p {
 
 .container-img {
     margin: 0 72px;
+}
+
+.photo {
+    position: relative;
+    z-index: 1;
 }
 
 /* Menjaga aspek rasio persegi pada gambar */

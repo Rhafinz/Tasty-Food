@@ -10,7 +10,7 @@ html {
     overflow-x: hidden;
     font-size: 1rem;
     scroll-behavior: smooth;
-    will-change: transform; /* Memberi tahu browser untuk mengoptimasi elemen ini */
+    /* will-change: transform; Memberi tahu browser untuk mengoptimasi elemen ini */
     transform: translateZ(0); /* Memanfaatkan hardware acceleration */
 }
 
@@ -784,7 +784,6 @@ html {
 }
 
 /* Footer */
-
 .footer {
     margin-top: 150px;
     padding-left: 5rem;
@@ -795,6 +794,7 @@ html {
     /* margin-top: 3rem; */
     background-color: #000000;
     color: #f4f4f4;
+    z-index: 10 !important;
 }
 .footer h5 {
     font-weight: bold;

@@ -97,7 +97,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">${ truncatedTitle }</h5>
                             <p class="card-text">${ truncatedDescription }</p>
-                                <a class="read-more" href="{{ route('berita.show', '') }}/${ item.id }" />
+                                <a class="read-more" href="{{ route('berita.show', '') }}/${ item.slug }" />
                                 Baca selengkapnya
                             </a>
                         </div>

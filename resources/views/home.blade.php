@@ -79,7 +79,7 @@
     </section>
 
 
-    {{-- content Galery --}}
+    {{-- Content Galery --}}
     <section class="photo" style="background-color: white">
         <div class="container-img">
             <div class="gallery-title p-3">
@@ -92,8 +92,10 @@
                 @foreach ($galery->take(6) as $item)
                     <div class="col-12 col-sm-6 col-md-4 p-2">
                         <div class="square">
-                            <a href="{{ asset('/storage/galeries/' . $item->img) }}" data-lightbox="gallery" data-title="Gallery Image">
-                                <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="img-fluid rounded-img" alt="Gallery Image" loading="lazy">
+                            <a href="{{ asset('/storage/galeries/' . $item->img) }}" data-lightbox="photo-gallery"
+                                data-title="Gallery Image">
+                                <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="img-fluid rounded-img"
+                                    alt="Gallery Image" loading="lazy">
                             </a>
                         </div>
                     </div>
@@ -107,4 +109,4 @@
             </div>
         </div>
     </section>
-    @endsection
+@endsection
