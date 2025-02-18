@@ -18,7 +18,7 @@
                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                         <img src="{{ asset('/storage/sliders/' . $item->slider) }}" class="d-block img-fluid" alt="Food">
                     </div>
-                    @empty
+                @empty
                     <div class="col-12">
                         <div class="alert alert-warning text-center" role="alert">
                             Data slider belum tersedia.
@@ -48,19 +48,12 @@
                 @foreach ($galeries as $item)
                     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                         <div class="square img-hover text-center">
-                            <a href="{{ asset('/storage/galeries/' . $item->img) }}"
-                               data-lightbox="photo-gallery"
-                               data-title="Gallery Image">
-                                <img src="{{ asset('/storage/galeries/' . $item->img) }}"
-                                     class="img-fluid rounded-img"
-                                     alt="Gallery Image"
-                                     loading="lazy">
-                            </a>
+                            <img src="{{ asset('/storage/galeries/' . $item->img) }}" class="img-fluid rounded-img"
+                                alt="Gallery Image" loading="lazy">
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </section>
-
 @endsection
