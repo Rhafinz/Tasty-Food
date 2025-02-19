@@ -1,70 +1,76 @@
-<aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
-    <div class="sidebar-brand"> <!--begin::Brand Link--> <a href="./index.html" class="brand-link">
-            <!--begin::Brand Image--> <img src="{{ asset('admin/dist/assets/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-                class="brand-image opacity-75 shadow"> <!--end::Brand Image--> <!--begin::Brand Text--> <span
-                class="brand-text fw-light">DelishFood</span> <!--end::Brand Text--> </a> <!--end::Brand Link--> </div>
-    <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
-    <div class="sidebar-wrapper">
-        <nav class="mt-2"> <!--begin::Sidebar Menu-->
-            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-                <li class="nav-item menu-open"> <a href="{{ url('/home') }}" class="nav-link active"> <i
-                            class="nav-icon fa-solid fa-gauge-high"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon fa-solid fa-database"></i>
-                        <p>
-                            Kelola Data
-                            <i class="nav-arrow bi bi-chevron-right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item"> <a href="{{ route('galeri.index') }}" class="nav-link"> <i
-                                    class="nav-icon fa-solid fa-image"></i>
-                                <p>Galeri</p>
-                            </a>
-                        </li>
+<aside class="sidebar-wrapper" data-simplebar="true">
+    <div class="sidebar-header">
+        <div class="logo-icon">
+            <img src="{{ asset('admin/assets/images/AdminLTELogo.png') }}" class="logo-img" alt="" />
+        </div>
+        <div class="logo-name flex-grow-1">
+            <h5 class="mb-0">DelishFood</h5>
+        </div>
+        <div class="sidebar-close">
+            <span class="material-icons-outlined">close</span>
+        </div>
+    </div>
+    <div class="sidebar-nav">
+        <!--navigation-->
+        <ul class="metismenu" id="sidenav">
+            <li>
+                <a href="{{ url('/home') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">home</i>
+                    </div>
+                    <div class="menu-title">Dashboard</div>
+                </a>
+            </li>
+            <li class="menu-label">Forms & Tables</li>
+            <li>
+                <a href="{{ route('berita.index') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">article</i></div>
+                    <div class="menu-title">Berita</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('tentang.index') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">info</i></div>
+                    <div class="menu-title">Tentang</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('resep.index') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">restaurant_menu</i></div>
+                    <div class="menu-title">Resep</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('galeri.index') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">photo_library</i></div>
+                    <div class="menu-title">Galeri</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('slider.index') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">slideshow</i></div>
+                    <div class="menu-title">Slider</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('kontak.index') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">contacts</i></div>
+                    <div class="menu-title">Kontak</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('message.index') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">email</i></div>
+                    <div class="menu-title">Pesan</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('user.index') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">person</i></div>
+                    <div class="menu-title">Pengguna</div>
+                </a>
+            </li>
 
-                        <li class="nav-item"> <a href="{{ route('tentang.index') }}" class="nav-link"> <i
-                                    class="nav-icon fas fa-address-card"></i>
-                                <p>Tentang</p>
-                            </a>
-                        </li>
-                        <li class="nav-item"> <a href="{{ route('berita.index') }}" class="nav-link"> <i
-                                    class="nav-icon fas fa-newspaper"></i>
-                                <p>Berita</p>
-                            </a>
-                        </li>
-                        <li class="nav-item"> <a href="{{ route('kontak.index') }}" class="nav-link"> <i
-                                    class="nav-icon fas fa-address-book"></i>
-                                <p>Kontak</p>
-                            </a>
-                        </li>
-                        <li class="nav-item"> <a href="{{ route('message.index') }}" class="nav-link"> <i
-                                    class="nav-icon fas fa-envelope"></i>
-                                <p>Pesan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item"> <a href="{{ route('slider.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-images"></i>
-                                <p>Slider</p>
-                            </a>
-                        </li>
-                        <li class="nav-item"> <a href="{{ route('resep.index') }}" class="nav-link"> <i
-                                    class="nav-icon fa-solid fa-bell-concierge"></i>
-                                <p>Resep</p>
-                            </a>
-                        </li>
-                        <li class="nav-item"> <a href="{{ route('user.index') }}" class="nav-link"> <i
-                                    class="nav-icon fa-solid fa-user"></i>
-                                <p>Pengguna</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul> <!--end::Sidebar Menu-->
-        </nav>
-    </div> <!--end::Sidebar Wrapper-->
+        </ul>
+        <!--end navigation-->
+    </div>
 </aside>

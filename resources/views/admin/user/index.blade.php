@@ -36,13 +36,11 @@
                                     <div class="action-buttons-grid">
                                         <a href="{{ route('user.edit', $data->id) }}"
                                             class="btn btn-sm btn-success">Edit</a>
-                                        @if ($data->id == 1)
-                                            <a href="{{ route('user.destroy', $data->id) }}" type="button" class="btn btn-sm btn-secondary" disabled> Can't Deleted </a>
+                                            @if ($data->id == 1)
+                                            <button type="button" class="btn btn-sm btn-secondary" disabled>Can't Delete</button>
                                         @else
-                                            <a href="{{ route('user.destroy', $data->id) }}" type="submit" class="btn btn-sm btn-danger" data-confirm-delete="true">
-                                                Delete </a>
+                                            <a href="{{ route('user.destroy', $data->id) }}" class="btn btn-sm btn-danger" data-confirm-delete="true">Delete</a>
                                         @endif
-
                                     </div>
                                 </form>
                             </td>

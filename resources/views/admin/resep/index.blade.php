@@ -12,7 +12,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th style="width: 10px">#</th>
+                        <th style="width: 10px">No</th>
                         <th>Images</th>
                         <th>Nama Resep</th>
                         <th>Deskripsi</th>
@@ -33,7 +33,7 @@
                             <td>{!! Str::limit($data->nama_resep, 30, '...') !!}</td>
                             <td>{!! Str::limit(strip_tags($data->deskripsi), 30, '...') !!}</td>
                             <td>{!! Str::limit(strip_tags($data->bahan), 30, '...') !!}</td>
-                            <td>{!! Str::limit(strip_tags($data->langkah), 30, '...') !!}</td>
+                            <td>{!! Str::limit(strip_tags($data->langkah_pembuatan), 30, '...') !!}</td>
                             <td class="text-center">
                                 <form action="{{ route('resep.destroy', $data->id) }}" method="POST">
                                     @csrf
