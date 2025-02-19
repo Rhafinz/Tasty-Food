@@ -2,7 +2,6 @@
 @section('content')
     <div class="card m-4">
         <div class="card-header">
-            <h3 class="card-title">Kontak</h3>
             <div class="float-end">
                 @php
                     $kontakCount = App\Models\Kontak::count(); // Hitung jumlah record

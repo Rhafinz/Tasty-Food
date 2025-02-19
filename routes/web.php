@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Middleware\IsAdmin;
@@ -32,7 +33,8 @@ Route::get('/', [FrontController::class, 'home']);
 Route::get('galeri', [FrontController::class, 'galeri'])->name('galeri');
 Route::get('tentang', [FrontController::class, 'tentang'])->name('tentang');
 Route::get('berita', [FrontController::class, 'berita'])->name('berita');
-Route::get('news/{slug}', [App\Http\Controllers\FrontController::class, 'postNews'])->name('berita.show');
+Route::get('news/{slug}', [FrontController::class, 'postNews'])->name('berita.show');
+Route::get('resep/{slug}', [FrontController::class, 'resep'])->name('resep-detail.show');
 Route::get('berita/load-more', [FrontController::class, 'loadMore'])->name('newsLoad');
 Route::get('kontak', [FrontController::class, 'kontak'])->name('kontak');
-Route::post('kontak',[App\Http\Controllers\MessageController::class,'store'])->name('message.store');
+Route::post('kontak',[MessageController::class,'store'])->name('message.store');

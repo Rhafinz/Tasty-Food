@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <h6 class="mb-0 text-uppercase">DataTable Berita</h6>
+    <h6 class="mb-0 text-uppercase">DataTable Berita  | Index</h6>
     <hr>
     <div class="card">
         <div class="card-body">

@@ -2,7 +2,6 @@
 @section('content')
     <div class="card m-4">
         <div class="card-header">
-            <h3 class="card-title">Tentang</h3>
             <div class="float-end">
                 @php
                     $tentangCount = App\Models\Tentang::count(); // Hitung jumlah record

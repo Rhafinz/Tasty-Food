@@ -2,7 +2,6 @@
 @section('content')
     <div class="card m-4">
         <div class="card-header">
-            <h3 class="card-title">Galeri</h3>
             <div class="float-end">
                 <a href="{{ route('galeri.create') }}" class="btn btn-sm btn-primary">Add</a>
             </div>

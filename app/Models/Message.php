@@ -12,6 +12,6 @@ class Message extends Model
 
     public function User()
     {
-        return $this->hasMany(User::class, 'user_id');
+        return $this->hasMany(User::class, 'users_id');
     }
 }

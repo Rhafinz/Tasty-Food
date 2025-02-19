@@ -17,7 +17,10 @@ return new class extends Migration {
             $table->text('bahan');
             $table->text('langkah');
             $table->string('gambar')->nullable();
-            $table->decimal('rating', 2, 1)->nullable();
+            $table->bigInteger('users_id')->unsigned();
+            $table->foreign('users_id')->references('id')->on('users')->ondelete('cascade');
+            $table->bigInteger('ratings_id')->unsigned();
+            $table->foreign('ratings_id')->references('id')->on('ratings')->ondelete('cascade');
             $table->string('slug')->unique(); // Menambahkan kolom slug
             $table->timestamps();
         });

@@ -2,7 +2,6 @@
 @section('content')
     <div class="card m-4">
         <div class="card-header">
-            <h3 class="card-title">User</h3>
         </div> <!-- /.card-header -->
         <div class="card-body p-0">
             <table class="table table-striped">

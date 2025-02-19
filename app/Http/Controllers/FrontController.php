@@ -50,6 +50,20 @@ class FrontController extends Controller
         return view('berita_show', compact('news'));
     }
 
+    public function resep($slug)
+    {
+        // Mencari berita berdasarkan slug
+        $resep = Berita::where('slug', $slug)->first();
+
+        if (!$resep) {
+            // Menangani kasus jika berita tidak ditemukan
+            abort(404, 'Resep not found');
+        }
+
+        // Mengirimkan data berita ke view
+        return view('detail-resep', compact('reseps'));
+    }
+
     public function berita()
     {
         $judul = Tentang::Find(1);

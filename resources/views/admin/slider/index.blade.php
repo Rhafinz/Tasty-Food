@@ -2,7 +2,6 @@
 @section('content')
     <div class="card m-4">
         <div class="card-header">
-            <h3 class="card-title">Slider</h3>
             <div class="float-end">
                 <a href="{{ route('slider.create') }}" class="btn btn-sm btn-primary">Add</a>
             </div>

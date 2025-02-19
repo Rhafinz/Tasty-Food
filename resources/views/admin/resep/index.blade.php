@@ -2,7 +2,6 @@
 @section('content')
     <div class="card m-4">
         <div class="card-header">
-            <h3 class="card-title">Resep</h3>
             <div class="float-end">
                 <a href="{{ route('resep.create') }}" class="btn custom-btn btn-sm btn-primary">
                     <i class="fa-solid fa-plus"></i>Tambah Resep</a>
