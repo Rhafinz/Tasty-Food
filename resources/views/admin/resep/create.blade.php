@@ -56,6 +56,22 @@
                     @enderror
                 </div>
 
+                    <!-- Input Rating -->
+                    {{-- <div class="mb-3">
+                        <label class="mb-2"><b>Rating</b></label>
+                        <div class="rating">
+                            <input type="hidden" id="ratingInput" name="rating" value="1">
+                            <i class="fa-solid fa-star" value="1"></i>
+                            <i class="fa-solid fa-star" value="2"></i>
+                            <i class="fa-solid fa-star" value="3"></i>
+                            <i class="fa-solid fa-star" value="4"></i>
+                            <i class="fa-solid fa-star" value="5"></i>
+                        </div>
+                        @error('rating')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div> --}}
+
                 <div class="d-flex gap-2">
                     <button type="submit" class="btn btn-primary px-4">
                         <i class="fa-solid fa-check"></i> Submit

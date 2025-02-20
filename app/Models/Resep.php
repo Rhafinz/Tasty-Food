@@ -9,28 +9,25 @@ use Illuminate\Support\Str;
 class Resep extends Model
 {
     use HasFactory;
-    protected $fillable = ['nama_resep', 'deskripsi', 'bahan', 'langkah', 'gambar', 'users_id', 'ratings_id', 'slug'];
+    protected $fillable = ['nama_resep', 'deskripsi', 'bahan', 'langkah', 'gambar', 'slug'];
 
-    public function User()
+    public function Resep()
     {
-        return $this->hasMany(User::class, 'users_id');
+        return $this->belongsTo(Resep::class, 'reseps_id');
     }
 
-    public function Rating()
-    {
-        return $this->hasMany(Rating::class, 'ratings_id');
-    }
 
     public static function boot()
     {
         parent::boot();
 
         static::creating(function ($resep) {
-            $resep->slug = Str::slug($resep->judul);
+            $resep->slug = Str::slug($resep->nama_resep);
         });
 
         static::updating(function ($resep) {
-            $resep->slug = Str::slug($resep->judul);
+            $resep->slug = Str::slug($resep->nama_resep);
         });
     }
 }
+

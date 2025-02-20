@@ -45,24 +45,8 @@
                 <!-- Kolom Kanan -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <textarea id="editor" placeholder="Message" class="form-control input-field" name="message" style="height: 12.6em">{{ old('message') }}</textarea>
+                        <textarea id="editor" placeholder="Message" class="form-control input-field" name="message" style="height: 19.6em">{{ old('message') }}</textarea>
                         @error('message')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
-
-                    <!-- Input Rating -->
-                    <div class="mb-3">
-                        <label class="mb-2"><b>Rating</b></label>
-                        <div class="rating">
-                            <input type="hidden" id="ratingInput" name="rating" value="1">
-                            <i class="fa-solid fa-star" value="1"></i>
-                            <i class="fa-solid fa-star" value="2"></i>
-                            <i class="fa-solid fa-star" value="3"></i>
-                            <i class="fa-solid fa-star" value="4"></i>
-                            <i class="fa-solid fa-star" value="5"></i>
-                        </div>
-                        @error('rating')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>

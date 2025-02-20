@@ -64,6 +64,13 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('rating.index') }}" class="">
+                    <div class="parent-icon"><i class="material-icons-outlined">star</i></div>
+                    <div class="menu-title">Rating</div>
+                </a>
+            </li>
+
+            <li>
                 <a href="{{ route('user.index') }}" class="">
                     <div class="parent-icon"><i class="material-icons-outlined">person</i></div>
                     <div class="menu-title">Pengguna</div>

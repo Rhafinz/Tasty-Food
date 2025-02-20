@@ -23,7 +23,9 @@
                 <div class="card">
                     <img class="card-image" src="{{ asset('/storage/reseps/' . $data->gambar) }}" alt="">
                     <h2 class="card1 mb-3">
-                        <b class="article-title">{{ $data->nama_resep }}</b>
+                        <a href="{{ route('resep.show', $data->slug) }}" class="article-title">
+                            <b>{{ $data->nama_resep }}</b>
+                        </a>
                     </h2>
                     <p class="mb-3 article-text">
                         {!! Str::limit($data->deskripsi, 120, ' ...') !!}
@@ -32,6 +34,7 @@
             @endforeach
         </div>
     </section>
+
 
     {{-- content News --}}
     <section class="content-news">

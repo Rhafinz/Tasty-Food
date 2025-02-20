@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+<h6 class="mb-0 text-uppercase">DataTable User | Index</h6>
     <div class="card m-4">
         <div class="card-header">
         </div> <!-- /.card-header -->

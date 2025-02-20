@@ -55,11 +55,12 @@ class BeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($slug)
     {
-        $beritas = Berita::findOrFail($id);
+        $beritas = Berita::where('slug', $slug)->firstOrFail();
         return view('admin.berita.show', compact('beritas'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

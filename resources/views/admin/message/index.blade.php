@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+<h6 class="mb-0 text-uppercase">DataTable Pesan | Index</h6>
     <div class="card m-4">
         <div class="card-header">
         </div> <!-- /.card-header -->
@@ -12,9 +13,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Message</th>
-                        <th>Rating</th>
                         <th>Kapan Pesan Dibuat</th>
-                        {{-- <th>Status</th> --}}
                         <th style="text-align: center">Action</th>
                     </tr>
                 </thead>
@@ -27,10 +26,10 @@
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->message }}</td>
-                            <td>
+                            {{-- <td>
                                 {{ $data->rating }}
                                 <i class="fa-solid fa-star text-warning"></i>
-                            </td>
+                            </td> --}}
                             <td>{{ $data->created_at ? $data->created_at->setTimezone('Asia/Jakarta')->format('d M Y H:i') : 'N/A' }}
                             </td>
                             {{-- <td>

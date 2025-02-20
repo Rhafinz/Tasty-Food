@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], fu
     Route::resource('message', App\Http\Controllers\MessageController::class);
     Route::resource('slider', App\Http\Controllers\SliderController::class);
     Route::resource('resep', App\Http\Controllers\ResepController::class);
+    Route::resource('rating', App\Http\Controllers\RatingController::class);
     Route::resource('user', App\Http\Controllers\UsersController::class);
 });
 
@@ -34,7 +35,7 @@ Route::get('galeri', [FrontController::class, 'galeri'])->name('galeri');
 Route::get('tentang', [FrontController::class, 'tentang'])->name('tentang');
 Route::get('berita', [FrontController::class, 'berita'])->name('berita');
 Route::get('news/{slug}', [FrontController::class, 'postNews'])->name('berita.show');
-Route::get('resep/{slug}', [FrontController::class, 'resep'])->name('resep-detail.show');
 Route::get('berita/load-more', [FrontController::class, 'loadMore'])->name('newsLoad');
+Route::get('resep/{slug}', [FrontController::class, 'postResep'])->name('resep.show');
 Route::get('kontak', [FrontController::class, 'kontak'])->name('kontak');
 Route::post('kontak',[MessageController::class,'store'])->name('message.store');

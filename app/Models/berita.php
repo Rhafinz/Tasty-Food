@@ -16,12 +16,12 @@ class Berita extends Model
     {
         parent::boot();
 
-        static::creating(function ($berita) {
-            $berita->slug = Str::slug($berita->judul);
+        static::creating(function ($news) {
+            $news->slug = Str::slug($news->judul);
         });
 
-        static::updating(function ($berita) {
-            $berita->slug = Str::slug($berita->judul);
+        static::updating(function ($news) {
+            $news->slug = Str::slug($news->judul);
         });
     }
 }

@@ -33,7 +33,6 @@ class MessageController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'message' => 'required',
-            'rating' => 'nullable|numeric|min:1|max:5',
         ]);
 
         // Simpan pesan dengan subject otomatis ke admin
@@ -43,7 +42,6 @@ class MessageController extends Controller
         $message->name = $request->name;
         $message->email = $request->email;
         $message->message = $request->message;
-        $message->rating = $request->rating ?? null; // Pastikan rating tidak null jika kosong
         $message->save();
 
         toast()->success('Success', 'Pesan Sudah Dikirim');
@@ -52,16 +50,16 @@ class MessageController extends Controller
 
 
 
-    public function show($id)
-    {
-        $message = Message::findOrFail($id);
+    // public function show($id)
+    // {
+    //     $message = Message::findOrFail($id);
 
-        // Update status menjadi sudah dibaca
-        $message->is_read = true;
-        $message->save();
+    //     // Update status menjadi sudah dibaca
+    //     $message->is_read = true;
+    //     $message->save();
 
-        return view('message.show', compact('message'));
-    }
+    //     return view('message.show', compact('message'));
+    // }
 
 
     public function destroy($id)

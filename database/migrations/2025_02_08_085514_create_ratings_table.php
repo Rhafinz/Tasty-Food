@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->decimal('jumlah_rating', 2, 1)->nullable();
+            $table->unsignedBigInteger('users_id')->nullable();
+            $table->foreign('users_id')->references('id')->on('users')->ondelete('cascade');
+            $table->unsignedBigInteger('reseps_id')->nullable();
+            $table->foreign('reseps_id')->references('id')->on('reseps')->ondelete('cascade');
             $table->timestamps();
         });
     }

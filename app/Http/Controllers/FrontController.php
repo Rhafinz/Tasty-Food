@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tentang;
 use App\Models\Berita;
 use App\Models\Kontak;
+use App\Models\Resep;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -50,24 +51,28 @@ class FrontController extends Controller
         return view('berita_show', compact('news'));
     }
 
-    public function resep($slug)
-    {
-        // Mencari berita berdasarkan slug
-        $resep = Berita::where('slug', $slug)->first();
-
-        if (!$resep) {
-            // Menangani kasus jika berita tidak ditemukan
-            abort(404, 'Resep not found');
-        }
-
-        // Mengirimkan data berita ke view
-        return view('detail-resep', compact('reseps'));
-    }
 
     public function berita()
     {
         $judul = Tentang::Find(1);
         return view('berita');
+    }
+
+    public function resep()
+    {
+        $reseps = Resep::all();
+        return view('home');
+    }
+
+    public function postResep($slug)
+    {
+        return view('resep_show', compact('resep'));
+
+        if (!$resep) {
+            abort(404, 'Resep tidak ditemukan');
+        }
+
+        $resep = Resep::where('slug', $slug)->firstOrFail();
     }
 
     public function show($id)

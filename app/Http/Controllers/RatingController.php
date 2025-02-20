@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use ALert;
 use App\Models\Rating;
+use App\Models\User;
+use App\Models\Resep;
 use Illuminate\Http\Request;
 
 class RatingController extends Controller
@@ -12,7 +15,12 @@ class RatingController extends Controller
      */
     public function index()
     {
-        //
+        $ratings = Rating::latest()->paginate();
+        $users = User::latest()->paginate();
+        $reseps = Resep::latest()->paginate();
+
+        confirmDelete("Delete", "Apakah Anda Yakin Menghapus Pesan Ini?");
+        return view('admin.rating.index', compact('ratings', 'users', 'reseps'));
     }
 
     /**
@@ -20,7 +28,10 @@ class RatingController extends Controller
      */
     public function create()
     {
-        //
+        $reseps = Resep::all();
+        $users = User::all();
+        $ratins = Rating::all();
+        return view('admin.rating.create', compact('ratings','users','reseps'));
     }
 
     /**
@@ -28,7 +39,11 @@ class RatingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'jumlah_rating' => 'nullable|numeric|min:1|max:5',
+        ]);
+        // $reseps->users_id = $request->users_id ?? null;
+        // $reseps->ratings_id = $request->ratings_id ?? null;
     }
 
     /**
@@ -58,8 +73,11 @@ class RatingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rating $rating)
+    public function destroy($id)
     {
-        //
+        $ratings = Rating::findOrFail($id);
+        $ratings->delete();
+        toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
+        return redirect()->route('berita.index');
     }
 }

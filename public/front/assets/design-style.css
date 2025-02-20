@@ -196,7 +196,7 @@ html {
 .text-content {
     max-width: 600px;
     margin-left: 0; /* Menghilangkan margin negatif */
-    padding-right: 20px; /* Memberikan sedikit ruang antara teks dan gambar */
+    padding-right: 2px; /* Memberikan sedikit ruang antara teks dan gambar */
 }
 
 .text-content h3 {

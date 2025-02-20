@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resep;
+
 use Storage;
 use Alert;
 use Validator;
@@ -54,7 +55,6 @@ class ResepController extends Controller
         $reseps->save();
         Alert()->success('Success', 'Data Berhasil Di Simpan');
         return redirect()->route('resep.index');
-
     }
 
     /**
@@ -113,8 +113,12 @@ class ResepController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Resep $resep)
+    public function destroy($id)
     {
-        //
+        $reseps = Resep::findOrFail($id);
+        $reseps->delete();
+        toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
+        Storage::delete('public/reseps/' . $reseps->gambar);
+        return redirect()->route('berita.index');
     }
 }

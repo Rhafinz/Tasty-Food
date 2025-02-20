@@ -8,10 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Rating extends Model
 {
     use HasFactory;
-    protected $fillable = ['jumlah_rating'];
+    protected $fillable = ['jumlah_rating', 'users_id', 'ratings_id'];
+
+
+    public function User()
+    {
+        return $this->hasMany(User::class, 'users_id');
+    }
 
     public function Rating()
     {
-        return $this->belongsTo(Rating::class, 'ratings_id');
+        return $this->hasMany(Rating::class, 'ratings_id');
     }
 }
