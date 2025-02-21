@@ -14,6 +14,7 @@ class FrontController extends Controller
     public function home()
     {
         $judul = Tentang::Find(1);
+        $reseps = Resep::all();
 
         // Ambil berita terbaru terlebih dahulu
         $latestNews = Berita::orderBy('created_at', 'desc')->first();
@@ -21,7 +22,7 @@ class FrontController extends Controller
         // Ambil berita lainnya dari yang terbaru sampai terlama, kecuali yang terbaru
         $otherNews = Berita::orderBy('created_at', 'desc')->skip(1)->take(4)->get();
 
-        return view('home', compact('latestNews', 'otherNews', 'judul'));
+        return view('home', compact('latestNews', 'otherNews', 'judul', 'reseps'));
     }
 
     public function galeri()
@@ -39,17 +40,10 @@ class FrontController extends Controller
 
     public function postNews($slug)
     {
-        // Mencari berita berdasarkan slug
-        $news = Berita::where('slug', $slug)->first();
-
-        if (!$news) {
-            // Menangani kasus jika berita tidak ditemukan
-            abort(404, 'News not found');
-        }
-
-        // Mengirimkan data berita ke view
+        $news = Berita::where('slug', $slug)->firstOrFail();
         return view('berita_show', compact('news'));
     }
+
 
 
     public function berita()
@@ -58,22 +52,15 @@ class FrontController extends Controller
         return view('berita');
     }
 
-    public function resep()
+    public function Resep($slug)
     {
-        $reseps = Resep::all();
-        return view('home');
+        // Ambil data resep berdasarkan slug
+        $recipe = Resep::where('slug', $slug)->firstOrFail();
+
+        // Tampilkan ke view
+        return view('resep_show', compact('recipe'));
     }
 
-    public function postResep($slug)
-    {
-        return view('resep_show', compact('resep'));
-
-        if (!$resep) {
-            abort(404, 'Resep tidak ditemukan');
-        }
-
-        $resep = Resep::where('slug', $slug)->firstOrFail();
-    }
 
     public function show($id)
     {

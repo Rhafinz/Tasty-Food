@@ -16,7 +16,7 @@
         </div>
         <div class="news-content d-flex flex-column">
             <h4>Judul: {{ $beritas->judul }}</h4>
-            <p><strong>Deskripsi:</strong> {{ $beritas->deskripsi }}</p>
+            <p><strong>Deskripsi:</strong> {!! $beritas->deskripsi !!}</p>
             <div class="mt-auto">
                 <hr>
                 <p class="beritas-date mb-3"><small>Dibuat pada: {{ $beritas->created_at->format('d F Y') }}</small></p>

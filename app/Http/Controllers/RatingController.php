@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use ALert;
+use Auth;
 use App\Models\Rating;
-use App\Models\User;
-use App\Models\Resep;
 use Illuminate\Http\Request;
 
 class RatingController extends Controller
@@ -16,34 +15,49 @@ class RatingController extends Controller
     public function index()
     {
         $ratings = Rating::latest()->paginate();
-        $users = User::latest()->paginate();
-        $reseps = Resep::latest()->paginate();
 
         confirmDelete("Delete", "Apakah Anda Yakin Menghapus Pesan Ini?");
-        return view('admin.rating.index', compact('ratings', 'users', 'reseps'));
+        return view('admin.rating.index', compact('ratings'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        $reseps = Resep::all();
-        $users = User::all();
-        $ratins = Rating::all();
-        return view('admin.rating.create', compact('ratings','users','reseps'));
-    }
+    // public function create()
+    // {
+    //     $reseps = Resep::all();
+    //     $users = User::all();
+    //     $ratins = Rating::all();
+    //     return view('admin.rating.create', compact('ratings','users','reseps'));
+    // }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        // Pastikan user sudah login
+        if (!Auth::check()) {
+            return redirect()->route('kontak')->with(
+                'error',
+                'Anda harus <a href="' . route('login') . '">login</a> untuk mengirim pesan atau
+                        <a href="">register</a> jika belum punya akun.'
+            );
+        }
+
         $this->validate($request, [
             'jumlah_rating' => 'nullable|numeric|min:1|max:5',
         ]);
-        // $reseps->users_id = $request->users_id ?? null;
-        // $reseps->ratings_id = $request->ratings_id ?? null;
+
+        // Simpan rating ke database
+        $ratings = new Rating();
+        $ratings->users_id = Auth::id(); // ID user yang sedang login
+        $ratings->reseps_id = $request->reseps_id;
+        $ratings->jumlah_rating = $request->jumlah_rating;
+        $ratings->save();
+
+        Alert()->success('Success', 'Rating berhasil dikirim!');
+        return back();
     }
 
     /**

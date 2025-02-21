@@ -16,14 +16,11 @@
     {{-- content Article --}}
     <section class="content-article">
         <div class="article gap-3">
-            @php
-                $reseps = App\Models\Resep::all();
-            @endphp
             @foreach ($reseps as $data)
                 <div class="card">
                     <img class="card-image" src="{{ asset('/storage/reseps/' . $data->gambar) }}" alt="">
                     <h2 class="card1 mb-3">
-                        <a href="{{ route('resep.show', $data->slug) }}" class="article-title">
+                        <a href="{{ route('recipe.show', $data->slug) }}" class="article-title">
                             <b>{{ $data->nama_resep }}</b>
                         </a>
                     </h2>
@@ -34,7 +31,6 @@
             @endforeach
         </div>
     </section>
-
 
     {{-- content News --}}
     <section class="content-news">
@@ -51,7 +47,7 @@
                             <div class="news-body content-news mb-auto">
                                 <h5 class="news-title">{{ $latestNews->judul }}</h5>
                                 <p class="news-text-big">{!! Str::limit(strip_tags($latestNews->deskripsi), 550) !!}</p>
-                                <a href="{{ route('berita.show', $latestNews->slug) }}" class="read-more card-news-big">Baca
+                                <a href="{{ route('news.show', $latestNews->slug) }}" class="read-more card-news-big">Baca
                                     selengkapnya</a>
                             </div>
                         </div>
@@ -68,7 +64,7 @@
                                         <div class="news-body">
                                             <h5 class="news-title">{{ Str::limit($news->judul, 15) }}</h5>
                                             <p class="news-text">{!! Str::limit(strip_tags($news->deskripsi), 100) !!}</p>
-                                            <a href="{{ route('berita.show', $news->slug) }}" class="read-more">Baca
+                                            <a href="{{ route('news.show', $news->slug) }}" class="read-more">Baca
                                                 selengkapnya</a>
                                         </div>
                                     </div>

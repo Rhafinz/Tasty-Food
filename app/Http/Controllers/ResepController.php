@@ -119,6 +119,6 @@ class ResepController extends Controller
         $reseps->delete();
         toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
         Storage::delete('public/reseps/' . $reseps->gambar);
-        return redirect()->route('berita.index');
+        return redirect()->route('resep.index');
     }
 }

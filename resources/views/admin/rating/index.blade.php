@@ -4,7 +4,6 @@
     <div class="card m-4">
         <div class="card-header">
             <div class="float-end">
-                <a href="{{ route('rating.create') }}" class="btn btn-sm btn-primary">Add</a>
             </div>
         </div> <!-- /.card-header -->
         <div class="card-body p-0">
@@ -21,18 +20,25 @@
                 <tbody>
                     @php $no = 1; @endphp
                     @forelse ($ratings as $data)
-                        <tr class="align-middle">
+                        <tr class="align-middle text-center">
                             <td>{{ $no++ }}</td>
-                            <td>{{ $data->users->name }}</td>
-                            <td>{{ $data->reseps->nama_resep }}</td>
-                            <td>{{ $data->jumlah_rating }}</td>
+                            <td>{{ $data->user->name }}</td>
+                            <td>{{ $data->resep->nama_resep}}</td>
+                            <td>
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $data->jumlah_rating)
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    @else
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                    @endif
+                                @endfor
+                            </td>
+
                             <td class="text-center">
                                 <form action="{{ route('rating.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="action-buttons-grid">
-                                        <a href="{{ route('rating.edit', $data->id) }}"
-                                            class="btn btn-sm btn-success">Edit</a>
                                         <a href="{{ route('rating.destroy', $data->id) }}" class="btn btn-sm btn-danger"
                                             data-confirm-delete="true">Delete</a>
                                     </div>

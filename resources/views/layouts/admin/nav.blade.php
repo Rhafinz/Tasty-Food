@@ -113,11 +113,6 @@
                 <a class="nav-link" href="javascript:;"><i class="material-icons-outlined">search</i></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative"
-                    data-bs-auto-close="outside" data-bs-toggle="dropdown" href="javascript:;"><i
-                        class="material-icons-outlined">notifications</i>
-                    <span class="badge-notify">1</span>
-                </a>
                 <div class="dropdown-menu dropdown-notify dropdown-menu-end shadow">
                     <div class="px-3 py-1 d-flex align-items-center justify-content-between border-bottom">
                         <h5 class="notiy-title mb-0">Notifications</h5>

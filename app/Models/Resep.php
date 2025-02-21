@@ -13,7 +13,7 @@ class Resep extends Model
 
     public function Resep()
     {
-        return $this->belongsTo(Resep::class, 'reseps_id');
+        return $this->hasMany(Resep::class, 'reseps_id');
     }
 
 
@@ -21,12 +21,12 @@ class Resep extends Model
     {
         parent::boot();
 
-        static::creating(function ($resep) {
-            $resep->slug = Str::slug($resep->nama_resep);
+        static::creating(function ($recipe) {
+            $recipe->slug = Str::slug($recipe->nama_resep);
         });
 
-        static::updating(function ($resep) {
-            $resep->slug = Str::slug($resep->nama_resep);
+        static::updating(function ($recipe) {
+            $recipe->slug = Str::slug($recipe->nama_resep);
         });
     }
 }
