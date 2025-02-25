@@ -6,6 +6,7 @@ use App\Models\Tentang;
 use App\Models\Berita;
 use App\Models\Kontak;
 use App\Models\Resep;
+use App\Models\Rating;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -56,9 +57,10 @@ class FrontController extends Controller
     {
         // Ambil data resep berdasarkan slug
         $recipe = Resep::where('slug', $slug)->firstOrFail();
+        $averageRating = $recipe->ratings()->avg('jumlah_rating') ?? 0;
 
         // Tampilkan ke view
-        return view('resep_show', compact('recipe'));
+        return view('resep_show', compact('recipe', 'averageRating'));
     }
 
 

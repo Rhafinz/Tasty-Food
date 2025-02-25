@@ -56,7 +56,7 @@ class RatingController extends Controller
         $ratings->jumlah_rating = $request->jumlah_rating;
         $ratings->save();
 
-        Alert()->success('Success', 'Rating berhasil dikirim!');
+        toast()->success('Success', 'Rating berhasil dikirim!');
         return back();
     }
 
@@ -92,6 +92,6 @@ class RatingController extends Controller
         $ratings = Rating::findOrFail($id);
         $ratings->delete();
         toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
-        return redirect()->route('berita.index');
+        return redirect()->route('rating.index');
     }
 }

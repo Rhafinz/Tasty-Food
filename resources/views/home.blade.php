@@ -17,8 +17,10 @@
     <section class="content-article">
         <div class="article gap-3">
             @foreach ($reseps as $data)
+            <a href="{{ route('recipe.show', $data->slug) }}">
                 <div class="card">
-                    <img class="card-image" src="{{ asset('/storage/reseps/' . $data->gambar) }}" alt="">
+                        <img class="card-image" src="{{ asset('/storage/reseps/' . $data->gambar) }}" alt="">
+                    </a>
                     <h2 class="card1 mb-3">
                         <a href="{{ route('recipe.show', $data->slug) }}" class="article-title">
                             <b>{{ $data->nama_resep }}</b>
@@ -31,7 +33,17 @@
             @endforeach
         </div>
     </section>
+<style>
+    .article a {
+    text-decoration: none; /* Hilangkan garis bawah */
+    color: inherit; /* Gunakan warna teks default */
+}
 
+.article a:hover {
+    color: inherit; /* Pastikan warna tetap saat hover */
+}
+
+</style>
     {{-- content News --}}
     <section class="content-news">
         <div class="news p-3">

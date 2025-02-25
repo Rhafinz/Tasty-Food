@@ -2,101 +2,117 @@
 
 @section('content')
     <div class="content text-center">
-        <h2><b>RESEP</b></h2>
+        <h2><b>RESEP KAMI</b></h2>
     </div>
-    <div class="container mt-5">
-        <div class="card p-4 shadow-lg rounded text-center"
-            style="background: linear-gradient(135deg, #FFF3E0, #FFE082); border: none; border-left: 10px solid #F9A825;">
-            <img src="{{ asset('/storage/reseps/' . $recipe->gambar) }}" class="img-fluid mx-auto d-block"
-                style="max-height: 350px; border-radius: 20px; object-fit: cover;" alt="{{ $recipe->nama_resep }}">
-            <h2 class="mt-3"
-                style="color: #F57F17; font-weight: bold; text-transform: uppercase; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);">
-                {{ $recipe->nama_resep }}</h2>
-            <p class="text-dark" style="font-size: 18px; font-style: italic;">{!! $recipe->deskripsi !!}</p>
+    <section class="bg-light p-4 rounded">
+        <div class="container mt-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $recipe->nama_resep }}</li>
+                </ol>
+            </nav>
 
-            <!-- Menampilkan Rating -->
-            <div class="mt-3">
-                <h5 class="text-dark">
-                    Rating:
-                    @for ($i = 1; $i <= 5; $i++)
-                        <i class="fas fa-star" style="color: {{ $i <= round($recipe->rating) ? '#FF7043' : '#ccc' }};"></i>
-                    @endfor
-                    <span style="color: #F57F17; font-weight: bold;">{{ number_format($recipe->rating, 1) }}/5</span>
-                </h5>
-            </div>
-        </div>
-
-        <!-- Menyamakan Tinggi Card Otomatis -->
-        <div class="row mt-4 gx-3">
-            <div class="col-md-6 d-flex">
-                <div class="p-4 rounded shadow-lg d-flex flex-column w-100"
-                    style="background: #E8F5E9; border-left: 10px solid #4CAF50;">
-                    <h4 class="fw-bold" style="color: #2E7D32;">Bahan-Bahan</h4>
-                    <div class="ps-3 flex-grow-1" style="font-size: 16px; line-height: 1.8;">{!! $recipe->bahan !!}</div>
+            <div class="row mt-3">
+                <div class="col-md-6 text-center">
+                    <img src="{{ asset('/storage/reseps/' . $recipe->gambar) }}"
+                        class="img-fluid rounded-circle shadow-sm rotating-image" alt="{{ $recipe->nama_resep }}">
                 </div>
-            </div>
-            <div class="col-md-6 d-flex">
-                <div class="p-4 rounded shadow-lg d-flex flex-column w-100"
-                    style="background: #E8F5E9; border-left: 10px solid #4CAF50;">
-                    <h4 class="fw-bold" style="color: #2E7D32;">Langkah-Langkah</h4>
-                    <div class="ps-3 flex-grow-1" style="font-size: 16px; line-height: 1.8;">{!! $recipe->langkah !!}</div>
-                </div>
-            </div>
-        </div>
+                <div class="col-md-6">
+                    <h2 class="fw-bold">{{ $recipe->nama_resep }}</h2>
+                    <p class="text-muted">{!! $recipe->deskripsi !!}</p>
 
-        <!-- Form untuk User Memberikan Rating -->
-        <div class="card mt-4 p-4 shadow-lg rounded" style="background: #FFF8E1; border-left: 10px solid #FF7043;">
-            <h4 class="fw-bold" style="color: #D84315;">Beri Rating</h4>
-            <form action="{{ route('rating.store', $recipe->id) }}" method="POST">
-                @csrf
-                <div class="d-flex flex-column">
-                    <!-- Rating Bintang -->
-                    <div class="rating-stars mb-3">
-                        <input type="radio" id="star5" name="jumlah_rating" value="5" required />
-                        <label for="star5"><i class="fa-solid fa-star"></i></label>
-                        <input type="radio" id="star4" name="jumlah_rating" value="4" />
-                        <label for="star4"><i class="fa-solid fa-star"></i></label>
-                        <input type="radio" id="star3" name="jumlah_rating" value="3" />
-                        <label for="star3"><i class="fa-solid fa-star"></i></label>
-                        <input type="radio" id="star2" name="jumlah_rating" value="2" />
-                        <label for="star2"><i class="fa-solid fa-star"></i></label>
-                        <input type="radio" id="star1" name="jumlah_rating" value="1" />
-                        <label for="star1"><i class="fa-solid fa-star"></i></label>
+                    {{-- Menampilkan Rating Rata-Rata --}}
+                    <div class="mt-3">
+                        <span class="fw-bold">Rating: </span>
+                        @for ($i = 1; $i <= 5; $i++)
+                            <i class="fas fa-star"
+                                style="color: {{ $i <= round($averageRating) ? '#FF6F00' : '#ccc' }};"></i>
+                        @endfor
+                        <span class="fw-bold">({{ number_format($averageRating, 1) }}/5)</span>
                     </div>
 
-                    <button type="submit" class="btn text-white mt-2"
-                        style="background: #FF7043; font-weight: bold; border-radius: 8px; padding: 8px 20px;">
-                        Kirim
-                    </button>
-                </div>
-            </form>
-        </div>
+                    {{-- Form Kirim Rating --}}
+                    <div class="mt-3">
+                        <form action="{{ route('rating.store', $recipe->id) }}" method="POST">
+                            @csrf
+                            <span class="fw-bold">Beri Rating:</span>
+                            <div class="rating">
+                                @for ($i = 5; $i >= 1; $i--)
+                                    <input type="radio" id="star{{ $i }}" name="jumlah_rating" value="{{ $i }}" required>
+                                    <label for="star{{ $i }}" title="{{ $i }} stars">&#9733;</label>
+                                @endfor
+                            </div>
+                            <button type="submit" class="btn btn-warning mt-2">Kirim Rating</button>
+                        </form>
+                    </div>
 
-        <div class="text-center">
-            <a href="{{ url('/') }}" class="btn mt-4 text-white"
-                style="background: #F57F17; font-size: 18px; padding: 12px 25px; border-radius: 12px; font-weight: bold; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);">
-                <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
-            </a>
+                    <div class="mt-3">
+                        <span class="text-muted">Dibuat Pada
+                            {{ \Carbon\Carbon::parse($recipe->created_at)->format('M d, Y') }}</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-5">
+                <h3 class="fw-bold">Bahan</h3>
+                <p class="fw-bold">{!! $recipe->bahan !!}</p>
+            </div>
+            <div class="col-md-1 d-flex justify-content-center">
+                <div class="vr"></div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="fw-bold">Cara Membuat</h3>
+                <p class="fw-bold">{!! $recipe->langkah !!}</p>
+            </div>
         </div>
     </div>
 @endsection
+
 <style>
-    .rating-stars {
-        display: flex;
-        flex-direction: row-reverse; /* Ini bikin urutannya dari kiri ke kanan */
-        justify-content: start;
-        gap: 5px;
+    .rotating-image {
+        animation: rotate 10s linear infinite;
     }
-    .rating-stars input {
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .vr {
+        border-left: 2px solid #ccc;
+        height: 100%;
+    }
+
+    /* Rating Styling */
+    .rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+
+    .rating input {
         display: none;
     }
-    .rating-stars label {
-        font-size: 2rem;
+
+    .rating label {
+        font-size: 25px;
         color: #ccc;
         cursor: pointer;
-        transition: color 0.2s ease-in-out;
+        transition: color 0.3s ease;
     }
-    .rating-stars input:checked ~ label {
-        color: #FF7043;
+
+    .rating input:checked ~ label,
+    .rating label:hover,
+    .rating label:hover ~ label {
+        color: #FF6F00;
     }
 </style>
