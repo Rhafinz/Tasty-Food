@@ -16,7 +16,6 @@
                         {!! session('error') !!}
                     </div>
                 @endif
-
             @endguest
 
             <div class="row">

@@ -38,11 +38,16 @@ class RatingController extends Controller
     {
         // Pastikan user sudah login
         if (!Auth::check()) {
-            return redirect()->route('kontak')->with(
-                'error',
-                'Anda harus <a href="' . route('login') . '">login</a> untuk mengirim pesan atau
-                        <a href="">register</a> jika belum punya akun.'
-            );
+            // Cari slug resep berdasarkan ID jika tersedia
+            $resep = \App\Models\Resep::find($request->reseps_id);
+
+            if ($resep) {
+                return redirect()->route('recipe.show', ['slug' => $resep->slug])->with(
+                    'error',
+                    'Anda harus <a href="' . route('login') . '">login</a> untuk mengirim Rating atau
+            <a href="' . route('register') . '">register</a> jika belum punya akun.'
+                );
+            }
         }
 
         $this->validate($request, [
@@ -79,10 +84,30 @@ class RatingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rating $rating)
+    public function update(Request $request, $id)
     {
-        //
+        // Validasi input rating
+        $this->validate($request, [
+            'jumlah_rating' => 'required|numeric|min:1|max:5',
+        ]);
+
+        // Cari rating berdasarkan user_id dan reseps_id
+        $ratings = Rating::where('users_id', Auth::id())
+                        ->where('reseps_id', $id)
+                        ->first();
+
+        if (!$ratings) {
+            return back()->with('error', 'Rating tidak ditemukan.');
+        }
+
+        // Update rating
+        $ratings->jumlah_rating = $request->jumlah_rating;
+        $ratings->save();
+
+        toast()->success('Success', 'Rating berhasil diperbarui!');
+        return back();
     }
+
 
     /**
      * Remove the specified resource from storage.

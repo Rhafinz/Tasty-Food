@@ -3,7 +3,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>AdminLTE 4 | Register Page v2</title><!--begin::Primary Meta Tags-->
+    <title>Admin DelishFood | Register Page v2</title><!--begin::Primary Meta Tags-->
+    <link rel="icon" type="image/png" href="{{ asset('assets/ASET/DelishFood_Icon.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="AdminLTE 4 | Register Page v2">
     <meta name="author" content="ColorlibHQ">

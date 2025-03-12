@@ -39,5 +39,6 @@ Route::get('news/{slug}', [FrontController::class, 'postNews'])->name('news.show
 Route::get('berita/load-more', [FrontController::class, 'loadMore'])->name('newsLoad');
 Route::get('resep/{slug}', [FrontController::class, 'Resep'])->name('recipe.show');
 Route::post('/rating/{reseps_id}', [RatingController::class, 'store'])->name('rating.store');
+Route::put('/rating/{reseps_id}', [RatingController::class, 'update'])->name('rating.update');
 Route::get('kontak', [FrontController::class, 'kontak'])->name('kontak');
 Route::post('kontak',[MessageController::class,'store'])->name('message.store');

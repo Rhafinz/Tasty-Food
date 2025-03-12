@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DelishFood</title>
-    <link rel="icon" href="https://fonts.gstatic.com/s/i/materialiconsoutlined/restaurant/v15/24px.svg"
-        type="image/svg+xml">
+    <link rel="icon" type="image/png" href="{{ asset('assets/ASET/DelishFood_Icon.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('front/assets/home-style.css') }}">

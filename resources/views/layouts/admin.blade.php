@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin | DelishFood</title>
     <!--favicon-->
-    <link rel="icon" href="{{ asset('admin/assets/images/favicon-32x32.png') }}" type="image/png">
+    <link rel="icon" type="image/png" href="{{ asset('assets/ASET/DelishFood_Icon.png') }}">
     <!-- loader-->
     <link href="{{ asset('admin/assets/css/pace.min.css') }}" rel="stylesheet">
     <script src="{{ asset('admin/assets/js/pace.min.js') }}"></script>
