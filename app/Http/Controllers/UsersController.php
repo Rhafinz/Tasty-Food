@@ -54,8 +54,15 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $users = User::findOrFail($id);
+
+        // Hapus semua rating yang terkait dengan user ini
+        $users->ratings()->delete();
+
+        // Hapus user setelah rating terhapus
         $users->delete();
-        toast()->success('Success', 'Data Berhasil Di Hapus')->autoClose(2000);
+
+        toast()->success('Success', 'Data Berhasil Dihapus')->autoClose(2000);
         return redirect()->route('user.index');
     }
+
 }

@@ -2,7 +2,7 @@
 @section('content')
     {{-- content About --}}
     <section class="aboute mt-3">
-        <div class="grid-container p-3 text-center ">
+        <div class="grid-container p-3 text-center">
             <h2 class="m-3"><b>TENTANG KAMI</b></h2>
             <div class=" abouteText col-6 mx-center my-4 text-center">
                 <p class="abouteText">
@@ -17,33 +17,35 @@
     <section class="content-article">
         <div class="article gap-3">
             @foreach ($reseps as $data)
-            <a href="{{ route('recipe.show', $data->slug) }}">
-                <div class="card">
+                <a href="{{ route('recipe.show', $data->slug) }}">
+                    <div class="card">
                         <img class="card-image" src="{{ asset('/storage/reseps/' . $data->gambar) }}" alt="">
+                </a>
+                <h2 class="card1 mb-3">
+                    <a href="{{ route('recipe.show', $data->slug) }}" class="article-title">
+                        <b>{{ $data->nama_resep }}</b>
                     </a>
-                    <h2 class="card1 mb-3">
-                        <a href="{{ route('recipe.show', $data->slug) }}" class="article-title">
-                            <b>{{ $data->nama_resep }}</b>
-                        </a>
-                    </h2>
-                    <p class="mb-3 article-text">
-                        {!! Str::limit($data->deskripsi, 120, ' ...') !!}
-                    </p>
-                </div>
-            @endforeach
+                </h2>
+                <p class="mb-3 article-text">
+                    {!! Str::limit($data->deskripsi, 120, ' ...') !!}
+                </p>
+        </div>
+        @endforeach
         </div>
     </section>
-<style>
-    .article a {
-    text-decoration: none; /* Hilangkan garis bawah */
-    color: inherit; /* Gunakan warna teks default */
-}
+    <style>
+        .article a {
+            text-decoration: none;
+            /* Hilangkan garis bawah */
+            color: inherit;
+            /* Gunakan warna teks default */
+        }
 
-.article a:hover {
-    color: inherit; /* Pastikan warna tetap saat hover */
-}
-
-</style>
+        .article a:hover {
+            color: inherit;
+            /* Pastikan warna tetap saat hover */
+        }
+    </style>
     {{-- content News --}}
     <section class="content-news">
         <div class="news p-3">

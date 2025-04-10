@@ -6,10 +6,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -45,8 +46,17 @@ class User extends Authenticatable
         ];
     }
 
-    public function User()
+    public function ratings()
     {
-        return $this->hasMany(User::class, 'users_id');
+        return $this->hasMany(Rating::class, 'users_id');
     }
+
+    protected static function boot()
+{
+    parent::boot();
+
+    static::deleting(function ($user) {
+        $user->ratings()->delete(); // Menghapus semua rating terkait sebelum resep dihapus
+    });
+}
 }

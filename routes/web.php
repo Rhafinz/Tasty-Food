@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], fu
     Route::resource('user', App\Http\Controllers\UsersController::class);
 });
 
-Route::get('/', [FrontController::class, 'home']);
+Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::get('galeri', [FrontController::class, 'galeri'])->name('galeri');
 Route::get('tentang', [FrontController::class, 'tentang'])->name('tentang');
 Route::get('berita', [FrontController::class, 'berita'])->name('berita');
