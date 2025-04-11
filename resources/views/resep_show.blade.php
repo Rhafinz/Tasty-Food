@@ -71,32 +71,47 @@
                                 ->first(); // Cek apakah user sudah memberi rating
                         @endphp
 
-                        <form
-                            action="{{ $userRating ? route('rating.update', $recipe->id) : route('rating.store', $recipe->id) }}"
-                            method="POST">
-                            @csrf
-                            @if ($userRating)
-                                @method('PUT') {{-- Ubah method ke PUT jika user sudah memberi rating --}}
-                            @endif
-                            {{-- Tampilkan teks setelah tombol biar lebih rapi --}}
+                        @if (!$userRating)
+                            <form action="{{ route('rating.store', $recipe->id) }}" method="POST">
+                                @csrf
+
+                                <div class="mt-3">
+                                    <span class="fw-bold">Beri Rating</span>
+                                </div>
+
+                                <div class="rating d-flex flex-row-reverse justify-content-end">
+                                    @for ($i = 5; $i >= 1; $i--)
+                                        <input type="radio" id="star{{ $i }}" name="jumlah_rating"
+                                            value="{{ $i }}" required>
+                                        <label for="star{{ $i }}" title="{{ $i }} stars">
+                                            <i class="fa-solid fa-star"></i>
+                                        </label>
+                                    @endfor
+                                </div>
+
+                                <button type="submit" class="btn btn-warning mt-2 w-100 custom-btn">
+                                    Kirim Rating
+                                </button>
+                            </form>
+                        @else
                             <div class="mt-3">
-                                <span class="fw-bold">{{ $userRating ? 'Edit Rating Anda' : 'Beri Rating' }}</span>
+                                <span class="fw-bold">Rating Anda</span>
                             </div>
 
                             <div class="rating d-flex flex-row-reverse justify-content-end">
                                 @for ($i = 5; $i >= 1; $i--)
                                     <input type="radio" id="star{{ $i }}" name="jumlah_rating"
-                                        value="{{ $i }}" required
-                                        {{ $userRating && $userRating->jumlah_rating == $i ? 'checked' : '' }}>
+                                        value="{{ $i }}" disabled
+                                        {{ $userRating->jumlah_rating == $i ? 'checked' : '' }}>
                                     <label for="star{{ $i }}" title="{{ $i }} stars">
                                         <i class="fa-solid fa-star"></i>
                                     </label>
                                 @endfor
                             </div>
-                            <button type="submit" class="btn btn-warning mt-2 w-100 custom-btn">
-                                {{ $userRating ? 'Ubah Rating' : 'Kirim Rating' }}
-                            </button>
-                        </form>
+
+                            <p class="text-muted mt-2">Anda sudah memberi rating</p>
+                        @endif
+
                     </div>
 
                     <div class="mt-3">

@@ -4,7 +4,7 @@
     <div class="container my-4">
         <div class="card shadow-lg border-0 rounded-4 p-3">
             <div class="card-header bg-primary text-white rounded-3 position-relative">
-                <h3 class="card-title mb-0">Detail Resep</h3>
+                <h3 class="card-title mb-0 text-white">Detail Resep</h3>
                 <a href="{{ route('resep.index') }}"
                     class="btn btn-light btn-sm shadow-sm position-absolute top-50 end-0 translate-middle-y me-3">
                     <i class="fa-solid fa-arrow-left"></i> Kembali

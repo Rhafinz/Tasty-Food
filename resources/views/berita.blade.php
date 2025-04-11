@@ -50,7 +50,7 @@
                                 <!-- Batasi judul hingga 50 karakter -->
                                 <p class="card-text">{!! Str::limit(strip_tags($item->deskripsi), 100, '...') !!}</p>
                                 <!-- Batasi deskripsi hingga 100 karakter -->
-                                <a class="read-more" href="{{ route('berita.show', $item->slug) }}">
+                                <a class="read-more" href="{{ route('news.show', $item->slug) }}">
                                     Baca selengkapnya
                                 </a>
                             </div>
