@@ -20,7 +20,7 @@
                 <h5>Useful links</h5>
                 <ul class="list-unstyled">
                     <li><a href="{{ route('galeri') }}">Galeri</a></li>
-                    <li><a href="#">Testimoni</a></li>
+                    {{-- <li><a href="#">Testimoni</a></li> --}}
                     <li><a href="{{ route('tentang') }}">Tentang Kami</a></li>
                     <li><a href="{{ route('kontak') }}">Kontak Kami</a></li>
                 </ul>
